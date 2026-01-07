@@ -1,0 +1,70 @@
+	---
+	import BaseLayout from "../layouts/BaseLayout.astro";
+	import heroImg from '../assets/images/heroImg.png';
+	import TechCarousel from "../components/common/TechCarousel.astro";
+
+	---
+
+	<BaseLayout>
+
+	<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+		<!-- Imagen de fondo -->
+		<div class="absolute inset-0 z-0 flex items-center justify-center">
+			<img
+				src={heroImg.src}
+				alt="Dominid Muñoz"
+				class="w-[990px] h-[1500px] "
+			/>
+		</div>
+
+		<!-- Overlay con degradado -->
+		<div class="absolute inset-0 bg-gradient-to-b from-black/30 to-black/60"></div>
+
+		<!-- Contenido -->
+		<div class="relative z-10 text-center text-white px-6 max-w-6xl mx-auto w-full">
+
+		<p class="font-display text-lg md:text-xl font-light mb-4 opacity-90">
+			Hola, mi nombre es
+		</p>
+
+		<h1 class="font-body typing-animation text-4xl md: text-6xl xl:text-7xl font-bold mb-4 tracking-tight">
+			<span class="font-italiana">Dominid Muñoz</span>
+		</h1>
+
+		<h2 class="text-xl md:text-3xl font-light mb-8 text-gray-200">
+			Systems Engineer 
+		</h2>
+
+		<!-- Redes -->
+		<div class="mt-8">
+			<div class="grid grid-cols-2 gap-4 sm:flex sm:justify-center sm:gap-6 max-w-md mx-auto">
+
+			<a href="https://github.com/" target="_blank"
+				class="hover:bg-white hover:bg-opacity-10 px-4 py-2 rounded-lg transition">
+				GitHub
+			</a>
+
+			<a href="https://linkedin.com/" target="_blank"
+				class="hover:bg-white hover:bg-opacity-10 px-4 py-2 rounded-lg transition">
+				LinkedIn
+			</a>
+
+			<a href="#" target="_blank"
+				class="hover:bg-white hover:bg-opacity-10 px-4 py-2 rounded-lg transition">
+				Instagram
+			</a>
+
+			<a href="#" target="_blank"
+				class="hover:bg-white hover:bg-opacity-10 px-4 py-2 rounded-lg transition">
+				Gmail
+			</a>
+
+			</div>
+		</div>
+
+		</div>
+	</section>
+			<TechCarousel />
+
+	</BaseLayout>

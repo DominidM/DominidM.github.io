@@ -1,0 +1,97 @@
+---
+const technologies = [
+  { name: 'Java', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749105/java_vdkivx.png' },
+  { name: 'Spring Boot', icon:  'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749117/Spring_Boot_lf40ob.png' },
+  { name: 'PostgreSQL', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749116/postgresql_qeutv3.png' },
+  { name: 'Python', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749116/python_htfnwa.png' },
+  { name:  'React', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749117/react_kbjvoq.png' },
+  { name: 'Raspberry Pi', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749116/rasberrypi_lzlxlu.png' },
+  { name:  'TypeScript', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749123/ts_ldyp9r.png' },
+  { name:  'Angular', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749123/angular_llyhy2.png' },
+  { name: 'Vite', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749123/vite_javo36.png' },
+  { name: 'Astro', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749097/astro_qsttmw.png' },
+  { name: 'C#', icon:  'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749097/c-sharp_enedgt.png' },
+  { name: 'CSS', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749097/css_bfliyu.png' },
+  { name: 'Express', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749097/express_ghkerm.png' },
+  { name: 'SQL Server', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749122/sqlserver_bkuavy.png' },
+  { name:  'Arduino', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749123/arduino_n6i89j.png' },
+  { name: 'Django', icon:  'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749097/django_tpobcr.png' },
+  { name: 'GraphQL', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749104/graphsql_nyijf3.png' },
+  { name:  'Github', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749103/github_svbxg9.png' },
+  { name: 'Figma', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749098/figma_gj2hex.png' },
+  { name: 'HTML', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749104/html_acjslt.png' },
+  { name: 'JavaScript', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749109/js_c6anld.png' },
+  { name: 'MongoDB', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749109/mongo_hvsnro.png' },
+  { name: 'JMeter', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749109/jmeter-seeklogo_wjmlrr.png' },
+  { name: 'Node.js', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749111/nodejs_wpra0m.png' },
+  { name:  'MySQL', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767749110/mysql_xvmwyj.png' },
+  { name: 'C++', icon: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767750212/C_iwlqqh.png' },
+];
+---
+
+<div class="w-full overflow-hidden mt-1 py-12 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-2xl relative">
+  
+  <!-- Gradientes laterales para efecto fade -->
+  <div class="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-gray-900 to-transparent z-10 pointer-events-none"></div>
+  <div class="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-gray-900 to-transparent z-10 pointer-events-none"></div>
+  
+  <div class="tech-carousel-track">
+    <div class="tech-carousel flex gap-8 animate-scroll">
+      {[...technologies, ...technologies].map((tech, index) => (
+        <div class="tech-card flex-shrink-0 group">
+          <div class="w-20 h-20 flex items-center justify-center bg-gray-800/50 rounded-2xl border-2 border-gray-700 group-hover:border-blue-500 group-hover:scale-110 transition-all duration-300 backdrop-blur-sm shadow-lg">
+            <img 
+              src={tech.icon} 
+              alt={tech.name} 
+              class="w-12 h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300" 
+              loading="lazy"
+            />
+          </div>
+          <p class="text-center text-xs text-gray-400 group-hover:text-white mt-3 font-medium transition-colors w-24 truncate">
+            {tech.name}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  . tech-carousel-track {
+    width: 100%;
+    position:  relative;
+  }
+
+  .tech-carousel {
+    display: flex;
+    width: max-content;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 60s linear infinite;
+  }
+
+  .tech-carousel-track: hover . animate-scroll {
+    animation-play-state: paused;
+  }
+
+  /* Mejora para móviles */
+  @media (max-width: 768px) {
+    .animate-scroll {
+      animation: scroll 40s linear infinite;
+    }
+    
+    .tech-card {
+      min-width: 80px;
+    }
+  }
+</style>

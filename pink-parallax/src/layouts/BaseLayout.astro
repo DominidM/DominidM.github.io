@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+import TopBar from "../components/common/TopBar.astro";
+import Navbar from "../components/common/Navbar.astro";
+import Footer from "../components/common/Footer.astro";
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/D.ico" />
+    <title>Dominid Portfolio</title>
+  </head>
+  <body class="bg-slate-950 text-white min-h-screen flex flex-col">
+
+    <!-- Header IDE -->
+    <TopBar />
+    <Navbar />
+
+    <!-- Área principal (workspace) -->
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- Footer / Terminal -->
+    <Footer />
+
+  </body>
+</html>
