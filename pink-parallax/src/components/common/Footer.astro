@@ -1,97 +1,121 @@
 <footer class="bg-black border-t border-gray-700 mt-10">
   <!-- Barra superior tipo ventana -->
-  <div class="bg-gray-800 border-b border-gray-700 px-4 py-2 flex items-center justify-between">
+  <div class="bg-gray-800 border-b border-gray-700 px-3 md:px-4 py-2 flex items-center justify-between">
     <div class="flex items-center space-x-2">
-      <div class="w-3 h-3 bg-red-500 rounded-full"></div>
-      <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
-      <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+      <div class="w-2 h-2 md:w-3 md:h-3 bg-red-500 rounded-full"></div>
+      <div class="w-2 h-2 md:w-3 md:h-3 bg-yellow-500 rounded-full"></div>
+      <div class="w-2 h-2 md:w-3 md:h-3 bg-green-500 rounded-full"></div>
     </div>
     
-    <div class="text-gray-400 text-sm font-mono">
+    <div class="text-gray-400 text-xs md:text-sm font-mono truncate mx-2">
       dominid@portfolio:~
     </div>
     
-    <div class="text-gray-600 text-xs font-mono">
+    <div class="text-gray-600 text-xs font-mono hidden sm:block">
       bash
     </div>
   </div>
 
   <!-- Contenido principal -->
-  <div class="px-6 py-8 font-mono text-sm">
-    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+  <div class="px-4 md:px-6 py-6 md:py-8 font-mono text-xs md:text-sm">
+    <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto">
       
       <!-- Columna izquierda - Git status -->
-      <div class="space-y-4">
+      <div class="space-y-3 md:space-y-4">
         <div class="text-yellow-400">git status</div>
         
-        <div class="text-gray-400 space-y-1">
-          <div># Please enter the commit message for your changes. Lines starting</div>
-          <div># with '#' will be ignored, and an empty message aborts the commit.</div>
+        <div class="text-gray-400 space-y-1 text-xs md:text-sm">
+          <div class="hidden sm:block"># Please enter the commit message for your changes. Lines starting</div>
+          <div class="hidden sm: block"># with '#' will be ignored, and an empty message aborts the commit.</div>
           <div># On branch <span class="text-red-500">main</span></div>
-          <div># Your branch is up to date with <span class="text-red-500">'origin/main'</span>.</div>
+          <div class="hidden sm:block"># Your branch is up to date with <span class="text-red-500">'origin/main'</span>.</div>
         </div>
 
-        <div class="text-gray-400 space-y-1 mt-4">
+        <div class="text-gray-400 space-y-1 mt-3 md:mt-4 text-xs md:text-sm">
           <div>#</div>
           <div class="text-blue-400"># Changes to be committed:</div>
-          <div># (use "git reset HEAD &lt;file&gt;... " to unstage)</div>
+          <div class="hidden sm:block"># (use "git reset HEAD &lt;file&gt;..." to unstage)</div>
           <div>#</div>
         </div>
 
-        <div class="space-y-1">
-          <div class="text-gray-400"># <span class="text-green-400">modified:</span> <span class="text-gray-300">/components/IdeHeader.astro</span></div>
-          <div class="text-gray-400"># <span class="text-green-400">modified:</span> <span class="text-gray-300">/pages/contact.tsx</span></div>
-          <div class="text-gray-400"># <span class="text-green-400">modified:</span> <span class="text-gray-300">/styles/global.css</span></div>
+        <div class="space-y-1 text-xs md:text-sm">
+          <div class="text-gray-400">
+            # <span class="text-green-400">modified:</span> 
+            <span class="text-gray-300 break-all">/components/IdeHeader.astro</span>
+          </div>
+          <div class="text-gray-400">
+            # <span class="text-green-400">modified:</span> 
+            <span class="text-gray-300 break-all">/pages/contact.tsx</span>
+          </div>
+          <div class="text-gray-400">
+            # <span class="text-green-400">modified: </span> 
+            <span class="text-gray-300 break-all">/styles/global. css</span>
+          </div>
         </div>
 
-        <div class="mt-4">
-          <span class="text-gray-300">~ git commit -m "feat(ui): implement IDE-like footer"</span>
-          <span class="bg-green-500 text-green-500">█</span>
+        <div class="mt-3 md:mt-4 flex items-center flex-wrap">
+          <span class="text-gray-300 break-all text-xs md:text-sm">
+            ~ git commit -m "feat(ui): implement IDE-like footer"
+          </span>
+          <span class="bg-green-500 text-green-500 ml-1">█</span>
         </div>
       </div>
 
       <!-- Columna derecha - Config -->
-      <div class="space-y-6">
+      <div class="space-y-4 md:space-y-6">
         <div>
-          <div class="text-yellow-400 mb-2">.GIT/CONFIG [USER]</div>
-          <div class="space-y-1 text-gray-300">
+          <div class="text-yellow-400 mb-2 text-xs md:text-sm">.GIT/CONFIG [USER]</div>
+          <div class="space-y-1 text-gray-300 text-xs md:text-sm">
             <div><span class="text-cyan-400">name</span> = Dominid Muñoz</div>
-            <div><span class="text-cyan-400">email</span> = dominidzero@gmail.com</div>
+            <div class="break-all"><span class="text-cyan-400">email</span> = dominidzero@gmail. com</div>
             <div><span class="text-cyan-400">role</span> = Systems Engineer</div>
           </div>
         </div>
 
         <div>
-          <div class="text-yellow-400 mb-2">.GIT/CONFIG [NAVIGATION]</div>
-          <div class="space-y-1">
-            <div><span class="text-cyan-400">git checkout</span> <span class="text-gray-300">about</span></div>
-            <div><span class="text-cyan-400">git checkout</span> <span class="text-gray-300">projects</span></div>
-            <div><span class="text-cyan-400">git checkout</span> <span class="text-gray-300">experience</span></div>
-            <div><span class="text-cyan-400">git checkout</span> <span class="text-gray-300">contact</span></div>
+          <div class="text-yellow-400 mb-2 text-xs md:text-sm">.GIT/CONFIG [NAVIGATION]</div>
+          <div class="space-y-1 text-xs md:text-sm">
+            <div>
+              <span class="text-cyan-400">git checkout</span> 
+              <span class="text-gray-300">about</span>
+            </div>
+            <div>
+              <span class="text-cyan-400">git checkout</span> 
+              <span class="text-gray-300">projects</span>
+            </div>
+            <div>
+              <span class="text-cyan-400">git checkout</span> 
+              <span class="text-gray-300">experience</span>
+            </div>
+            <div>
+              <span class="text-cyan-400">git checkout</span> 
+              <span class="text-gray-300">contact</span>
+            </div>
           </div>
         </div>
 
-        <div class="text-gray-500 text-xs mt-6">
-          <div>~ © 2026 Dominid Muñoz. All systems operational.</div>
-          <div>Built with Astro, TypeScript & Tailwind.</div>
+        <div class="text-gray-500 text-xs mt-4 md:mt-6">
+          <div>~ © 2026 Dominid Muñoz. </div>
+          <div class="hidden sm:inline">All systems operational.</div>
+          <div class="mt-1">Built with Astro, TypeScript & Tailwind.</div>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Barra inferior - Status bar -->
-  <div class="bg-gray-900 border-t border-gray-700 px-4 py-1 flex items-center justify-between text-xs font-mono">
-    <div class="flex items-center space-x-4">
-      <span class="bg-green-500 text-black px-2 py-0.5 font-bold">INSERT</span>
-      <span class="text-green-400">MAIN</span>
+  <div class="bg-gray-900 border-t border-gray-700 px-3 md:px-4 py-1 flex items-center justify-between text-xs font-mono overflow-x-auto">
+    <div class="flex items-center space-x-2 md:space-x-4">
+      <span class="bg-green-500 text-black px-1. 5 md:px-2 py-0.5 font-bold text-xs">INSERT</span>
+      <span class="text-green-400 text-xs md:text-sm">MAIN</span>
     </div>
     
-    <div class="text-gray-400">
+    <div class="text-gray-400 text-xs hidden sm:block">
       LN 42, COL 18
     </div>
     
-    <div class="text-gray-400">
-      UTF-8 | UNIX | ASTRO + TS
+    <div class="text-gray-400 text-xs whitespace-nowrap">
+      <span class="hidden md:inline">UTF-8 | UNIX | </span>ASTRO + TS
     </div>
   </div>
 </footer>

@@ -1,49 +1,41 @@
-  <!-- Tabs tipo IDE -->
-  <nav class="flex items-center bg-gray-900 px-4 overflow-x-auto">
+---
+const baseUrl = import.meta.env. BASE_URL;
+const currentPath = Astro.url.pathname.replace(baseUrl, '/').replace(/\/$/, '') || '/';
 
-    <!-- Tab Home -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max bg-gray-800">
-      <span class="text-sm mr-2 text-orange-400">●</span>
-      <a href="/" class="text-sm font-mono text-white">index.tsx</a>
-    </div>
+const tabs = [
+  { path: '/', label: 'index.tsx', icon: '●', color: 'orange' },
+  { path: '/about', label:  'about.tsx', icon: '📄', color: 'blue' },
+  { path:  '/projects', label: 'projects/', icon: '📁', color:  'purple' },
+  { path: '/experience', label: 'experience.tsx', icon: '⚡', color: 'green' },
+  { path:  '/desktop', label: 'desktop.tsx', icon: '🖥️', color: 'yellow' },
+  { path: '/contact', label: 'contact. tsx', icon: '✉️', color: 'yellow' },
+];
 
-    <!-- Tab About -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max hover:bg-gray-800">
-      <span class="text-sm mr-2 text-blue-400">📄</span>
-      <a href="/about" class="text-sm font-mono text-gray-300 hover:text-white">about.tsx</a>
-    </div>
+const getUrl = (path: string) => `${baseUrl}${path}`.replace(/\/\//g, '/');
+---
 
-    <!-- Tab Projects -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max hover:bg-gray-800">
-      <span class="text-sm mr-2 text-purple-400">📁</span>
-      <a href="/projects" class="text-sm font-mono text-gray-300 hover:text-white">projects/</a>
-    </div>
+<nav class="flex items-center bg-gray-900 px-4 overflow-x-auto">
+  {tabs.map((tab) => {
+    const isActive = currentPath === tab.path || (tab.path !== '/' && currentPath.startsWith(tab.path));
+    
+    return (
+      <div class={`flex items-center border-r border-gray-600 px-4 py-3 min-w-max transition-colors ${isActive ? 'bg-gray-800' : 'hover:bg-gray-800'}`}>
+        <span class={`text-sm mr-2 text-${tab.color}-400`}>{tab.icon}</span>
+        <a 
+          href={getUrl(tab.path)} 
+          class={`text-sm font-mono transition-colors ${isActive ? 'text-white font-semibold' : 'text-gray-300 hover:text-white'}`}
+        >
+          {tab.label}
+        </a>
+      </div>
+    );
+  })}
 
-    <!-- Tab Experience -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max hover:bg-gray-800">
-      <span class="text-sm mr-2 text-green-400">⚡</span>
-      <a href="/experience" class="text-sm font-mono text-gray-300 hover:text-white">experience.tsx</a>
-    </div>
+  <!-- Espacio flexible -->
+  <div class="flex-1"></div>
 
-    <!-- Tab Desktop -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max hover:bg-gray-800">
-      <span class="text-sm mr-2 text-yellow-400">🖥️</span>
-      <a href="/desktop" class="text-sm font-mono text-gray-300 hover:text-white">desktop.tsx</a>
-    </div>
-
-
-    <!-- Tab Contact -->
-    <div class="flex items-center border-r border-gray-600 px-4 py-3 min-w-max hover:bg-gray-800">
-      <span class="text-sm mr-2 text-yellow-400">✉️</span>
-      <a href="/contact" class="text-sm font-mono text-gray-300 hover:text-white">contact.tsx</a>
-    </div>
-
-    <!-- Espacio flexible -->
-    <div class="flex-1"></div>
-
-    <!-- Breadcrumb -->
-    <div class="text-gray-400 text-xs font-mono px-4">
-      ~/portfolio/src/pages/
-    </div>
-
-  </nav>
+  <!-- Breadcrumb -->
+  <div class="text-gray-400 text-xs font-mono px-4">
+    ~/portfolio/src/pages/
+  </div>
+</nav>
