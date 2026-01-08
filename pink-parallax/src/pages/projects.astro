@@ -1,10 +1,386 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    id: 1,
+    name: 'Mkapu Import',
+    file: 'Mkapu-Import.exe',
+    color: 'purple',
+    client: 'Mkapu-Import S.A.C.',
+    ruc: '20613016946',
+    date: 'Diciembre 2025 - Actual',
+    description: 'Web corporativa para empresa importadora especializada en administración, logística y ventas. Desarrollada con arquitectura de Microservicios Hexagonal, implementando comunicación en tiempo real mediante API REST y gestión dinámica de servicios en MySQL.',
+    technologies: ['Angular', 'API Rest', 'Express.js', 'MySQL', 'Azure'],
+    links: {
+      github: 'https://github.com/DominidM/MKapu_Import_Frontend',
+      githubBackend: 'https://github.com/DominidM/MKapu_Import_Backend',
+      social: 'https://www.tiktok.com/@mkapu.import'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/LOGIN_-_MKAPU_igmuxe.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/MKAPU_szvbbi.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/VENTAS_-_VENTAS_ntqabp.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/587808323_18031172279761895_5030229700076669397_n_tvsdbk.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
+    ]
+  },
+  {
+    id: 2,
+    name: 'Policlínico Autovías Seguras',
+    file: 'Policlinico-Autovias.exe',
+    color: 'green',
+    client: 'Autovías Seguras - Salud Empresarial S.A.C.',
+    ruc: '20552775083',
+    date: 'Enero 2026 - Actual',
+    description: 'Landing page para policlínico especializado en exámenes médicos para licencias de conducir. Incluye formulario de contacto integrado con JavaMailSender para envío automático de datos a Gmail.',
+    technologies: ['Spring Boot', 'Thymeleaf', 'Java', 'Azure', 'JavaMailSender'],
+    links: {
+      githubBackend: 'https://github.com/DominidM/Policlinico-Autovias-Seguras'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_205758_cdue5u.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_205731_wssgu9.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_210127_hnepfm.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837803/362675545_230679479866343_4200427356638233337_n_glj83u.jpg',
+    ]
+  },
+  {
+    id: 3,
+    name: 'ComuniRed',
+    file: 'ComuniRed.exe',
+    color: 'blue',
+    client: 'Proyecto Universitario',
+    date: 'Julio - Noviembre 2024',
+    description: 'Red social interactiva de reportes ciudadanos destinada al uso de municipalidades. Desarrollada con arquitectura moderna, implementa comunicación en tiempo real mediante GraphQL y Apollo Client, con gestión dinámica de servicios en MongoDB.',
+    technologies: ['Angular', 'GraphQL', 'Apollo Client', 'Spring Boot', 'Node.js', 'MongoDB'],
+    links: {
+      github: 'https://github.com/DominidM/ComuniRed_Frontend',
+      githubBackend: 'https://github.com/DominidM/ComuniRed_Backend'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845374/Captura_de_pantalla_2026-01-07_225708_iwkuck.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845356/Captura_de_pantalla_2026-01-07_225504_ly20xt.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845353/Captura_de_pantalla_2026-01-07_225057_vihv9o.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845350/Captura_de_pantalla_2026-01-07_224923_humx6o.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845349/Captura_de_pantalla_2026-01-07_224720_f16r23.png',
+    ]
+  },
+  {
+    id: 4,
+    name: 'E-commerce Gasfitería',
+    file: 'Gasfiteria.exe',
+    color: 'cyan',
+    client: 'Representaciones W.H.C.',
+    ruc: '10076215851',
+    date: 'Junio 2025',
+    description: 'Tienda online completa para venta de productos de gasfitería. Incluye diseño UI/UX personalizado, APIs REST con operaciones CRUD completas y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
+    technologies: ['React', 'Vite', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
+    links: {
+      github: 'https://github.com/DominidM/Development-WHS'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846030/9aa5bccd-bf6d-4638-8216-7530348e1fb9.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846035/6ef80e15-f83c-42d7-8180-7435c95d85ad.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846046/3cf14aaf-158b-4811-adb2-e7512622aa21.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846041/3815e7c0-ed9a-47c6-a710-29b0a9dffcd5.png',
+    ]
+  },
+  {
+    id: 5,
+    name: 'Codop AdminPanel',
+    file: 'Codop.exe',
+    color: 'orange',
+    client: 'Codop',
+    company: 'Desarrollo Freelance',
+    date: 'Junio - Agosto 2024',
+    description: 'Panel administrativo para gestión de comunidad religiosa con múltiples sedes. Desarrollado full-stack con arquitectura DDD, implementa componentes reutilizables en React, APIs REST robustas y modelo de datos escalable en MySQL.',
+    technologies: ['React', 'Node.js', 'Express', 'MySQL', 'DDD'],
+    links: {
+      live: 'https://victorious-grass-044215e03.6.azurestaticapps.net/login'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846707/e1d82bc0-aad7-4fd4-ae4b-e0dbf73b61d6.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846915/8890021d-8351-407c-aae6-c0771a11f3d0.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846921/4f44dcf9-9a4e-4538-b196-b04a9204ba21.png',
+    ]
+  },
+  {
+    id: 6,
+    name: 'Dimsor - Robot de Apoyo Emocional',
+    file: 'Dimsor.exe',
+    color: 'red',
+    client: 'Proyecto Académico',
+    date: '2024',
+    description: 'Robot inteligente de apoyo emocional disponible 24/7 para escuchar sin juzgar y acompañar en momentos difíciles. Implementa procesamiento de lenguaje natural con IA, dashboard web interactivo para seguimiento emocional y sistema de alertas. Desarrollado con Raspberry Pi, sensores y tecnología IoT para brindar soporte integral a la salud mental. 💙🤖',
+    technologies: ['Python', 'Raspberry Pi', 'Django', 'IoT', 'NLP', 'IA'],
+    links: {
+      github: 'https://github.com/DominidM/Robotica-Web',
+      githubRaspberry: 'https://github.com/DominidM/Robotica'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847125/588113140_17882290833426013_4301822647137743188_n_ulvgd4.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847128/600574946_17882290809426013_7354418274163036045_n_slyodu.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847132/591614431_17882290842426013_3001101363677480482_n_hmlgwp.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847136/588671139_17882290818426013_2770244811120240570_n_vhvbcl.jpg',
+    ]
+  }
+];
 ---
 
-<Layout>
+<BaseLayout>
+  <main class="flex-grow w-full">
+    <div class="bg-gray-900 min-h-screen pt-4 sm:pt-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        
+        <!-- Terminal Header -->
+        <div class="bg-gray-800 rounded-t-lg border border-gray-700">
+          <div class="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-gray-700">
+            <div class="flex items-center space-x-1 sm:space-x-2">
+              <div class="flex space-x-1 sm:space-x-2">
+                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
+                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
+                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <span class="text-gray-300 font-mono text-xs sm:text-sm ml-2 sm:ml-4">portfolio-projects.sh</span>
+            </div>
+            <div class="text-gray-500 text-xs font-mono hidden sm:block">~/dominid/projects/</div>
+          </div>
+        </div>
 
+        <!-- Terminal Content -->
+        <div class="bg-gray-900 border-x border-b border-gray-700 rounded-b-lg p-4 sm:p-6 font-mono">
+          <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base">
+            <span class="text-blue-400">dominid@portfolio:</span>
+            <span class="text-yellow-400">~/projects$</span>
+            <span class="text-white"> ls -la --projects</span>
+          </div>
 
+          <div class="text-center mb-6 sm:mb-8">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 font-italiana">
+              # Proyectos
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-300 px-2">
+              <span class="text-green-400">//</span> Soluciones que transforman ideas en código
+            </p>
+          </div>
+        </div>
 
+        <!-- Projects Grid -->
+        <div class="bg-gray-900 px-4 sm:px-6 pb-4 pt-10 sm:pb-6">
+          <div class="max-w-7xl mx-auto space-y-12">
 
-</Layout>
+            {projects.map((project, index) => {
+              const colorMap = {
+                purple: { dot: 'bg-purple-400', border: 'border-purple-400', text: 'text-purple-400', btn: 'bg-purple-600 hover:bg-purple-700' },
+                green: { dot: 'bg-green-400', border: 'border-green-400', text: 'text-green-400', btn: 'bg-green-600 hover:bg-green-700' },
+                blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400', btn: 'bg-blue-600 hover:bg-blue-700' },
+                cyan: { dot: 'bg-cyan-400', border: 'border-cyan-400', text: 'text-cyan-400', btn: 'bg-cyan-600 hover:bg-cyan-700' },
+                orange: { dot: 'bg-orange-400', border: 'border-orange-400', text: 'text-orange-400', btn: 'bg-orange-600 hover:bg-orange-700' },
+                red: { dot: 'bg-red-400', border: 'border-red-400', text: 'text-red-400', btn: 'bg-red-600 hover:bg-red-700' }
+              };
+              
+              const techColorMap = {
+                red: 'bg-red-600 hover:bg-red-700',
+                blue: 'bg-blue-600 hover:bg-blue-700',
+                gray: 'bg-gray-600 hover:bg-gray-700',
+                green: 'bg-green-600 hover:bg-green-700',
+                cyan: 'bg-cyan-600 hover:bg-cyan-700',
+                purple: 'bg-purple-600 hover:bg-purple-700',
+                orange: 'bg-orange-600 hover:bg-orange-700',
+                pink: 'bg-pink-600 hover:bg-pink-700',
+                yellow: 'bg-yellow-600 hover:bg-yellow-700'
+              };
+              
+            const colors = colorMap[project.color as keyof typeof colorMap];      
+
+              return (
+              <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all">
+                <div class={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}>
+                  
+                  <div class={`space-y-4 sm:space-y-6 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                      <span class={`w-2 h-2 sm:w-3 sm:h-3 ${colors.dot} rounded-full animate-pulse`}></span>
+                      <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-white font-mono">{project.file}</h2>
+                    </div>
+
+                    <div class="space-y-3 sm:space-y-4">
+                      <div class={`bg-gray-700 rounded-lg p-3 sm:p-4 border-l-4 ${colors.border}`}>
+                        <p class="text-gray-300 text-xs sm:text-sm font-mono">
+                          <span class={colors.text}>CLIENT:</span> {project.client}
+                        </p>
+                        {project.ruc && (
+                          <p class="text-gray-300 text-xs sm:text-sm font-mono">
+                            <span class="text-cyan-400">RUC:</span> {project.ruc}
+                          </p>
+                        )}
+                        {project.company && (
+                          <p class="text-gray-300 text-xs sm:text-sm font-mono">
+                            <span class="text-green-400">COMPANY:</span> {project.company}
+                          </p>
+                        )}
+                        <p class="text-gray-300 text-xs sm:text-sm font-mono">
+                          <span class="text-yellow-400">DATE:</span> {project.date}
+                        </p>
+                      </div>
+
+                      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+                        {project.description}
+                      </p>
+
+                      <div class="flex flex-wrap gap-1 sm:gap-2">
+                        {project.technologies.map((tech) => (
+                          <span class={`${techColorMap[tech.toLowerCase().includes('angular') ? 'red' : tech.toLowerCase().includes('spring') || tech.toLowerCase().includes('node') || tech.toLowerCase().includes('mongodb') || tech.toLowerCase().includes('django') || tech.toLowerCase().includes('iot') ? 'green' : tech.toLowerCase().includes('api') || tech.toLowerCase().includes('mysql') || tech.toLowerCase().includes('azure') || tech.toLowerCase().includes('postgresql') || tech.toLowerCase().includes('ddd') ? 'blue' : tech.toLowerCase().includes('react') || tech.toLowerCase().includes('apollo') ? 'cyan' : tech.toLowerCase().includes('vite') || tech.toLowerCase().includes('nlp') ? 'purple' : tech.toLowerCase().includes('java') && !tech.toLowerCase().includes('javascript') ? 'orange' : tech.toLowerCase().includes('express') ? 'gray' : tech.toLowerCase().includes('graphql') || tech.toLowerCase().includes('ia') ? 'pink' : tech.toLowerCase().includes('thymeleaf') || tech.toLowerCase().includes('javamail') ? 'red' : tech.toLowerCase().includes('python') ? 'yellow' : tech.toLowerCase().includes('raspberry') ? 'red' : 'gray']} text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors`}>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
+                        {project.links.live && (
+                          <a 
+                            href={project.links.live} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class={`${colors.btn} text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2`}
+                          >
+                            <span>./deploy --live</span>
+                            <span>🚀</span>
+                          </a>
+                        )}
+                        {project.links.github && (
+                          <a 
+                            href={project.links.github} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-gray-700 hover:bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
+                          >
+                            <span>{project.id === 6 ? './web-django' : './frontend'}</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                          </a>
+                        )}
+                        {project.links.githubBackend && (
+                          <a 
+                            href={project.links.githubBackend} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-gray-700 hover:bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
+                          >
+                            <span>./backend</span>
+                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                          </a>
+                        )}
+                        {project.links.githubRaspberry && (
+                          <a 
+                            href={project.links.githubRaspberry} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-red-700 hover:bg-red-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
+                          >
+                            <span>./raspberry-main</span>
+                            <span>🍓</span>
+                          </a>
+                        )}
+                        {project.links.social && (
+                          <a 
+                            href={project.links.social} 
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="bg-pink-600 hover:bg-pink-700 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
+                          >
+                            <span>./social</span>
+                            <span>📱</span>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class={`relative ${index % 2 === 0 ? 'lg:order-2 order-first' : 'lg:order-1 order-first'}`}>
+                    <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-700">
+                      {project.images.length > 1 ? (
+                        <div class="relative w-full h-full">
+                          <div id={`carousel-${project.id}`} class="flex transition-transform duration-500 w-full h-full">
+                            {project.images.map((img) => (
+                              <img src={img} alt={project.name} class="w-full h-full flex-shrink-0 object-cover" loading="lazy" />
+                            ))}
+                          </div>
+                          <button 
+                            class="carousel-btn-prev absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors text-sm sm:text-base z-10"
+                            data-carousel={`carousel-${project.id}`}
+                            aria-label="Anterior"
+                          >
+                            ‹
+                          </button>
+                          <button 
+                            class="carousel-btn-next absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors text-sm sm:text-base z-10"
+                            data-carousel={`carousel-${project.id}`}
+                            aria-label="Siguiente"
+                          >
+                            ›
+                          </button>
+                        </div>
+                      ) : (
+                        <div class="text-gray-500 text-center p-8 flex flex-col items-center justify-center h-full">
+                          <div class="text-6xl mb-4">📁</div>
+                          <p class="font-mono text-sm font-bold text-white">{project.name}</p>
+                          <p class="text-xs mt-2">Imágenes próximamente</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              );
+            })}
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousels = document.querySelectorAll('[id^="carousel-"]');
+    
+    carousels.forEach(carousel => {
+      const id = carousel.id;
+      let currentIndex = 0;
+      const slides = carousel.children.length;
+      
+      if (slides <= 1) return;
+      
+      const prevBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-prev`);
+      const nextBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-next`);
+      
+      const updateCarousel = () => {
+        (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`;
+      };
+      
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex + 1) % slides;
+          updateCarousel();
+        });
+      }
+      
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+          currentIndex = (currentIndex - 1 + slides) % slides;
+          updateCarousel();
+        });
+      }
+    });
+  });
+</script>
