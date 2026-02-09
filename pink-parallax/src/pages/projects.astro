@@ -4,6 +4,34 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const projects = [
   {
     id: 1,
+    name: 'Sistema de Asistencia de Eventos',
+    file: 'Sistema-Asistencia-Wiener',
+    color: 'purple',
+    client: 'Universidad Norbert Wiener',
+    ruc: null,
+    date: 'Febrero 2025 - Febrero 2026',
+    description: 'Plataforma web institucional orientada al control y gestión de asistencia en eventos del personal universitario. El sistema permite el registro de usuarios, validación de accesos, control de asistencia en tiempo real y generación de reportes automatizados. La solución está desarrollada sobre una arquitectura web cliente-servidor, con persistencia de datos en MySQL y despliegue en un entorno Linux con Nginx como servidor web y proxy inverso.',
+    technologies: [
+      'PHP',
+      'MySQL',
+      'Nginx',
+      'API REST',
+      'OpenResty',
+      'HTML5',
+      'CSS3',
+      'JavaScript'
+    ],
+    links: {
+      live: 'https://calendardeeuwiener.kesug.com/index.php'
+    },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615492/826ceaf6-1f15-42e1-b4a3-9db10e35bfea.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615750/9892a7e3-1acc-4578-ba9b-1bd83ab39ac0.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png'
+    ]
+  },
+  {
+    id: 2,
     name: 'Mkapu Import',
     file: 'Mkapu-Import.exe',
     color: 'purple',
@@ -26,17 +54,18 @@ const projects = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     name: 'Policlínico Autovías Seguras',
     file: 'Policlinico-Autovias.exe',
     color: 'green',
     client: 'Autovías Seguras - Salud Empresarial S.A.C.',
     ruc: '20552775083',
-    date: 'Enero 2026 - Actual',
+    date: 'Enero 2026 - Febrero 2026',
     description: 'Landing page para policlínico especializado en exámenes médicos para licencias de conducir. Incluye formulario de contacto integrado con JavaMailSender para envío automático de datos a Gmail.',
     technologies: ['Spring Boot', 'Thymeleaf', 'Java', 'Azure', 'JavaMailSender'],
     links: {
-      githubBackend: 'https://github.com/DominidM/Policlinico-Autovias-Seguras'
+      githubBackend: 'https://github.com/DominidM/Policlinico-Autovias-Seguras',
+      live: 'www.autoviasseguras.com'
     },
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_205758_cdue5u.png',
@@ -46,7 +75,7 @@ const projects = [
     ]
   },
   {
-    id: 3,
+    id: 4,
     name: 'ComuniRed',
     file: 'ComuniRed.exe',
     color: 'blue',
@@ -68,7 +97,7 @@ const projects = [
     ]
   },
   {
-    id: 4,
+    id: 5,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria.exe',
     color: 'cyan',
@@ -89,7 +118,7 @@ const projects = [
     ]
   },
   {
-    id: 5,
+    id: 6,
     name: 'Codop AdminPanel',
     file: 'Codop.exe',
     color: 'orange',
@@ -108,7 +137,7 @@ const projects = [
     ]
   },
   {
-    id: 6,
+    id: 7,
     name: 'Dimsor - Robot de Apoyo Emocional',
     file: 'Dimsor.exe',
     color: 'red',
