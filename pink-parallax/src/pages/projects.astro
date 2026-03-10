@@ -1,114 +1,107 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const projects = [
+interface ProjectLinks {
+  live?:            string;
+  demo?:            string;
+  social?:          string;
+  github?:          string;
+  githubBackend?:   string;
+  githubRaspberry?: string;
+}
+
+interface Project {
+  id:           number;
+  name:         string;
+  file:         string;
+  color:        string;
+  client:       string;
+  ruc?:         string | null;
+  company?:     string;
+  date:         string;
+  description:  string;
+  technologies: string[];
+  links:        ProjectLinks;
+  highlights?:  string[];
+  images:       string[];
+}
+
+const projects: Project[] = [
+
   {
     id: 1,
+    name: 'MKapu Import — ERP',
+    file: 'MKapu-Import-ERP',
+    color: 'purple',
+    client: 'Mkapu Import S.A.C.',
+    ruc: '20613016946',
+    date: 'Marzo 2026',
+    description: 'ERP empresarial completo para empresa importadora con operaciones en Lima. Cubre el ciclo completo de negocio: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Arquitectura de microservicios hexagonal con NestJS, comunicación en tiempo real vía WebSockets, generación de comprobantes PDF, envío automatizado por WhatsApp y correo, y control de caja con reportes térmicos.',
+    technologies: ['Angular 21', 'NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'Docker', 'DDD / Hexagonal', 'REST API', 'WhatsApp API', 'PrimeNG'],
+    links: { demo: 'video-demo.mp4', social: 'https://www.tiktok.com/@mkapu.import' },
+    highlights: [
+      'Cotizaciones con envío PDF por WhatsApp y email',
+      'Ventas con comprobantes electrónicos (boleta/factura)',
+      'Cuentas por cobrar con seguimiento de pagos parciales',
+      'Caja en tiempo real con gráficos por hora y reportes térmicos',
+      'Guías de remisión para logística',
+      'Multi-sede con control de acceso por roles',
+    ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149399/Captura_de_pantalla_2026-03-10_082817_xv7nmb.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149346/Captura_de_pantalla_2026-03-10_081149_ugoplu.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149346/Captura_de_pantalla_2026-03-10_081106_lxung4.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081233_og1gxv.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081458_nizu3a.png',
+    ]
+  },
+  {
+    id: 2,
     name: 'Sistema de Asistencia de Eventos',
     file: 'Sistema-Asistencia-Wiener',
     color: 'purple',
     client: 'Universidad Norbert Wiener',
     ruc: null,
-    date: 'Febrero 2025 - Febrero 2026',
-    description: 'Plataforma web institucional orientada al control y gestión de asistencia en eventos del personal universitario. El sistema permite el registro de usuarios, validación de accesos, control de asistencia en tiempo real y generación de reportes automatizados. La solución está desarrollada sobre una arquitectura web cliente-servidor, con persistencia de datos en MySQL y despliegue en un entorno Linux con Nginx como servidor web y proxy inverso.',
-    technologies: [
-      'PHP',
-      'MySQL',
-      'Nginx',
-      'API REST',
-      'OpenResty',
-      'HTML5',
-      'CSS3',
-      'JavaScript'
-    ],
-    links: {
-      live: 'https://calendardeeuwiener.kesug.com/index.php'
-    },
+    date: 'Febrero 2026',
+    description: 'Plataforma web institucional para control y gestión de asistencia en eventos del personal universitario. Registro de usuarios, validación de accesos, control en tiempo real y reportes automatizados. Desplegado en Linux con Nginx como proxy inverso.',
+    technologies: ['PHP', 'MySQL', 'Nginx', 'API REST', 'OpenResty', 'HTML5', 'CSS3', 'JavaScript'],
+    links: { live: 'https://calendardeeuwiener.kesug.com/index.php' },
     images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615492/826ceaf6-1f15-42e1-b4a3-9db10e35bfea.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615750/9892a7e3-1acc-4578-ba9b-1bd83ab39ac0.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png'
-    ]
-  },
-  {
-    id: 2,
-    name: 'Mkapu Import',
-    file: 'Mkapu-Import.exe',
-    color: 'purple',
-    client: 'Mkapu-Import S.A.C.',
-    ruc: '20613016946',
-    date: 'Diciembre 2025 - Actual',
-    description: 'Web corporativa para empresa importadora especializada en administración, logística y ventas. Desarrollada con arquitectura de Microservicios Hexagonal, implementando comunicación en tiempo real mediante API REST y gestión dinámica de servicios en MySQL.',
-    technologies: ['Angular', 'API Rest', 'Express.js', 'MySQL', 'Azure'],
-    links: {
-      github: 'https://github.com/DominidM/MKapu_Import_Frontend',
-      githubBackend: 'https://github.com/DominidM/MKapu_Import_Backend',
-      social: 'https://www.tiktok.com/@mkapu.import'
-    },
-    images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/LOGIN_-_MKAPU_igmuxe.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/MKAPU_szvbbi.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/VENTAS_-_VENTAS_ntqabp.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/587808323_18031172279761895_5030229700076669397_n_tvsdbk.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150284/Captura_de_pantalla_2026-03-10_084243_taqc0p.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150261/Captura_de_pantalla_2026-03-10_083034_zz3k28.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150261/Captura_de_pantalla_2026-03-10_084225_fioutv.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png',
     ]
   },
   {
     id: 3,
     name: 'Policlínico Autovías Seguras',
-    file: 'Policlinico-Autovias.exe',
+    file: 'Policlinico-Autovias',
     color: 'green',
     client: 'Autovías Seguras - Salud Empresarial S.A.C.',
     ruc: '20552775083',
-    date: 'Enero 2026 - Febrero 2026',
+    date: 'Enero 2026',
     description: 'Landing page para policlínico especializado en exámenes médicos para licencias de conducir. Incluye formulario de contacto integrado con JavaMailSender para envío automático de datos a Gmail.',
     technologies: ['Spring Boot', 'Thymeleaf', 'Java', 'Azure', 'JavaMailSender'],
-    links: {
-      githubBackend: 'https://github.com/DominidM/Policlinico-Autovias-Seguras',
-      live: 'https://www.autoviasseguras.com'
-    },
+    links: { live: 'https://www.autoviasseguras.com' },
     images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_205758_cdue5u.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_205731_wssgu9.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837804/Captura_de_pantalla_2026-01-07_210127_hnepfm.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767837803/362675545_230679479866343_4200427356638233337_n_glj83u.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083749_umhpvh.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083921_b393a9.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083940_wscs1z.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083818_gctnd2.png',
     ]
   },
   {
     id: 4,
-    name: 'ComuniRed',
-    file: 'ComuniRed.exe',
-    color: 'blue',
-    client: 'Proyecto Universitario',
-    date: 'Julio - Noviembre 2024',
-    description: 'Red social interactiva de reportes ciudadanos destinada al uso de municipalidades. Desarrollada con arquitectura moderna, implementa comunicación en tiempo real mediante GraphQL y Apollo Client, con gestión dinámica de servicios en MongoDB.',
-    technologies: ['Angular', 'GraphQL', 'Apollo Client', 'Spring Boot', 'Node.js', 'MongoDB'],
-    links: {
-      github: 'https://github.com/DominidM/ComuniRed_Frontend',
-      githubBackend: 'https://github.com/DominidM/ComuniRed_Backend'
-    },
-    images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845374/Captura_de_pantalla_2026-01-07_225708_iwkuck.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845356/Captura_de_pantalla_2026-01-07_225504_ly20xt.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845353/Captura_de_pantalla_2026-01-07_225057_vihv9o.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845350/Captura_de_pantalla_2026-01-07_224923_humx6o.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845349/Captura_de_pantalla_2026-01-07_224720_f16r23.png',
-    ]
-  },
-  {
-    id: 5,
     name: 'E-commerce Gasfitería',
-    file: 'Gasfiteria.exe',
+    file: 'Gasfiteria-WHC',
     color: 'cyan',
     client: 'Representaciones W.H.C.',
     ruc: '10076215851',
     date: 'Junio 2025',
     description: 'Tienda online completa para venta de productos de gasfitería. Incluye diseño UI/UX personalizado, APIs REST con operaciones CRUD completas y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
     technologies: ['React', 'Vite', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
-    links: {
-      github: 'https://github.com/DominidM/Development-WHS'
-    },
+    links: { demo: 'video-demo.mp4', live: 'https://gasfiteria-whc.azurewebsites.net' },
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846030/9aa5bccd-bf6d-4638-8216-7530348e1fb9.png',
@@ -118,53 +111,125 @@ const projects = [
     ]
   },
   {
-    id: 6,
-    name: 'Codop AdminPanel',
-    file: 'Codop.exe',
+    id: 5,
+    name: 'Codop ERPAdminPanel',
+    file: 'Codop-ERP-AdminPanel',
     color: 'orange',
     client: 'Codop',
-    company: 'Desarrollo Freelance',
-    date: 'Junio - Agosto 2024',
+    company: 'Apoyo como desarrollador Freelance',
+    date: 'Agosto 2024',
     description: 'Panel administrativo para gestión de comunidad religiosa con múltiples sedes. Desarrollado full-stack con arquitectura DDD, implementa componentes reutilizables en React, APIs REST robustas y modelo de datos escalable en MySQL.',
     technologies: ['React', 'Node.js', 'Express', 'MySQL', 'DDD'],
-    links: {
-      live: 'https://victorious-grass-044215e03.6.azurestaticapps.net/login'
-    },
+    links: {},
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846707/e1d82bc0-aad7-4fd4-ae4b-e0dbf73b61d6.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846915/8890021d-8351-407c-aae6-c0771a11f3d0.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846921/4f44dcf9-9a4e-4538-b196-b04a9204ba21.png',
     ]
   },
+];
+
+interface AcademicProject {
+  id:           string;
+  name:         string;
+  file:         string;
+  color:        string;
+  date:         string;
+  description:  string;
+  technologies: string[];
+  links:        ProjectLinks;
+  image:        string;
+}
+
+const academic: AcademicProject[] = [
   {
-    id: 7,
-    name: 'Dimsor - Robot de Apoyo Emocional',
-    file: 'Dimsor.exe',
+    id: 'ac1',
+    name: 'ComuniRed',
+    file: 'ComuniRed',
+    color: 'blue',
+    date: 'Noviembre 2024',
+    description: 'Red social de reportes ciudadanos para municipalidades. Comunicación en tiempo real con GraphQL, Apollo Client y MongoDB.',
+    technologies: ['Angular', 'GraphQL', 'Apollo Client', 'Spring Boot', 'Node.js', 'MongoDB'],
+    links: {
+      github: 'https://github.com/DominidM/ComuniRed_Frontend',
+      githubBackend: 'https://github.com/DominidM/ComuniRed_Backend',
+    },
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
+  },
+  {
+    id: 'ac2',
+    name: 'Dimsor — Robot Emocional',
+    file: 'Dimsor-Robot',
     color: 'red',
-    client: 'Proyecto Académico',
-    date: '2024',
-    description: 'Robot inteligente de apoyo emocional disponible 24/7 para escuchar sin juzgar y acompañar en momentos difíciles. Implementa procesamiento de lenguaje natural con IA, dashboard web interactivo para seguimiento emocional y sistema de alertas. Desarrollado con Raspberry Pi, sensores y tecnología IoT para brindar soporte integral a la salud mental. 💙🤖',
+    date: 'Noviembre 2024',
+    description: 'Robot de apoyo emocional con IA y NLP, dashboard web interactivo y sistema de alertas. Desarrollado con Raspberry Pi e IoT.',
     technologies: ['Python', 'Raspberry Pi', 'Django', 'IoT', 'NLP', 'IA'],
     links: {
       github: 'https://github.com/DominidM/Robotica-Web',
-      githubRaspberry: 'https://github.com/DominidM/Robotica'
+      githubRaspberry: 'https://github.com/DominidM/Robotica',
     },
-    images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847125/588113140_17882290833426013_4301822647137743188_n_ulvgd4.jpg',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847128/600574946_17882290809426013_7354418274163036045_n_slyodu.jpg',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847132/591614431_17882290842426013_3001101363677480482_n_hmlgwp.jpg',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847136/588671139_17882290818426013_2770244811120240570_n_vhvbcl.jpg',
-    ]
-  }
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
+  },
 ];
+
+// ── Helpers sacados al frontmatter para evitar errores de genéricos en JSX ──
+
+const colorMap = {
+  purple: { dot: 'bg-purple-400', border: 'border-purple-400', text: 'text-purple-400' },
+  green:  { dot: 'bg-green-400',  border: 'border-green-400',  text: 'text-green-400'  },
+  blue:   { dot: 'bg-blue-400',   border: 'border-blue-400',   text: 'text-blue-400'   },
+  cyan:   { dot: 'bg-cyan-400',   border: 'border-cyan-400',   text: 'text-cyan-400'   },
+  orange: { dot: 'bg-orange-400', border: 'border-orange-400', text: 'text-orange-400' },
+  red:    { dot: 'bg-red-400',    border: 'border-red-400',    text: 'text-red-400'    },
+};
+
+const techColorMap: Record<string, string> = {
+  red:    'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  blue:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  gray:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  green:  'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  cyan:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  purple: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  orange: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  pink:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
+  yellow: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
+};
+
+const techMapSmall: Record<string, string> = {
+  red:    'bg-gray-900 border border-gray-700',
+  blue:   'bg-gray-900 border border-gray-700',
+  gray:   'bg-gray-900 border border-gray-700',
+  green:  'bg-gray-900 border border-gray-700',
+  cyan:   'bg-gray-900 border border-gray-700',
+  purple: 'bg-gray-900 border border-gray-700',
+  orange: 'bg-gray-900 border border-gray-700',
+  pink:   'bg-gray-900 border border-gray-700',
+  yellow: 'bg-gray-900 border border-gray-700',
+};
+
+const getTechColor = (tech: string): string => {
+  const t = tech.toLowerCase();
+  if (t.includes('angular') || t.includes('raspberry') || t.includes('thymeleaf') || t.includes('javamail')) return 'red';
+  if (t.includes('spring') || t.includes('node') || t.includes('mongodb') || t.includes('django') || t.includes('iot')) return 'green';
+  if (t.includes('api') || t.includes('mysql') || t.includes('azure') || t.includes('postgresql') || t.includes('ddd') || t.includes('websockets') || t.includes('docker')) return 'blue';
+  if (t.includes('react') || t.includes('apollo') || t.includes('nestjs')) return 'cyan';
+  if (t.includes('vite') || t.includes('nlp') || t.includes('primeng') || t.includes('typescript')) return 'purple';
+  if (t.includes('java') && !t.includes('javascript') && !t.includes('javamail')) return 'orange';
+  if (t.includes('express')) return 'gray';
+  if (t.includes('graphql') || t.includes('ia') || t.includes('whatsapp')) return 'pink';
+  if (t.includes('python')) return 'yellow';
+  return 'gray';
+};
+
+const btn = "bg-gray-900 hover:bg-gray-700 border border-gray-500 hover:border-gray-300 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-all text-center text-sm sm:text-base inline-flex items-center justify-center gap-2";
+const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg font-mono transition-all text-xs inline-flex items-center justify-center gap-1.5";
 ---
 
 <BaseLayout>
   <main class="flex-grow w-full">
     <div class="bg-gray-900 min-h-screen pt-4 sm:pt-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
-        
+
         <!-- Terminal Header -->
         <div class="bg-gray-800 rounded-t-lg border border-gray-700">
           <div class="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-gray-700">
@@ -187,7 +252,6 @@ const projects = [
             <span class="text-yellow-400">~/projects$</span>
             <span class="text-white"> ls -la --projects</span>
           </div>
-
           <div class="text-center mb-6 sm:mb-8">
             <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 font-italiana">
               # Proyectos
@@ -198,178 +262,143 @@ const projects = [
           </div>
         </div>
 
-        <!-- Projects Grid -->
+        <!-- ══ PROYECTOS PROFESIONALES ══════════════════════════════════ -->
         <div class="bg-gray-900 px-4 sm:px-6 pb-4 pt-10 sm:pb-6">
           <div class="max-w-7xl mx-auto space-y-12">
 
             {projects.map((project, index) => {
-              const colorMap = {
-                purple: { dot: 'bg-purple-400', border: 'border-purple-400', text: 'text-purple-400', btn: 'bg-purple-600 hover:bg-purple-700' },
-                green: { dot: 'bg-green-400', border: 'border-green-400', text: 'text-green-400', btn: 'bg-green-600 hover:bg-green-700' },
-                blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400', btn: 'bg-blue-600 hover:bg-blue-700' },
-                cyan: { dot: 'bg-cyan-400', border: 'border-cyan-400', text: 'text-cyan-400', btn: 'bg-cyan-600 hover:bg-cyan-700' },
-                orange: { dot: 'bg-orange-400', border: 'border-orange-400', text: 'text-orange-400', btn: 'bg-orange-600 hover:bg-orange-700' },
-                red: { dot: 'bg-red-400', border: 'border-red-400', text: 'text-red-400', btn: 'bg-red-600 hover:bg-red-700' }
-              };
-              
-              const techColorMap = {
-                red: 'bg-red-600 hover:bg-red-700',
-                blue: 'bg-blue-600 hover:bg-blue-700',
-                gray: 'bg-gray-600 hover:bg-gray-700',
-                green: 'bg-green-600 hover:bg-green-700',
-                cyan: 'bg-cyan-600 hover:bg-cyan-700',
-                purple: 'bg-purple-600 hover:bg-purple-700',
-                orange: 'bg-orange-600 hover:bg-orange-700',
-                pink: 'bg-pink-600 hover:bg-pink-700',
-                yellow: 'bg-yellow-600 hover:bg-yellow-700'
-              };
-              
-            const colors = colorMap[project.color as keyof typeof colorMap];      
+              const colors = colorMap[project.color as keyof typeof colorMap];
 
               return (
-              <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all">
-                <div class={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}>
-                  
-                  <div class={`space-y-4 sm:space-y-6 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                    <div class="flex items-center space-x-2 sm:space-x-3">
-                      <span class={`w-2 h-2 sm:w-3 sm:h-3 ${colors.dot} rounded-full animate-pulse`}></span>
-                      <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-white font-mono">{project.file}</h2>
-                    </div>
+                <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all">
+                  <div class={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}>
 
-                    <div class="space-y-3 sm:space-y-4">
-                      <div class={`bg-gray-700 rounded-lg p-3 sm:p-4 border-l-4 ${colors.border}`}>
-                        <p class="text-gray-300 text-xs sm:text-sm font-mono">
-                          <span class={colors.text}>CLIENT:</span> {project.client}
-                        </p>
-                        {project.ruc && (
-                          <p class="text-gray-300 text-xs sm:text-sm font-mono">
-                            <span class="text-cyan-400">RUC:</span> {project.ruc}
-                          </p>
-                        )}
-                        {project.company && (
-                          <p class="text-gray-300 text-xs sm:text-sm font-mono">
-                            <span class="text-green-400">COMPANY:</span> {project.company}
-                          </p>
-                        )}
-                        <p class="text-gray-300 text-xs sm:text-sm font-mono">
-                          <span class="text-yellow-400">DATE:</span> {project.date}
-                        </p>
+                    <div class={`space-y-4 sm:space-y-6 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <div class="flex items-center space-x-2 sm:space-x-3">
+                        <span class={`w-2 h-2 sm:w-3 sm:h-3 ${colors.dot} rounded-full animate-pulse`}></span>
+                        <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-white font-mono">{project.file}</h2>
                       </div>
 
-                      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-                        {project.description}
-                      </p>
+                      <div class="space-y-3 sm:space-y-4">
+                        <div class={`bg-gray-700 rounded-lg p-3 sm:p-4 border-l-4 ${colors.border}`}>
+                          <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class={colors.text}>CLIENT:</span> {project.client}</p>
+                          {project.ruc && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-cyan-400">RUC:</span> {project.ruc}</p>}
+                          {project.company && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-green-400">COMPANY:</span> {project.company}</p>}
+                          <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-yellow-400">DATE:</span> {project.date}</p>
+                        </div>
 
-                      <div class="flex flex-wrap gap-1 sm:gap-2">
-                        {project.technologies.map((tech) => (
-                          <span class={`${techColorMap[tech.toLowerCase().includes('angular') ? 'red' : tech.toLowerCase().includes('spring') || tech.toLowerCase().includes('node') || tech.toLowerCase().includes('mongodb') || tech.toLowerCase().includes('django') || tech.toLowerCase().includes('iot') ? 'green' : tech.toLowerCase().includes('api') || tech.toLowerCase().includes('mysql') || tech.toLowerCase().includes('azure') || tech.toLowerCase().includes('postgresql') || tech.toLowerCase().includes('ddd') ? 'blue' : tech.toLowerCase().includes('react') || tech.toLowerCase().includes('apollo') ? 'cyan' : tech.toLowerCase().includes('vite') || tech.toLowerCase().includes('nlp') ? 'purple' : tech.toLowerCase().includes('java') && !tech.toLowerCase().includes('javascript') ? 'orange' : tech.toLowerCase().includes('express') ? 'gray' : tech.toLowerCase().includes('graphql') || tech.toLowerCase().includes('ia') ? 'pink' : tech.toLowerCase().includes('thymeleaf') || tech.toLowerCase().includes('javamail') ? 'red' : tech.toLowerCase().includes('python') ? 'yellow' : tech.toLowerCase().includes('raspberry') ? 'red' : 'gray']} text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors`}>
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
+                        <p class="text-gray-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
 
-                      <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
-                        {project.links.live && (
-                          <a 
-                            href={project.links.live} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class={`${colors.btn} text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2`}
-                          >
-                            <span>./deploy --live</span>
-                            <span>🚀</span>
-                          </a>
+                        {project.highlights && project.highlights.length > 0 && (
+                          <ul class="space-y-1">
+                            {project.highlights.map((h) => (
+                              <li class="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
+                                <span class={`${colors.text} mt-0.5 flex-shrink-0`}>▸</span>
+                                <span>{h}</span>
+                              </li>
+                            ))}
+                          </ul>
                         )}
-                        {project.links.github && (
-                          <a 
-                            href={project.links.github} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-gray-700 hover:bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
-                          >
-                            <span>{project.id === 6 ? './web-django' : './frontend'}</span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                          </a>
-                        )}
-                        {project.links.githubBackend && (
-                          <a 
-                            href={project.links.githubBackend} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-gray-700 hover:bg-gray-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
-                          >
-                            <span>./backend</span>
-                            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                            </svg>
-                          </a>
-                        )}
-                        {project.links.githubRaspberry && (
-                          <a 
-                            href={project.links.githubRaspberry} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-red-700 hover:bg-red-600 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
-                          >
-                            <span>./raspberry-main</span>
-                            <span>🍓</span>
-                          </a>
-                        )}
-                        {project.links.social && (
-                          <a 
-                            href={project.links.social} 
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="bg-pink-600 hover:bg-pink-700 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-colors text-center text-sm sm:text-base inline-flex items-center justify-center gap-2"
-                          >
-                            <span>./social</span>
-                            <span>📱</span>
-                          </a>
-                        )}
+
+                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                          {project.technologies.map((tech) => (
+                            <span class={`${techColorMap[getTechColor(tech)]} text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors`}>{tech}</span>
+                          ))}
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
+                          {project.links.live      && <a href={project.links.live}          target="_blank" rel="noopener noreferrer" class={btn}><span>./deploy --live</span><span>🚀</span></a>}
+                          {project.links.demo      && <button data-demo={project.links.demo} data-demo-title={project.name} class={`demo-btn ${btn}`}><span>./demo --video</span><span>▶</span></button>}
+                          {project.links.social    && <a href={project.links.social}         target="_blank" rel="noopener noreferrer" class={btn}><span>./social</span><span>📱</span></a>}
+                          {project.links.github    && <a href={project.links.github}         target="_blank" rel="noopener noreferrer" class={btn}><span>./frontend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {project.links.githubBackend && <a href={project.links.githubBackend} target="_blank" rel="noopener noreferrer" class={btn}><span>./backend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div class={`relative ${index % 2 === 0 ? 'lg:order-2 order-first' : 'lg:order-1 order-first'}`}>
-                    <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-700">
-                      {project.images.length > 1 ? (
+                    <div class={`relative ${index % 2 === 0 ? 'lg:order-2 order-first' : 'lg:order-1 order-first'}`}>
+                      <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-900">
                         <div class="relative w-full h-full">
                           <div id={`carousel-${project.id}`} class="flex transition-transform duration-500 w-full h-full">
                             {project.images.map((img) => (
-                              <img src={img} alt={project.name} class="w-full h-full flex-shrink-0 object-cover" loading="lazy" />
+                              <img src={img} alt={project.name} class="w-full h-full flex-shrink-0 object-contain bg-gray-900" loading="lazy" />
                             ))}
                           </div>
-                          <button 
-                            class="carousel-btn-prev absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors text-sm sm:text-base z-10"
-                            data-carousel={`carousel-${project.id}`}
-                            aria-label="Anterior"
-                          >
-                            ‹
-                          </button>
-                          <button 
-                            class="carousel-btn-next absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors text-sm sm:text-base z-10"
-                            data-carousel={`carousel-${project.id}`}
-                            aria-label="Siguiente"
-                          >
-                            ›
-                          </button>
+                          {project.images.length > 1 && (
+                            <>
+                              <button class="carousel-btn-prev absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors z-10" data-carousel={`carousel-${project.id}`} aria-label="Anterior">‹</button>
+                              <button class="carousel-btn-next absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors z-10" data-carousel={`carousel-${project.id}`} aria-label="Siguiente">›</button>
+                            </>
+                          )}
                         </div>
-                      ) : (
-                        <div class="text-gray-500 text-center p-8 flex flex-col items-center justify-center h-full">
-                          <div class="text-6xl mb-4">📁</div>
-                          <p class="font-mono text-sm font-bold text-white">{project.name}</p>
-                          <p class="text-xs mt-2">Imágenes próximamente</p>
-                        </div>
-                      )}
+                      </div>
                     </div>
-                  </div>
 
+                  </div>
                 </div>
-              </div>
               );
             })}
+
+          </div>
+        </div>
+
+        <!-- ══ PROYECTOS UNIVERSITARIOS ═════════════════════════════════ -->
+        <div class="bg-gray-900 px-4 sm:px-6 pb-16 pt-16">
+          <div class="max-w-7xl mx-auto">
+
+            <!-- Separador con label -->
+            <div class="flex items-center gap-4 mb-8">
+              <div class="h-px flex-1 bg-gray-700"></div>
+              <div class="flex items-center gap-2 font-mono text-xs sm:text-sm whitespace-nowrap">
+                <span class="text-yellow-500">$</span>
+                <span class="text-gray-400">ls ./universidad/</span>
+                <span class="text-gray-600 hidden sm:inline">— proyectos académicos</span>
+              </div>
+              <div class="h-px flex-1 bg-gray-700"></div>
+            </div>
+
+            <!-- Cards compactas -->
+            <div class="grid sm:grid-cols-2 gap-5">
+              {academic.map((proj) => {
+                const acColorMap = {
+                  blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400' },
+                  red:  { dot: 'bg-red-400',  border: 'border-red-400',  text: 'text-red-400'  },
+                };
+                const c = acColorMap[proj.color as keyof typeof acColorMap];
+
+                return (
+                  <div class="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-gray-500 transition-all overflow-hidden flex flex-col sm:flex-row">
+                    <div class="sm:w-44 flex-shrink-0 bg-gray-900">
+                      <img src={proj.image} alt={proj.name} class="w-full h-36 sm:h-full object-cover opacity-75 hover:opacity-100 transition-opacity" loading="lazy" />
+                    </div>
+                    <div class="flex flex-col justify-between p-4 gap-3 flex-1">
+                      <div>
+                        <div class="flex items-center gap-2 mb-1">
+                          <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`}></span>
+                          <span class="text-white font-mono text-sm font-semibold">{proj.file}</span>
+                        </div>
+                        <p class="text-gray-500 font-mono text-xs mb-2">
+                          <span class="text-yellow-500">DATE:</span> {proj.date}
+                        </p>
+                        <p class="text-gray-400 text-xs leading-relaxed line-clamp-3">{proj.description}</p>
+                      </div>
+                      <div class="space-y-2">
+                        <div class="flex flex-wrap gap-1">
+                          {proj.technologies.map((tech) => (
+                            <span class={`${techMapSmall[getTechColor(tech)]} text-white px-2 py-0.5 rounded-full text-xs opacity-75`}>{tech}</span>
+                          ))}
+                        </div>
+                        <div class="flex flex-wrap gap-1.5">
+                          {proj.links.github         && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {proj.links.githubBackend  && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={abtn}>./raspberry 🍓</a>}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
 
           </div>
         </div>
@@ -379,37 +408,62 @@ const projects = [
   </main>
 </BaseLayout>
 
+<!-- ══ MODAL VIDEO DEMO ══════════════════════════════════════════════════════ -->
+<div id="demo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+  <div class="bg-gray-800 rounded-2xl border border-gray-600 w-full max-w-4xl">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-700">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
+        <span id="demo-modal-title" class="text-white font-mono text-sm sm:text-base font-semibold"></span>
+      </div>
+      <button id="demo-modal-close" class="text-gray-400 hover:text-white transition-colors text-2xl leading-none">&times;</button>
+    </div>
+    <div class="p-4 sm:p-6">
+      <video id="demo-video" controls class="w-full rounded-xl bg-black" style="max-height: 65vh;">
+        <source id="demo-video-src" src="" type="video/mp4" />
+        Tu navegador no soporta el elemento de video.
+      </video>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const carousels = document.querySelectorAll('[id^="carousel-"]');
-    
-    carousels.forEach(carousel => {
+
+    // ── Carousels ─────────────────────────────────────────────────────
+    document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
       const id = carousel.id;
       let currentIndex = 0;
       const slides = carousel.children.length;
-      
       if (slides <= 1) return;
-      
       const prevBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-prev`);
       const nextBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-next`);
-      
-      const updateCarousel = () => {
-        (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`;
-      };
-      
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex + 1) % slides;
-          updateCarousel();
-        });
-      }
-      
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          currentIndex = (currentIndex - 1 + slides) % slides;
-          updateCarousel();
-        });
-      }
+      const update  = () => { (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`; };
+      nextBtn?.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides; update(); });
+      prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
     });
+
+    // ── Modal demo ────────────────────────────────────────────────────
+    const modal      = document.getElementById('demo-modal')!;
+    const video      = document.getElementById('demo-video') as HTMLVideoElement;
+    const videoSrc   = document.getElementById('demo-video-src') as HTMLSourceElement;
+    const modalTitle = document.getElementById('demo-modal-title')!;
+    const closeBtn   = document.getElementById('demo-modal-close')!;
+
+    const openModal  = (src: string, title: string) => {
+      videoSrc.src = src; video.load(); modalTitle.textContent = title;
+      modal.classList.remove('hidden'); modal.classList.add('flex');
+    };
+    const closeModal = () => {
+      video.pause(); videoSrc.src = '';
+      modal.classList.add('hidden'); modal.classList.remove('flex');
+    };
+
+    document.querySelectorAll<HTMLButtonElement>('.demo-btn').forEach(btn =>
+      btn.addEventListener('click', () => openModal(btn.dataset.demo ?? '', btn.dataset.demoTitle ?? 'Demo'))
+    );
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
   });
 </script>
