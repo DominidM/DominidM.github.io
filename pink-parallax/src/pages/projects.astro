@@ -10,11 +10,14 @@ interface ProjectLinks {
   githubRaspberry?: string;
 }
 
+type ProjectCategory = 'erp' | 'ecommerce' | 'landing' | 'panel';
+
 interface Project {
   id:           number;
   name:         string;
   file:         string;
   color:        string;
+  category:     ProjectCategory;
   client:       string;
   ruc?:         string | null;
   company?:     string;
@@ -27,64 +30,68 @@ interface Project {
 }
 
 const projects: Project[] = [
-{
-  id: 1,
-  name: 'MKapu Import — E-commerce',
-  file: 'MKapu-Import-Ecommerce',
-  color: 'purple',
-  client: 'Mkapu Import S.A.C.',
-  ruc: '20613016946',
-  date: 'Abril 2026',
-  description: 'Tienda online para empresa importadora con catálogo de productos, carrito de compras, pasarela de pagos y panel de administración. Integrado con el ERP interno para sincronización de stock e inventario en tiempo real.',
-  technologies: ['Next.js', 'React', 'Cloudinary', 'REST API', 'WhatsApp API'],
-  links: { social: 'https://www.tiktok.com/@mkapu.import' ,
-            live: 'https://m-kapu-import-ecomerce-front.vercel.app/' },
-  highlights: [
-    'Catálogo con filtros por categoría, precio y disponibilidad',
-    'Carrito de compras con gestión de sesión',
-    'Integración con WhatsApp para confirmación de pedidos',
-    'Panel admin para gestión de productos, precios y stock',
-    'Sincronización de inventario con ERP en tiempo real',
-    'Diseño responsive optimizado para mobile',
-  ],
-  images: [
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236039/7463580a-ba23-4485-8747-3d39ad086d48.png',
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776235990/dc78410a-7c0e-4318-9fce-be0464b9cfc6.png',
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
-  ]
-},
-{
-  id: 2,
-  name: 'Brostr3s — ERP Pollería',
-  file: 'Brostr3s-Polleria-ERP',
-  color: 'orange',
-  client: 'Brostr3s Pollería',
-  ruc: null,
-  date: 'Abril 2026',
-  description: 'ERP completo para gestión de pollería con módulos de pedidos, cocina en tiempo real, caja, inventario y reportes. Interfaz optimizada para operación rápida en caja y seguimiento de órdenes por estado. Arquitectura full-stack con comunicación en tiempo real vía WebSockets.',
-  technologies: ['Next.js', 'React',  'Nest.js' ,'TypeScript', 'MySQL', 'Docker', 'PrimeNG', 'REST API'],
-  links: {social: 'https://www.instagram.com/brostres.peru'},
-  highlights: [
-    'Gestión de pedidos con estados en tiempo real (cocina → listo → entregado)',
-    'Módulo de caja con apertura, cierre y reportes del día',
-    'Control de inventario con alertas de stock bajo',
-    'Carta digital con categorías y precios configurables',
-    'Reportes de ventas por producto, hora y turno',
-    'Roles diferenciados: administrador, cajero y cocina',
-  ],
-  images: [
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236601/33d278df-6bc3-4125-aabd-80d7a4196015.png',
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236599/d77d675b-dc7c-4cef-b6c4-715de5f1dc6c.png',
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236648/e1a0e3b2-1d74-49f0-bfe6-5a966e67a352.png',
-    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776300381/7d66bec2-5051-41be-8e31-ce3990ae0f41.png',
-  ]
-
-},
+  {
+    id: 1,
+    name: 'MKapu Import — E-commerce',
+    file: 'MKapu-Import-Ecommerce',
+    color: 'purple',
+    category: 'ecommerce',
+    client: 'Mkapu Import S.A.C.',
+    ruc: '20613016946',
+    date: 'Abril 2026',
+    description: 'Tienda online para empresa importadora con catálogo de productos, carrito de compras, pasarela de pagos y panel de administración. Integrado con el ERP interno para sincronización de stock e inventario en tiempo real.',
+    technologies: ['Next.js', 'React', 'Cloudinary', 'REST API', 'WhatsApp API'],
+    links: {
+      social: 'https://www.tiktok.com/@mkapu.import',
+      live: 'https://m-kapu-import-ecomerce-front.vercel.app/',
+    },
+    highlights: [
+      'Catálogo con filtros por categoría, precio y disponibilidad',
+      'Carrito de compras con gestión de sesión',
+      'Integración con WhatsApp para confirmación de pedidos',
+      'Panel admin para gestión de productos, precios y stock',
+      'Sincronización de inventario con ERP en tiempo real',
+      'Diseño responsive optimizado para mobile',
+    ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236039/7463580a-ba23-4485-8747-3d39ad086d48.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776235990/dc78410a-7c0e-4318-9fce-be0464b9cfc6.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
+    ],
+  },
+  {
+    id: 2,
+    name: 'Brostr3s — ERP Pollería',
+    file: 'Brostr3s-Polleria-ERP',
+    color: 'orange',
+    category: 'erp',
+    client: 'Brostr3s Pollería',
+    ruc: null,
+    date: 'Abril 2026',
+    description: 'ERP completo para gestión de pollería con módulos de pedidos, cocina en tiempo real, caja, inventario y reportes. Interfaz optimizada para operación rápida en caja y seguimiento de órdenes por estado. Arquitectura full-stack con comunicación en tiempo real vía WebSockets.',
+    technologies: ['Next.js', 'React', 'Nest.js', 'TypeScript', 'MySQL', 'Docker', 'PrimeNG', 'REST API'],
+    links: { social: 'https://www.instagram.com/brostres.peru' },
+    highlights: [
+      'Gestión de pedidos con estados en tiempo real (cocina → listo → entregado)',
+      'Módulo de caja con apertura, cierre y reportes del día',
+      'Control de inventario con alertas de stock bajo',
+      'Carta digital con categorías y precios configurables',
+      'Reportes de ventas por producto, hora y turno',
+      'Roles diferenciados: administrador, cajero y cocina',
+    ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236601/33d278df-6bc3-4125-aabd-80d7a4196015.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236599/d77d675b-dc7c-4cef-b6c4-715de5f1dc6c.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236648/e1a0e3b2-1d74-49f0-bfe6-5a966e67a352.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776300381/7d66bec2-5051-41be-8e31-ce3990ae0f41.png',
+    ],
+  },
   {
     id: 3,
-    name: 'MKapu Import—ERP',
+    name: 'MKapu Import — ERP',
     file: 'MKapu-Import-ERP',
     color: 'purple',
+    category: 'erp',
     client: 'Mkapu Import S.A.C.',
     ruc: '20613016946',
     date: 'Marzo 2026',
@@ -105,14 +112,15 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149346/Captura_de_pantalla_2026-03-10_081106_lxung4.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081233_og1gxv.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081458_nizu3a.png',
-        'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
-    ]
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
+    ],
   },
   {
     id: 4,
     name: 'Sistema de Asistencia de Eventos',
     file: 'Sistema-Asistencia-Wiener',
     color: 'purple',
+    category: 'panel',
     client: 'Universidad Norbert Wiener',
     ruc: null,
     date: 'Febrero 2026',
@@ -124,13 +132,14 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150261/Captura_de_pantalla_2026-03-10_083034_zz3k28.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150261/Captura_de_pantalla_2026-03-10_084225_fioutv.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png',
-    ]
+    ],
   },
   {
     id: 5,
     name: 'Policlínico Autovías Seguras',
     file: 'Policlinico-Autovias-LandingPage',
     color: 'green',
+    category: 'landing',
     client: 'Autovías Seguras - Salud Empresarial S.A.C.',
     ruc: '20552775083',
     date: 'Enero 2026',
@@ -142,13 +151,14 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083921_b393a9.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083940_wscs1z.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083818_gctnd2.png',
-    ]
+    ],
   },
   {
     id: 6,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria-WHC-Ecommerce',
     color: 'cyan',
+    category: 'ecommerce',
     client: 'Representaciones W.H.C.',
     ruc: '10076215851',
     date: 'Junio 2025',
@@ -161,13 +171,14 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846035/6ef80e15-f83c-42d7-8180-7435c95d85ad.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846046/3cf14aaf-158b-4811-adb2-e7512622aa21.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846041/3815e7c0-ed9a-47c6-a710-29b0a9dffcd5.png',
-    ]
+    ],
   },
   {
     id: 7,
     name: 'Codop-AdminPanel-ERP',
     file: 'Codop-ERP-AdminPanel',
     color: 'orange',
+    category: 'panel',
     client: 'Codop',
     company: 'Apoyo como desarrollador Freelance',
     date: 'Agosto 2024',
@@ -178,9 +189,8 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846707/e1d82bc0-aad7-4fd4-ae4b-e0dbf73b61d6.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846915/8890021d-8351-407c-aae6-c0771a11f3d0.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846921/4f44dcf9-9a4e-4538-b196-b04a9204ba21.png',
-    ]
+    ],
   },
-
 ];
 
 interface AcademicProject {
@@ -226,8 +236,11 @@ const academic: AcademicProject[] = [
   },
 ];
 
-// ── Helpers sacados al frontmatter para evitar errores de genéricos en JSX ──
+// ── Conteos por categoría para los badges ──────────────────────────────────
+const counts: Record<string, number> = { all: projects.length, erp: 0, ecommerce: 0, landing: 0, panel: 0 };
+projects.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
 
+// ── Color helpers ──────────────────────────────────────────────────────────
 const colorMap = {
   purple: { dot: 'bg-purple-400', border: 'border-purple-400', text: 'text-purple-400' },
   green:  { dot: 'bg-green-400',  border: 'border-green-400',  text: 'text-green-400'  },
@@ -266,8 +279,8 @@ const getTechColor = (tech: string): string => {
   if (t.includes('angular') || t.includes('raspberry') || t.includes('thymeleaf') || t.includes('javamail')) return 'red';
   if (t.includes('spring') || t.includes('node') || t.includes('mongodb') || t.includes('django') || t.includes('iot')) return 'green';
   if (t.includes('api') || t.includes('mysql') || t.includes('azure') || t.includes('postgresql') || t.includes('ddd') || t.includes('websockets') || t.includes('docker')) return 'blue';
-  if (t.includes('react') || t.includes('apollo') || t.includes('nestjs')) return 'cyan';
-  if (t.includes('vite') || t.includes('nlp') || t.includes('primeng') || t.includes('typescript')) return 'purple';
+  if (t.includes('react') || t.includes('apollo') || t.includes('nestjs') || t.includes('next')) return 'cyan';
+  if (t.includes('vite') || t.includes('nlp') || t.includes('primeng') || t.includes('typescript') || t.includes('cloudinary')) return 'purple';
   if (t.includes('java') && !t.includes('javascript') && !t.includes('javamail')) return 'orange';
   if (t.includes('express')) return 'gray';
   if (t.includes('graphql') || t.includes('ia') || t.includes('whatsapp')) return 'pink';
@@ -275,8 +288,17 @@ const getTechColor = (tech: string): string => {
   return 'gray';
 };
 
-const btn = "bg-gray-900 hover:bg-gray-700 border border-gray-500 hover:border-gray-300 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-all text-center text-sm sm:text-base inline-flex items-center justify-center gap-2";
+const btn  = "bg-gray-900 hover:bg-gray-700 border border-gray-500 hover:border-gray-300 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-all text-center text-sm sm:text-base inline-flex items-center justify-center gap-2";
 const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg font-mono transition-all text-xs inline-flex items-center justify-center gap-1.5";
+
+// Etiquetas legibles para los filtros
+const filterLabels: Record<string, string> = {
+  all:       'all',
+  erp:       'ERP',
+  ecommerce: 'e-commerce',
+  landing:   'landing',
+  panel:     'panel',
+};
 ---
 
 <BaseLayout>
@@ -284,7 +306,7 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
     <div class="bg-gray-900 min-h-screen pt-4 sm:pt-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-        <!-- Terminal Header -->
+        <!-- ══ Terminal Header ══════════════════════════════════════════ -->
         <div class="bg-gray-800 rounded-t-lg border border-gray-700">
           <div class="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-gray-700">
             <div class="flex items-center space-x-1 sm:space-x-2">
@@ -299,7 +321,7 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
           </div>
         </div>
 
-        <!-- Terminal Content -->
+        <!-- ══ Terminal Content ════════════════════════════════════════ -->
         <div class="bg-gray-900 border-x border-b border-gray-700 rounded-b-lg p-4 sm:p-6 font-mono">
           <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base">
             <span class="text-blue-400">dominid@portfolio:</span>
@@ -316,27 +338,61 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
           </div>
         </div>
 
+        <!-- ══ Barra de filtros ════════════════════════════════════════ -->
+        <div class="bg-gray-900 px-4 sm:px-6 pt-8 pb-2">
+          <div class="max-w-7xl mx-auto">
+            <div class="flex flex-wrap items-center gap-2 font-mono">
+              <span class="text-gray-500 text-xs mr-1 hidden sm:inline">$ filter --type</span>
+              {Object.entries(filterLabels).map(([cat, label]) => (
+                <button
+                  class={`filter-tab font-mono text-xs px-3 py-1.5 rounded-lg border transition-all
+                    ${cat === 'all'
+                      ? 'bg-gray-700 border-gray-400 text-white'
+                      : 'bg-gray-900 border-gray-600 text-gray-400 hover:border-gray-400 hover:text-white'
+                    }`}
+                  data-filter={cat}
+                >
+                  {label}
+                  <span class="ml-1.5 text-gray-500 text-xs font-mono">
+                    ({counts[cat] ?? 0})
+                  </span>
+                </button>
+              ))}
+            </div>
+            <!-- Línea separadora -->
+            <div class="mt-4 h-px bg-gray-700"></div>
+          </div>
+        </div>
+
         <!-- ══ PROYECTOS PROFESIONALES ══════════════════════════════════ -->
-        <div class="bg-gray-900 px-4 sm:px-6 pb-4 pt-10 sm:pb-6">
-          <div class="max-w-7xl mx-auto space-y-12">
+        <div class="bg-gray-900 px-4 sm:px-6 pb-4 pt-8 sm:pb-6">
+          <div class="max-w-7xl mx-auto space-y-12" id="projects-list">
 
             {projects.map((project, index) => {
               const colors = colorMap[project.color as keyof typeof colorMap];
 
               return (
-                <div class="bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all">
+                <div
+                  class="project-card bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all"
+                  data-category={project.category}
+                >
                   <div class={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}>
 
+                    <!-- Info -->
                     <div class={`space-y-4 sm:space-y-6 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
                       <div class="flex items-center space-x-2 sm:space-x-3">
                         <span class={`w-2 h-2 sm:w-3 sm:h-3 ${colors.dot} rounded-full animate-pulse`}></span>
                         <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-white font-mono">{project.file}</h2>
+                        <!-- Badge de categoría -->
+                        <span class="ml-auto text-xs font-mono px-2 py-0.5 rounded border border-gray-600 text-gray-500 uppercase tracking-wider">
+                          {project.category}
+                        </span>
                       </div>
 
                       <div class="space-y-3 sm:space-y-4">
                         <div class={`bg-gray-700 rounded-lg p-3 sm:p-4 border-l-4 ${colors.border}`}>
                           <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class={colors.text}>CLIENT:</span> {project.client}</p>
-                          {project.ruc && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-cyan-400">RUC:</span> {project.ruc}</p>}
+                          {project.ruc    && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-cyan-400">RUC:</span> {project.ruc}</p>}
                           {project.company && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-green-400">COMPANY:</span> {project.company}</p>}
                           <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-yellow-400">DATE:</span> {project.date}</p>
                         </div>
@@ -361,15 +417,16 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
-                          {project.links.live      && <a href={project.links.live}          target="_blank" rel="noopener noreferrer" class={btn}><span>./deploy --live</span><span>🚀</span></a>}
-                          {project.links.demo      && <button data-demo={project.links.demo} data-demo-title={project.name} class={`demo-btn ${btn}`}><span>./demo --video</span><span>▶</span></button>}
-                          {project.links.social    && <a href={project.links.social}         target="_blank" rel="noopener noreferrer" class={btn}><span>./social</span><span>📱</span></a>}
-                          {project.links.github    && <a href={project.links.github}         target="_blank" rel="noopener noreferrer" class={btn}><span>./frontend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {project.links.live         && <a href={project.links.live}          target="_blank" rel="noopener noreferrer" class={btn}><span>./deploy --live</span><span>🚀</span></a>}
+                          {project.links.demo         && <button data-demo={project.links.demo} data-demo-title={project.name} class={`demo-btn ${btn}`}><span>./demo --video</span><span>▶</span></button>}
+                          {project.links.social       && <a href={project.links.social}         target="_blank" rel="noopener noreferrer" class={btn}><span>./social</span><span>📱</span></a>}
+                          {project.links.github       && <a href={project.links.github}         target="_blank" rel="noopener noreferrer" class={btn}><span>./frontend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
                           {project.links.githubBackend && <a href={project.links.githubBackend} target="_blank" rel="noopener noreferrer" class={btn}><span>./backend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
                         </div>
                       </div>
                     </div>
 
+                    <!-- Carousel -->
                     <div class={`relative ${index % 2 === 0 ? 'lg:order-2 order-first' : 'lg:order-1 order-first'}`}>
                       <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-900">
                         <div class="relative w-full h-full">
@@ -393,14 +450,21 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
               );
             })}
 
+            <!-- Mensaje cuando no hay resultados -->
+            <div id="no-results" class="hidden text-center py-16 font-mono">
+              <p class="text-gray-500 text-sm">
+                <span class="text-red-400">ERROR:</span> no projects found for this filter
+              </p>
+              <p class="text-gray-600 text-xs mt-2">// intenta con otro tipo o selecciona "all"</p>
+            </div>
+
           </div>
         </div>
 
         <!-- ══ PROYECTOS UNIVERSITARIOS ═════════════════════════════════ -->
-        <div class="bg-gray-900 px-4 sm:px-6 pb-16 pt-16">
+        <div class="bg-gray-900 px-4 sm:px-6 pb-16 pt-16" id="academic-section">
           <div class="max-w-7xl mx-auto">
 
-            <!-- Separador con label -->
             <div class="flex items-center gap-4 mb-8">
               <div class="h-px flex-1 bg-gray-700"></div>
               <div class="flex items-center gap-2 font-mono text-xs sm:text-sm whitespace-nowrap">
@@ -411,7 +475,6 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
               <div class="h-px flex-1 bg-gray-700"></div>
             </div>
 
-            <!-- Cards compactas -->
             <div class="grid sm:grid-cols-2 gap-5">
               {academic.map((proj) => {
                 const acColorMap = {
@@ -443,8 +506,8 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
                           ))}
                         </div>
                         <div class="flex flex-wrap gap-1.5">
-                          {proj.links.github         && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-                          {proj.links.githubBackend  && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {proj.links.github          && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {proj.links.githubBackend   && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
                           {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={abtn}>./raspberry 🍓</a>}
                         </div>
                       </div>
@@ -484,9 +547,9 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
 
-    // ── Carousels ─────────────────────────────────────────────────────
+    // ── Carousels ──────────────────────────────────────────────────────
     document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
-      const id = carousel.id;
+      const id     = carousel.id;
       let currentIndex = 0;
       const slides = carousel.children.length;
       if (slides <= 1) return;
@@ -497,7 +560,7 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
       prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
     });
 
-    // ── Modal demo ────────────────────────────────────────────────────
+    // ── Modal demo ─────────────────────────────────────────────────────
     const modal      = document.getElementById('demo-modal')!;
     const video      = document.getElementById('demo-video') as HTMLVideoElement;
     const videoSrc   = document.getElementById('demo-video-src') as HTMLSourceElement;
@@ -519,5 +582,43 @@ const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+    // ── Filtros ────────────────────────────────────────────────────────
+    const filterTabs     = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
+    const projectCards   = document.querySelectorAll<HTMLElement>('.project-card');
+    const noResults      = document.getElementById('no-results')!;
+    const academicSection = document.getElementById('academic-section')!;
+
+    const ACTIVE_CLASSES   = ['bg-gray-700', 'border-gray-400', 'text-white'];
+    const INACTIVE_CLASSES = ['bg-gray-900', 'border-gray-600', 'text-gray-400'];
+
+    filterTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+
+        // Actualizar estilos de tabs
+        filterTabs.forEach(t => {
+          t.classList.remove(...ACTIVE_CLASSES);
+          t.classList.add(...INACTIVE_CLASSES);
+        });
+        tab.classList.remove(...INACTIVE_CLASSES);
+        tab.classList.add(...ACTIVE_CLASSES);
+
+        const cat = tab.dataset.filter ?? 'all';
+
+        // Mostrar / ocultar proyectos profesionales
+        let visible = 0;
+        projectCards.forEach(card => {
+          const match = cat === 'all' || card.dataset.category === cat;
+          card.style.display = match ? '' : 'none';
+          if (match) visible++;
+        });
+
+        // Mensaje sin resultados
+        noResults.classList.toggle('hidden', visible > 0);
+
+        // La sección académica se muestra siempre en "all", se oculta en filtros específicos
+        academicSection.style.display = cat === 'all' ? '' : 'none';
+      });
+    });
   });
 </script>
