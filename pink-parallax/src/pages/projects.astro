@@ -27,9 +27,61 @@ interface Project {
 }
 
 const projects: Project[] = [
+{
+  id: 1,
+  name: 'MKapu Import — E-commerce',
+  file: 'MKapu-Import-Ecommerce',
+  color: 'purple',
+  client: 'Mkapu Import S.A.C.',
+  ruc: '20613016946',
+  date: 'Abril 2026',
+  description: 'Tienda online para empresa importadora con catálogo de productos, carrito de compras, pasarela de pagos y panel de administración. Integrado con el ERP interno para sincronización de stock e inventario en tiempo real.',
+  technologies: ['Next.js', 'React', 'Cloudinary', 'REST API', 'WhatsApp API'],
+  links: { social: 'https://www.tiktok.com/@mkapu.import' ,
+            live: 'https://m-kapu-import-ecomerce-front.vercel.app/' },
+  highlights: [
+    'Catálogo con filtros por categoría, precio y disponibilidad',
+    'Carrito de compras con gestión de sesión',
+    'Integración con WhatsApp para confirmación de pedidos',
+    'Panel admin para gestión de productos, precios y stock',
+    'Sincronización de inventario con ERP en tiempo real',
+    'Diseño responsive optimizado para mobile',
+  ],
+  images: [
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236039/7463580a-ba23-4485-8747-3d39ad086d48.png',
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776235990/dc78410a-7c0e-4318-9fce-be0464b9cfc6.png',
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
+  ]
+},
+{
+  id: 2,
+  name: 'Brostr3s — ERP Pollería',
+  file: 'Brostr3s-Polleria-ERP',
+  color: 'orange',
+  client: 'Brostr3s Pollería',
+  ruc: null,
+  date: 'Abril 2026',
+  description: 'ERP completo para gestión de pollería con módulos de pedidos, cocina en tiempo real, caja, inventario y reportes. Interfaz optimizada para operación rápida en caja y seguimiento de órdenes por estado. Arquitectura full-stack con comunicación en tiempo real vía WebSockets.',
+  technologies: ['Next.js', 'React',  'Nest.js' ,'TypeScript', 'MySQL', 'Docker', 'PrimeNG', 'REST API'],
+  links: {social: 'https://www.instagram.com/brostres.peru'},
+  highlights: [
+    'Gestión de pedidos con estados en tiempo real (cocina → listo → entregado)',
+    'Módulo de caja con apertura, cierre y reportes del día',
+    'Control de inventario con alertas de stock bajo',
+    'Carta digital con categorías y precios configurables',
+    'Reportes de ventas por producto, hora y turno',
+    'Roles diferenciados: administrador, cajero y cocina',
+  ],
+  images: [
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236601/33d278df-6bc3-4125-aabd-80d7a4196015.png',
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236599/d77d675b-dc7c-4cef-b6c4-715de5f1dc6c.png',
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236648/e1a0e3b2-1d74-49f0-bfe6-5a966e67a352.png',
+    'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776300381/7d66bec2-5051-41be-8e31-ce3990ae0f41.png',
+  ]
 
+},
   {
-    id: 1,
+    id: 3,
     name: 'MKapu Import—ERP',
     file: 'MKapu-Import-ERP',
     color: 'purple',
@@ -53,10 +105,11 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149346/Captura_de_pantalla_2026-03-10_081106_lxung4.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081233_og1gxv.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149345/Captura_de_pantalla_2026-03-10_081458_nizu3a.png',
+        'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
     ]
   },
   {
-    id: 2,
+    id: 4,
     name: 'Sistema de Asistencia de Eventos',
     file: 'Sistema-Asistencia-Wiener',
     color: 'purple',
@@ -74,7 +127,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 3,
+    id: 5,
     name: 'Policlínico Autovías Seguras',
     file: 'Policlinico-Autovias-LandingPage',
     color: 'green',
@@ -92,7 +145,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 4,
+    id: 6,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria-WHC-Ecommerce',
     color: 'cyan',
@@ -111,7 +164,7 @@ const projects: Project[] = [
     ]
   },
   {
-    id: 5,
+    id: 7,
     name: 'Codop-AdminPanel-ERP',
     file: 'Codop-ERP-AdminPanel',
     color: 'orange',
@@ -127,6 +180,7 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846921/4f44dcf9-9a4e-4538-b196-b04a9204ba21.png',
     ]
   },
+
 ];
 
 interface AcademicProject {
