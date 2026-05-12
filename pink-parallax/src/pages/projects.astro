@@ -162,34 +162,15 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png',
     ],
   },
-  {
+    {
     id: 6,
-    name: 'Policlínico Autovías Seguras',
-    file: 'Policlinico-Autovias-LandingPage',
-    color: 'green',
-    category: 'landing',
-    client: 'Autovías Seguras - Salud Empresarial S.A.C.',
-    ruc: '20552775083',
-    date: 'Enero 2026',
-    description: 'Landing page para policlínico especializado en exámenes médicos para licencias de conducir. Incluye formulario de contacto integrado con JavaMailSender para envío automático de datos a Gmail.',
-    technologies: ['Spring Boot', 'Thymeleaf', 'Java', 'Azure', 'JavaMailSender'],
-    links: { live: 'https://www.autoviasseguras.com' },
-    images: [
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083749_umhpvh.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083921_b393a9.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083940_wscs1z.png',
-      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083818_gctnd2.png',
-    ],
-  },
-  {
-    id: 7,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria-WHC-Ecommerce',
     color: 'cyan',
     category: 'ecommerce',
     client: 'Representaciones W.H.C.',
     ruc: '10076215851',
-    date: 'Junio 2025',
+    date: 'Septiembre 2025',
     description: 'Tienda online completa para venta de productos de gasfitería. Incluye diseño UI/UX personalizado, APIs REST con operaciones CRUD completas y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
     technologies: ['React', 'Vite', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
     links: {  },
@@ -201,6 +182,26 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846041/3815e7c0-ed9a-47c6-a710-29b0a9dffcd5.png',
     ],
   },
+  {
+    id: 7,
+    name: 'Policlínico Autovías Seguras',
+    file: 'Policlinico-Autovias-LandingPage',
+    color: 'green',
+    category: 'landing',
+    client: 'Autovías Seguras - Salud Empresarial S.A.C.',
+    ruc: '20552775083',
+    date: 'Junio 2025',
+    description: 'Landing page para policlínico especializado en exámenes médicos para licencias de conducir. Incluye formulario de contacto integrado con JavaMailSender para envío automático de datos a Gmail.',
+    technologies: ['Spring Boot', 'Thymeleaf', 'Java', 'Azure', 'JavaMailSender'],
+    links: { live: 'https://www.autoviasseguras.com' },
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083749_umhpvh.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083921_b393a9.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083940_wscs1z.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083818_gctnd2.png',
+    ],
+  },
+
   {
     id: 8,
     name: 'Codop-AdminPanel-ERP',
@@ -230,7 +231,8 @@ interface AcademicProject {
   description:  string;
   technologies: string[];
   links:        ProjectLinks;
-  image:        string;
+  images:       string[];  // ← array en vez de image singular
+  highlights?:  string[];
 }
 
 const academic: AcademicProject[] = [
@@ -239,14 +241,23 @@ const academic: AcademicProject[] = [
     name: 'ComuniRed',
     file: 'ComuniRed-RedSocial',
     color: 'blue',
-    date: 'Noviembre 2024',
+    date: 'Julio 2024',
     description: 'Red social de reportes ciudadanos para municipalidades. Comunicación en tiempo real con GraphQL, Apollo Client y MongoDB.',
     technologies: ['Angular', 'GraphQL', 'Apollo Client', 'Spring Boot', 'Node.js', 'MongoDB'],
     links: {
       github: 'https://github.com/DominidM/ComuniRed_Frontend',
       githubBackend: 'https://github.com/DominidM/ComuniRed_Backend',
     },
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
+    highlights: [
+      'Reportes ciudadanos geolocalizados en tiempo real',
+      'Autenticación y roles (ciudadano, municipio)',
+      'Feed de reportes con estado y seguimiento',
+    ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778610103/9b00f769-4b53-4c5d-8e31-9909bc1e4e85.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778610212/498ddf98-cff4-4f53-ab78-4839fe2547e5.png',
+    ],
   },
   {
     id: 'ac2',
@@ -260,10 +271,18 @@ const academic: AcademicProject[] = [
       github: 'https://github.com/DominidM/Robotica-Web',
       githubRaspberry: 'https://github.com/DominidM/Robotica',
     },
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
+    highlights: [
+      'Detección de emociones con NLP en tiempo real',
+      'Dashboard web con alertas y métricas',
+      'Integración hardware con Raspberry Pi',
+    ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847125/588113140_17882290833426013_4301822647137743188_n_ulvgd4.jpg',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847128/600574946_17882290809426013_7354418274163036045_n_slyodu.jpg',
+    ],
   },
 ];
-
 // ── Conteos por categoría para los badges ──────────────────────────────────
 const counts: Record<string, number> = { all: projects.length, erp: 0, ecommerce: 0, landing: 0, panel: 0 };
 projects.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
@@ -490,63 +509,88 @@ const filterLabels: Record<string, string> = {
         </div>
 
         <!-- ══ PROYECTOS UNIVERSITARIOS ═════════════════════════════════ -->
-        <div class="bg-gray-900 px-4 sm:px-6 pb-16 pt-16" id="academic-section">
-          <div class="max-w-7xl mx-auto">
+<div class="grid sm:grid-cols-2 gap-6">
+  {academic.map((proj) => {
+    const acColorMap = {
+      blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400', glow: 'hover:border-blue-500/50' },
+      red:  { dot: 'bg-red-400',  border: 'border-red-400',  text: 'text-red-400',  glow: 'hover:border-red-500/50'  },
+    };
+    const c = acColorMap[proj.color as keyof typeof acColorMap];
 
-            <div class="flex items-center gap-4 mb-8">
-              <div class="h-px flex-1 bg-gray-700"></div>
-              <div class="flex items-center gap-2 font-mono text-xs sm:text-sm whitespace-nowrap">
-                <span class="text-yellow-500">$</span>
-                <span class="text-gray-400">ls ./universidad/</span>
-                <span class="text-gray-600 hidden sm:inline">— proyectos académicos</span>
+    return (
+      <div class={`bg-gray-800/60 rounded-2xl border border-gray-700 ${c.glow} transition-all duration-300 overflow-hidden flex flex-col`}>
+
+        <!-- Carousel imagen -->
+        <div class="relative aspect-video bg-gray-900 overflow-hidden">
+          <div id={`ac-carousel-${proj.id}`} class="flex transition-transform duration-500 w-full h-full">
+            {proj.images.map((img) => (
+              <img src={img} alt={proj.name} class="w-full h-full flex-shrink-0 object-contain" loading="lazy" />
+            ))}
+          </div>
+
+          {proj.images.length > 1 && (
+            <>
+              <button
+                class="ac-carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-7 h-7 rounded-full flex items-center justify-center transition-colors z-10 text-sm"
+                data-ac-carousel={`ac-carousel-${proj.id}`}
+              >‹</button>
+              <button
+                class="ac-carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-7 h-7 rounded-full flex items-center justify-center transition-colors z-10 text-sm"
+                data-ac-carousel={`ac-carousel-${proj.id}`}
+              >›</button>
+              <!-- Dots -->
+              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {proj.images.map((_, i) => (
+                  <div class={`ac-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-white' : 'bg-white/40'}`} data-ac-dot={`ac-carousel-${proj.id}`}></div>
+                ))}
               </div>
-              <div class="h-px flex-1 bg-gray-700"></div>
-            </div>
+            </>
+          )}
 
-            <div class="grid sm:grid-cols-2 gap-5">
-              {academic.map((proj) => {
-                const acColorMap = {
-                  blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400' },
-                  red:  { dot: 'bg-red-400',  border: 'border-red-400',  text: 'text-red-400'  },
-                };
-                const c = acColorMap[proj.color as keyof typeof acColorMap];
-
-                return (
-                  <div class="bg-gray-800/50 rounded-xl border border-gray-700 hover:border-gray-500 transition-all overflow-hidden flex flex-col sm:flex-row">
-                    <div class="sm:w-44 flex-shrink-0 bg-gray-900">
-                      <img src={proj.image} alt={proj.name} class="w-full h-36 sm:h-full object-cover opacity-75 hover:opacity-100 transition-opacity" loading="lazy" />
-                    </div>
-                    <div class="flex flex-col justify-between p-4 gap-3 flex-1">
-                      <div>
-                        <div class="flex items-center gap-2 mb-1">
-                          <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`}></span>
-                          <span class="text-white font-mono text-sm font-semibold">{proj.file}</span>
-                        </div>
-                        <p class="text-gray-500 font-mono text-xs mb-2">
-                          <span class="text-yellow-500">DATE:</span> {proj.date}
-                        </p>
-                        <p class="text-gray-400 text-xs leading-relaxed line-clamp-3">{proj.description}</p>
-                      </div>
-                      <div class="space-y-2">
-                        <div class="flex flex-wrap gap-1">
-                          {proj.technologies.map((tech) => (
-                            <span class={`${techMapSmall[getTechColor(tech)]} text-white px-2 py-0.5 rounded-full text-xs opacity-75`}>{tech}</span>
-                          ))}
-                        </div>
-                        <div class="flex flex-wrap gap-1.5">
-                          {proj.links.github          && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-                          {proj.links.githubBackend   && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-                          {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={abtn}>./raspberry 🍓</a>}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-
+          <!-- Badge fecha -->
+          <div class="absolute top-2 right-2 bg-black/70 backdrop-blur-sm font-mono text-xs text-yellow-400 px-2 py-0.5 rounded border border-yellow-500/30">
+            {proj.date}
           </div>
         </div>
+
+        <!-- Info -->
+        <div class="flex flex-col flex-1 p-5 gap-4">
+          <div>
+            <div class="flex items-center gap-2 mb-2">
+              <span class={`w-2 h-2 ${c.dot} rounded-full animate-pulse`}></span>
+              <span class="text-white font-mono text-sm font-bold">{proj.file}</span>
+              <span class="ml-auto text-xs font-mono px-2 py-0.5 rounded border border-gray-600 text-gray-500">académico</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">{proj.description}</p>
+          </div>
+
+          {proj.highlights && proj.highlights.length > 0 && (
+            <ul class="space-y-1">
+              {proj.highlights.map((h) => (
+                <li class="flex items-start gap-2 text-xs text-gray-400">
+                  <span class={`${c.text} mt-0.5 flex-shrink-0`}>▸</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          <div class="flex flex-wrap gap-1 mt-auto">
+            {proj.technologies.map((tech) => (
+              <span class={`${techMapSmall[getTechColor(tech)]} text-white px-2 py-0.5 rounded-full text-xs`}>{tech}</span>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap gap-2 pt-1 border-t border-gray-700">
+            {proj.links.github          && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+            {proj.links.githubBackend   && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+            {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={abtn}>./raspberry 🍓</a>}
+          </div>
+        </div>
+      </div>
+    );
+  })}
+</div>
 
       </div>
     </div>
@@ -573,6 +617,28 @@ const filterLabels: Record<string, string> = {
 </div>
 
 <script>
+  // ── Carousels académicos ───────────────────────────────────────
+document.querySelectorAll('[id^="ac-carousel-"]').forEach(carousel => {
+  const id = carousel.id;
+  let currentIndex = 0;
+  const slides = carousel.children.length;
+  if (slides <= 1) return;
+
+  const dots    = document.querySelectorAll(`[data-ac-dot="${id}"]`);
+  const prevBtn = document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-prev`);
+  const nextBtn = document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-next`);
+
+  const update = () => {
+    (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((d, i) => {
+      d.classList.toggle('bg-white', i === currentIndex);
+      d.classList.toggle('bg-white/40', i !== currentIndex);
+    });
+  };
+
+  nextBtn?.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides; update(); });
+  prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
+});
   document.addEventListener('DOMContentLoaded', () => {
 
     // ── Carousels ──────────────────────────────────────────────────────
