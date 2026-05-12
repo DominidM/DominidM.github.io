@@ -1,85 +1,104 @@
-	---
-	import BaseLayout from "../layouts/BaseLayout.astro";
-	import heroImg from '../assets/images/heroImg.png';
-	import TechCarousel from "../components/common/TechCarousel.astro";
-	---
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import heroImg from "../assets/images/heroImg.png";
+import TechCarousel from "../components/common/TechCarousel.astro";
+---
 
-	<BaseLayout>
+<BaseLayout>
+  <section
+    class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  >
+<!-- Imagen de fondo -->
+<div class="absolute inset-0 z-0">
+  <img
+    src={"https://res.cloudinary.com/dxuk9bogw/image/upload/v1778606651/Dise%C3%B1o_sin_t%C3%ADtulo_7_yjor13.png"}
+    alt="Dominid Muñoz"
+    class="w-full h-full object-cover object-center"
+  />
+</div>
 
-	<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Overlay con degradado -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70">
+    </div>
 
-		<!-- Imagen de fondo -->
-		<div class="absolute inset-0 z-0 flex items-center justify-center">
-			<img
-				src={heroImg.src}
-				alt="Dominid Muñoz"
-				class="w-full h-full object-cover md:w-[720px] md:h-[920px] md:object-contain"
-			/>
-		</div>
+    <!-- Contenido -->
+    <div
+      class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20"
+    >
+      <p
+        class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90"
+      >
+        Hola, mi nombre es
+      </p>
 
-		<!-- Overlay con degradado -->
-		<div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+      <h1
+        class="font-body typing-animation text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight"
+      >
+        <span class="font-italiana">Dominid Muñoz Eslava</span>
+      </h1>
 
-		<!-- Contenido -->
-		<div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20">
+      <h2
+        class="text-lg sm:text-xl md:text-3xl font-light mb-6 md:mb-8 text-gray-200"
+      >
+        Systems Engineer
+      </h2>
 
-			<p class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90">
-				Hola, mi nombre es
-			</p>
+      <!-- Redes con mejor hover -->
+      <div class="mt-6 md:mt-8">
+        <div
+          class="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-4 md:gap-6 max-w-lg mx-auto"
+        >
+          <a
+            href="https://github.com/DominidM"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-white/20 hover:border-white/40 backdrop-blur-sm bg-white/5 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
+          >
+            <span
+              class="relative z-10 font-medium text-sm sm:text-base text-white"
+              >GitHub</span
+            >
+          </a>
 
-			<h1 class="font-body typing-animation text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
-				<span class="font-italiana">Dominid Muñoz</span>
-			</h1>
+          <a
+            href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-blue-400/30 hover:border-blue-400/60 backdrop-blur-sm bg-blue-500/10 hover:bg-blue-500/20 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
+          >
+            <span
+              class="relative z-10 font-medium text-sm sm:text-base text-white"
+              >LinkedIn</span
+            >
+          </a>
 
-			<h2 class="text-lg sm:text-xl md:text-3xl font-light mb-6 md:mb-8 text-gray-200">
-				Systems Engineer 
-			</h2>
+          <a
+            href="https://www.instagram.com/not_dominid/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-pink-400/30 hover:border-pink-400/60 backdrop-blur-sm bg-pink-500/10 hover:bg-pink-500/20 hover: scale-105 hover:shadow-lg hover:shadow-pink-500/20"
+          >
+            <span
+              class="relative z-10 font-medium text-sm sm:text-base text-white"
+              >Instagram</span
+            >
+          </a>
 
-			<!-- Redes con mejor hover -->
-			<div class="mt-6 md:mt-8">
-				<div class="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-4 md:gap-6 max-w-lg mx-auto">
+          <a
+            href="https://www.instagram.com/solvegrades.com_/"
+            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-green-400/30 hover:border-green-400/60 backdrop-blur-sm bg-green-500/10 hover:bg-green-500/20 hover: scale-105 hover:shadow-lg hover:shadow-green-500/20"
+          >
+            <span
+              class="relative z-10 font-medium text-sm sm: text-base text-white"
+              >Startup</span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-					<a 
-						href="https://github.com/DominidM" 
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-white/20 hover:border-white/40 backdrop-blur-sm bg-white/5 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
-					>
-						<span class="relative z-10 font-medium text-sm sm:text-base text-white">GitHub</span>
-					</a>
-
-					<a 
-						href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/" 
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-blue-400/30 hover:border-blue-400/60 backdrop-blur-sm bg-blue-500/10 hover:bg-blue-500/20 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
-					>
-						<span class="relative z-10 font-medium text-sm sm:text-base text-white">LinkedIn</span>
-					</a>
-
-					<a 
-						href="https://www.instagram.com/not_dominid/" 
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-pink-400/30 hover:border-pink-400/60 backdrop-blur-sm bg-pink-500/10 hover:bg-pink-500/20 hover: scale-105 hover:shadow-lg hover:shadow-pink-500/20"
-					>
-						<span class="relative z-10 font-medium text-sm sm:text-base text-white">Instagram</span>
-					</a>
-
-					<a 
-						href="https://www.instagram.com/solvegrades.com_/"
-						class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-green-400/30 hover:border-green-400/60 backdrop-blur-sm bg-green-500/10 hover:bg-green-500/20 hover: scale-105 hover:shadow-lg hover:shadow-green-500/20"
-					>
-						<span class="relative z-10 font-medium text-sm sm: text-base text-white">Startup</span>
-					</a>
-				</div>
-			</div>
-
-		</div>
-	</section>
-
-	<div class="mt-8 md: mt-12">
-		<TechCarousel />
-	</div>
-
-	</BaseLayout>
+  <div class="mt-8 md: mt-12">
+    <TechCarousel />
+  </div>
+</BaseLayout>

@@ -30,8 +30,36 @@ interface Project {
 }
 
 const projects: Project[] = [
+{
+  id: 1,
+  name: 'Barbería Zona Fade — Landing & Reservas',
+  file: 'ZonaFade-Landing-Reservas',
+  color: 'blue',
+  category: 'landing',
+  client: 'Barbería Zona Fade',
+  ruc: '',
+  date: 'Mayo 2026',
+  description: 'Landing page con sistema de reservas online y catálogo de servicios para barbería. Permite a los clientes visualizar servicios, disponibilidad en tiempo real y agendar citas directamente desde la web.',
+  technologies: ['Next.js', 'React', 'Supabase', 'Tailwind CSS'],
+  links: {
+  },
+  highlights: [
+    'Landing page con diseño moderno orientado a conversión',
+    'Catálogo de servicios con precios y duración',
+    'Sistema de reservas con selección de barbero y horario',
+    'Disponibilidad en tiempo real con Supabase Realtime',
+    'Confirmación de cita por WhatsApp o correo',
+    'Panel para gestión de turnos y agenda del barbero',
+  ],
+    images: [
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607112/aaeacb24-6c1a-49ef-a258-d1f4269dc54d.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607169/e78bd93f-618f-49c9-9728-5c8d5634d71d.png',
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607245/64faec31-8389-4d41-82da-0d176f5bda90.png',
+      "https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607281/38300989-f74e-465d-a9a5-675cdb46db19.png",
+    ],
+  },
   {
-    id: 1,
+    id: 2,
     name: 'MKapu Import — E-commerce',
     file: 'MKapu-Import-Ecommerce',
     color: 'purple',
@@ -43,7 +71,7 @@ const projects: Project[] = [
     technologies: ['Next.js', 'React', 'Cloudinary', 'REST API', 'WhatsApp API'],
     links: {
       social: 'https://www.tiktok.com/@mkapu.import',
-      live: 'https://m-kapu-import-ecomerce-front.vercel.app/',
+      live: 'https://mkapuecomercefront.solvegrades.workers.dev',
     },
     highlights: [
       'Catálogo con filtros por categoría, precio y disponibilidad',
@@ -60,7 +88,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     name: 'Brostr3s — ERP Pollería',
     file: 'Brostr3s-Polleria-ERP',
     color: 'orange',
@@ -87,7 +115,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     name: 'MKapu Import — ERP',
     file: 'MKapu-Import-ERP',
     color: 'purple',
@@ -97,7 +125,7 @@ const projects: Project[] = [
     date: 'Marzo 2026',
     description: 'ERP empresarial completo para empresa importadora con operaciones en Lima. Cubre el ciclo completo de negocio: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Arquitectura de microservicios hexagonal con NestJS, comunicación en tiempo real vía WebSockets, generación de comprobantes PDF, envío automatizado por WhatsApp y correo, y control de caja con reportes térmicos.',
     technologies: ['Angular 21', 'NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'Docker', 'DDD / Hexagonal', 'REST API', 'WhatsApp API', 'PrimeNG'],
-    links: { demo: 'video-demo.mp4', social: 'https://www.tiktok.com/@mkapu.import' },
+    links: {  social: 'https://www.tiktok.com/@mkapu.import' },
     highlights: [
       'Cotizaciones con envío PDF por WhatsApp y email',
       'Ventas con comprobantes electrónicos (boleta/factura)',
@@ -116,7 +144,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 4,
+    id: 5,
     name: 'Sistema de Asistencia de Eventos',
     file: 'Sistema-Asistencia-Wiener',
     color: 'purple',
@@ -135,7 +163,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 5,
+    id: 6,
     name: 'Policlínico Autovías Seguras',
     file: 'Policlinico-Autovias-LandingPage',
     color: 'green',
@@ -154,7 +182,7 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria-WHC-Ecommerce',
     color: 'cyan',
@@ -164,7 +192,7 @@ const projects: Project[] = [
     date: 'Junio 2025',
     description: 'Tienda online completa para venta de productos de gasfitería. Incluye diseño UI/UX personalizado, APIs REST con operaciones CRUD completas y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
     technologies: ['React', 'Vite', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
-    links: { demo: 'video-demo.mp4', live: 'https://ecommerce-whc-frontend.vercel.app/' },
+    links: {  },
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846030/9aa5bccd-bf6d-4638-8216-7530348e1fb9.png',
@@ -174,11 +202,11 @@ const projects: Project[] = [
     ],
   },
   {
-    id: 7,
+    id: 8,
     name: 'Codop-AdminPanel-ERP',
     file: 'Codop-ERP-AdminPanel',
     color: 'orange',
-    category: 'panel',
+    category: 'erp',
     client: 'Codop',
     company: 'Apoyo como desarrollador Freelance',
     date: 'Agosto 2024',
