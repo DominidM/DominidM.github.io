@@ -2,84 +2,94 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 interface ProjectLinks {
-  live?:            string;
-  demo?:            string;
-  social?:          string;
-  github?:          string;
-  githubBackend?:   string;
+  live?: string;
+  demo?: string;
+  social?: string;
+  github?: string;
+  githubBackend?: string;
   githubRaspberry?: string;
 }
 
 type ProjectCategory = 'erp' | 'ecommerce' | 'landing' | 'panel';
 
 interface Project {
-  id:           number;
-  name:         string;
-  file:         string;
-  color:        string;
-  category:     ProjectCategory;
-  client:       string;
-  ruc?:         string | null;
-  company?:     string;
-  date:         string;
-  description:  string;
+  id: number;
+  name: string;
+  file: string;
+  color: string;
+  category: ProjectCategory;
+  client: string;
+  ruc?: string;
+  company?: string;
+  date: string;
+  description: string;
   technologies: string[];
-  links:        ProjectLinks;
-  highlights?:  string[];
-  images:       string[];
+  links: ProjectLinks;
+  highlights?: string[];
+  images: string[];
+}
+
+interface AcademicProject {
+  id: string;
+  name: string;
+  file: string;
+  color: string;
+  date: string;
+  description: string;
+  technologies: string[];
+  links: ProjectLinks;
+  images: string[];
+  highlights?: string[];
 }
 
 const projects: Project[] = [
-{
-  id: 1,
-  name: 'Barbería Zona Fade — Landing & Reservas',
-  file: 'ZonaFade-Landing-Reservas',
-  color: 'blue',
-  category: 'landing',
-  client: 'Barbería Zona Fade',
-  ruc: '',
-  date: 'Mayo 2026',
-  description: 'Landing page con sistema de reservas online y catálogo de servicios para barbería. Permite a los clientes visualizar servicios, disponibilidad en tiempo real y agendar citas directamente desde la web.',
-  technologies: ['Next.js', 'React', 'Supabase', 'Tailwind CSS'],
-  links: {
-    live: 'https://sgaesthetix.solvegrades.workers.dev/home',
-  },
-  highlights: [
-    'Landing page con diseño moderno orientado a conversión',
-    'Catálogo de servicios con precios y duración',
-    'Sistema de reservas con selección de barbero y horario',
-    'Disponibilidad en tiempo real con Supabase Realtime',
-    'Confirmación de cita por WhatsApp o correo',
-    'Panel para gestión de turnos y agenda del barbero',
-  ],
+  {
+    id: 1,
+    name: 'Barbería Zona Fade — Landing & Reservas',
+    file: 'ZonaFade-Landing-Reservas',
+    color: 'blue',
+    category: 'landing',
+    client: 'Barbería Zona Fade',
+    date: 'Mayo 2026',
+    description: 'Landing page con sistema de reservas online y catálogo de servicios para barbería. Permite a los clientes visualizar servicios, disponibilidad en tiempo real y agendar citas directamente desde la web.',
+    technologies: ['Next.js', 'React', 'Supabase', 'Tailwind CSS'],
+    links: { live: 'https://sgaesthetix.solvegrades.workers.dev/home' ,
+      social: 'https://www.instagram.com/zonafade_barber/'
+    },
+    highlights: [
+      'Landing page con diseño moderno orientado a conversión',
+      'Catálogo de servicios con precios y duración',
+      'Sistema de reservas con selección de barbero y horario',
+      'Disponibilidad en tiempo real con Supabase Realtime',
+      'Confirmación de cita por WhatsApp o correo',
+      'Panel para gestión de turnos y agenda del barbero',
+    ],
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607112/aaeacb24-6c1a-49ef-a258-d1f4269dc54d.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607169/e78bd93f-618f-49c9-9728-5c8d5634d71d.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607245/64faec31-8389-4d41-82da-0d176f5bda90.png',
-      "https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607281/38300989-f74e-465d-a9a5-675cdb46db19.png",
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607281/38300989-f74e-465d-a9a5-675cdb46db19.png',
     ],
   },
-{
-  id: 2,
-  name: 'Vitaminas',
-  file: 'Vitaminas-Landing-Reservas',
-  color: 'blue',
-  category: 'landing',
-  client: 'Barbería Zona Fade',
-  ruc: '',
-  date: 'Mayo 2026',
-  description: 'Landing page con sistema de reservas online y catálogo de servicios para barbería. Permite a los clientes visualizar servicios, disponibilidad en tiempo real y agendar citas directamente desde la web.',
-  technologies: ['Angualar', 'Supabase', 'Sass', 'Tailwind CSS'],
-  links: {
-  },
-  highlights: [
-    'Landing page con diseño moderno orientado a conversión',
-    'Catálogo de servicios con precios y duración',
-    'Sistema de reservas con selección de barbero y horario',
-    'Disponibilidad en tiempo real con Supabase Realtime',
-    'Confirmación de cita por WhatsApp o correo',
-    'Panel para gestión de turnos y agenda del barbero',
-  ],
+  {
+    id: 2,
+    name: 'Vitaminas',
+    file: 'Vitaminas-Landing-Reservas',
+    color: 'blue',
+    category: 'landing',
+    client: 'Barbería Zona Fade',
+    date: 'Mayo 2026',
+    description: 'Landing page con sistema de reservas online y catálogo de servicios para barbería. Permite a los clientes visualizar servicios, disponibilidad en tiempo real y agendar citas directamente desde la web.',
+    technologies: ['Angular', 'Supabase', 'Sass', 'Tailwind CSS'],
+    links: {},
+    highlights: [
+      'Landing page con diseño moderno orientado a conversión',
+      'Catálogo de servicios con precios y duración',
+      'Sistema de reservas con selección de barbero y horario',
+      'Disponibilidad en tiempo real con Supabase Realtime',
+      'Confirmación de cita por WhatsApp o correo',
+      'Panel para gestión de turnos y agenda del barbero',
+    ],
     images: [
       'https://res.cloudinary.com/do6xpy7gq/image/upload/v1782649868/f55ff6d5-0030-4fd4-ae9c-3d6510911bf3.png',
     ],
@@ -108,12 +118,13 @@ const projects: Project[] = [
       'Diseño responsive optimizado para mobile',
     ],
     images: [
-      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',        'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837217/eaef688f-7da6-4c93-b19d-c01261f42e3a.png',
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837217/eaef688f-7da6-4c93-b19d-c01261f42e3a.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776235990/dc78410a-7c0e-4318-9fce-be0464b9cfc6.png',
-      "https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837363/63b7e8d8-6603-44be-86c7-7b43ece8dd70.png",
-      "https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837454/0a7df46e-ba79-4c02-9362-d4a6461530c0.png",
-      "https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837457/2d2c1d2f-5931-400d-a794-40d3d96b0c10.png",
-      "https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837499/ed263afa-43f9-4863-b65f-15ec599e06d3.png",
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837363/63b7e8d8-6603-44be-86c7-7b43ece8dd70.png',
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837454/0a7df46e-ba79-4c02-9362-d4a6461530c0.png',
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837457/2d2c1d2f-5931-400d-a794-40d3d96b0c10.png',
+      'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837499/ed263afa-43f9-4863-b65f-15ec599e06d3.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767836605/474716814_581641201299027_4444346315622797816_n_karlgu.png',
     ],
   },
@@ -124,7 +135,6 @@ const projects: Project[] = [
     color: 'orange',
     category: 'erp',
     client: 'Brostr3s Pollería',
-    ruc: null,
     date: 'Abril 2026',
     description: 'ERP completo para gestión de pollería con módulos de pedidos, cocina en tiempo real, caja, inventario y reportes. Interfaz optimizada para operación rápida en caja y seguimiento de órdenes por estado. Arquitectura full-stack con comunicación en tiempo real vía WebSockets.',
     technologies: ['Next.js', 'React', 'Nest.js', 'TypeScript', 'MySQL', 'Docker', 'PrimeNG', 'REST API'],
@@ -155,7 +165,7 @@ const projects: Project[] = [
     date: 'Marzo 2026',
     description: 'ERP empresarial completo para empresa importadora con operaciones en Lima. Cubre el ciclo completo de negocio: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Arquitectura de microservicios hexagonal con NestJS, comunicación en tiempo real vía WebSockets, generación de comprobantes PDF, envío automatizado por WhatsApp y correo, y control de caja con reportes térmicos.',
     technologies: ['Angular 21', 'NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'Docker', 'DDD / Hexagonal', 'REST API', 'WhatsApp API', 'PrimeNG'],
-    links: {  social: 'https://www.tiktok.com/@mkapu.import' },
+    links: { social: 'https://www.tiktok.com/@mkapu.import' },
     highlights: [
       'Cotizaciones con envío PDF por WhatsApp y email',
       'Ventas con comprobantes electrónicos (boleta/factura)',
@@ -180,7 +190,6 @@ const projects: Project[] = [
     color: 'purple',
     category: 'panel',
     client: 'Universidad Norbert Wiener',
-    ruc: null,
     date: 'Febrero 2026',
     description: 'Plataforma web institucional para control y gestión de asistencia en eventos del personal universitario. Registro de usuarios, validación de accesos, control en tiempo real y reportes automatizados. Desplegado en Linux con Nginx como proxy inverso.',
     technologies: ['PHP', 'MySQL', 'Nginx', 'API REST', 'OpenResty', 'HTML5', 'CSS3', 'JavaScript'],
@@ -192,7 +201,7 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1770615819/4eb36a9f-f5f4-4cdf-8ea1-d1a015dd46df.png',
     ],
   },
-    {
+  {
     id: 7,
     name: 'E-commerce Gasfitería',
     file: 'Gasfiteria-WHC-Ecommerce',
@@ -203,7 +212,8 @@ const projects: Project[] = [
     date: 'Septiembre 2025',
     description: 'Tienda online completa para venta de productos de gasfitería. Incluye diseño UI/UX personalizado, APIs REST con operaciones CRUD completas y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
     technologies: ['React', 'Vite', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
-    links: {  },
+    links: {
+      live: "https://whc-ecommerce.solvegrades.workers.dev/inicio"},
     images: [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846030/9aa5bccd-bf6d-4638-8216-7530348e1fb9.png',
@@ -231,7 +241,6 @@ const projects: Project[] = [
       'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773150262/Captura_de_pantalla_2026-03-10_083818_gctnd2.png',
     ],
   },
-
   {
     id: 9,
     name: 'Codop-AdminPanel-ERP',
@@ -251,19 +260,6 @@ const projects: Project[] = [
     ],
   },
 ];
-
-interface AcademicProject {
-  id:           string;
-  name:         string;
-  file:         string;
-  color:        string;
-  date:         string;
-  description:  string;
-  technologies: string[];
-  links:        ProjectLinks;
-  images:       string[];  // ← array en vez de image singular
-  highlights?:  string[];
-}
 
 const academic: AcademicProject[] = [
   {
@@ -313,12 +309,15 @@ const academic: AcademicProject[] = [
     ],
   },
 ];
-// ── Conteos por categoría para los badges ──────────────────────────────────
-const counts: Record<string, number> = { all: projects.length, erp: 0, ecommerce: 0, landing: 0, panel: 0 };
-projects.forEach(p => { counts[p.category] = (counts[p.category] ?? 0) + 1; });
 
-// ── Color helpers ──────────────────────────────────────────────────────────
-const colorMap = {
+const categories = ['all', 'erp', 'ecommerce', 'landing', 'panel'] as const;
+
+const counts: Record<string, number> = { all: projects.length };
+for (const p of projects) {
+  counts[p.category] = (counts[p.category] ?? 0) + 1;
+}
+
+const colorMap: Record<string, { dot: string; border: string; text: string }> = {
   purple: { dot: 'bg-purple-400', border: 'border-purple-400', text: 'text-purple-400' },
   green:  { dot: 'bg-green-400',  border: 'border-green-400',  text: 'text-green-400'  },
   blue:   { dot: 'bg-blue-400',   border: 'border-blue-400',   text: 'text-blue-400'   },
@@ -327,83 +326,76 @@ const colorMap = {
   red:    { dot: 'bg-red-400',    border: 'border-red-400',    text: 'text-red-400'    },
 };
 
-const techColorMap: Record<string, string> = {
-  red:    'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  blue:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  gray:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  green:  'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  cyan:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  purple: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  orange: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  pink:   'bg-gray-900 border border-gray-600 hover:border-gray-400',
-  yellow: 'bg-gray-900 border border-gray-600 hover:border-gray-400',
+const acColorMap: Record<string, { dot: string; border: string; text: string; glow: string }> = {
+  blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400', glow: 'hover:border-blue-500/50' },
+  red:  { dot: 'bg-red-400',  border: 'border-red-400',  text: 'text-red-400',  glow: 'hover:border-red-500/50'  },
 };
 
-const techMapSmall: Record<string, string> = {
-  red:    'bg-gray-900 border border-gray-700',
-  blue:   'bg-gray-900 border border-gray-700',
-  gray:   'bg-gray-900 border border-gray-700',
-  green:  'bg-gray-900 border border-gray-700',
-  cyan:   'bg-gray-900 border border-gray-700',
-  purple: 'bg-gray-900 border border-gray-700',
-  orange: 'bg-gray-900 border border-gray-700',
-  pink:   'bg-gray-900 border border-gray-700',
-  yellow: 'bg-gray-900 border border-gray-700',
-};
+const techBg = 'bg-gray-900 border border-gray-600 hover:border-gray-400';
+const techBgSmall = 'bg-gray-900 border border-gray-700';
+
+const techColorRules: [string, string][] = [
+  ['angular', 'red'], ['raspberry', 'red'], ['thymeleaf', 'red'], ['javamail', 'red'],
+  ['spring', 'green'], ['node', 'green'], ['mongodb', 'green'], ['django', 'green'], ['iot', 'green'],
+  ['api', 'blue'], ['mysql', 'blue'], ['azure', 'blue'], ['postgresql', 'blue'], ['ddd', 'blue'], ['websockets', 'blue'], ['docker', 'blue'],
+  ['react', 'cyan'], ['apollo', 'cyan'], ['nestjs', 'cyan'], ['next', 'cyan'],
+  ['vite', 'purple'], ['nlp', 'purple'], ['primeng', 'purple'], ['typescript', 'purple'], ['cloudinary', 'purple'],
+  ['express', 'gray'],
+  ['graphql', 'pink'], ['ia', 'pink'], ['whatsapp', 'pink'],
+  ['python', 'yellow'],
+];
 
 const getTechColor = (tech: string): string => {
   const t = tech.toLowerCase();
-  if (t.includes('angular') || t.includes('raspberry') || t.includes('thymeleaf') || t.includes('javamail')) return 'red';
-  if (t.includes('spring') || t.includes('node') || t.includes('mongodb') || t.includes('django') || t.includes('iot')) return 'green';
-  if (t.includes('api') || t.includes('mysql') || t.includes('azure') || t.includes('postgresql') || t.includes('ddd') || t.includes('websockets') || t.includes('docker')) return 'blue';
-  if (t.includes('react') || t.includes('apollo') || t.includes('nestjs') || t.includes('next')) return 'cyan';
-  if (t.includes('vite') || t.includes('nlp') || t.includes('primeng') || t.includes('typescript') || t.includes('cloudinary')) return 'purple';
   if (t.includes('java') && !t.includes('javascript') && !t.includes('javamail')) return 'orange';
-  if (t.includes('express')) return 'gray';
-  if (t.includes('graphql') || t.includes('ia') || t.includes('whatsapp')) return 'pink';
-  if (t.includes('python')) return 'yellow';
-  return 'gray';
+  const rule = techColorRules.find(([kw]) => t.includes(kw));
+  return rule ? rule[1] : 'gray';
 };
 
-const btn  = "bg-gray-900 hover:bg-gray-700 border border-gray-500 hover:border-gray-300 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-all text-center text-sm sm:text-base inline-flex items-center justify-center gap-2";
-const abtn = "bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg font-mono transition-all text-xs inline-flex items-center justify-center gap-1.5";
-
-// Etiquetas legibles para los filtros
 const filterLabels: Record<string, string> = {
-  all:       'all',
-  erp:       'ERP',
-  ecommerce: 'e-commerce',
-  landing:   'landing',
-  panel:     'panel',
+  all: 'all', erp: 'ERP', ecommerce: 'e-commerce', landing: 'landing', panel: 'panel',
 };
+
+const btn = 'bg-gray-900 hover:bg-gray-700 border border-gray-500 hover:border-gray-300 text-white px-4 sm:px-6 py-2 rounded-lg font-mono transition-all text-center text-sm sm:text-base inline-flex items-center justify-center gap-2';
+const abtn = 'bg-gray-900 hover:bg-gray-700 border border-gray-600 hover:border-gray-400 text-gray-300 hover:text-white px-3 py-1.5 rounded-lg font-mono transition-all text-xs inline-flex items-center justify-center gap-1.5';
+
+const githubSvg = `<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`;
+const githubSvgSmall = `<svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>`;
 ---
 
 <BaseLayout>
   <main class="flex-grow w-full">
-    <div class="bg-gray-900 min-h-screen pt-4 sm:pt-8">
+    <div class="bg-[#1A1A24] min-h-screen pt-4 sm:pt-8">
       <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
         <!-- ══ Terminal Header ══════════════════════════════════════════ -->
-        <div class="bg-gray-800 rounded-t-lg border border-gray-700">
-          <div class="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 border-b border-gray-700">
-            <div class="flex items-center space-x-1 sm:space-x-2">
-              <div class="flex space-x-1 sm:space-x-2">
-                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full"></div>
-                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full"></div>
-                <div class="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></div>
+        <div class="bg-[#2C2C2C] rounded-t-xl border border-[#3D3D3D] shadow-lg shadow-black/20">
+          <div class="flex items-center justify-between px-4 sm:px-5 py-2 sm:py-2.5 border-b border-[#3D3D3D]">
+            <div class="flex items-center gap-2 sm:gap-3">
+              <div class="flex gap-1.5 sm:gap-2">
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#E95420] flex items-center justify-center text-black text-[6px] sm:text-[7px] font-bold opacity-80">✕</div>
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#F5C211] flex items-center justify-center text-black text-[6px] sm:text-[7px] font-bold opacity-80">−</div>
+                <div class="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-[#0D942C] flex items-center justify-center text-black text-[6px] sm:text-[7px] font-bold opacity-80">□</div>
               </div>
-              <span class="text-gray-300 font-mono text-xs sm:text-sm ml-2 sm:ml-4">portfolio-projects.sh</span>
+              <span class="text-gray-300 font-mono text-xs sm:text-sm ml-1 sm:ml-2 tracking-wide">portfolio-projects.sh</span>
             </div>
-            <div class="text-gray-500 text-xs font-mono hidden sm:block">~/dominid/projects/</div>
+            <div class="flex items-center gap-3">
+              <span class="text-gray-500 text-[10px] font-mono hidden sm:block">~/dominid/projects/</span>
+              <span class="w-5 h-5 rounded bg-[#3D3D3D] flex items-center justify-center text-[10px] text-gray-500 font-mono hover:text-gray-300 transition-colors cursor-pointer">✕</span>
+            </div>
           </div>
         </div>
 
         <!-- ══ Terminal Content ════════════════════════════════════════ -->
-        <div class="bg-gray-900 border-x border-b border-gray-700 rounded-b-lg p-4 sm:p-6 font-mono">
-          <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base">
-            <span class="text-blue-400">dominid@portfolio:</span>
-            <span class="text-yellow-400">~/projects$</span>
-            <span class="text-white"> ls -la --projects</span>
+        <div class="bg-[#1A1A24] border-x border-b border-[#3D3D3D] rounded-b-xl p-5 sm:p-8 font-mono">
+          <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base flex items-center flex-wrap gap-x-1">
+            <span class="text-[#E95420]">dominid@portfolio</span>
+            <span class="text-gray-500">:</span>
+            <span class="text-yellow-400">~/projects</span>
+            <span class="text-gray-500">$</span>
+            <span class="text-white">ls</span>
+            <span class="text-cyan-400">-la</span>
+            <span class="text-purple-400">--projects</span>
           </div>
           <div class="text-center mb-6 sm:mb-8">
             <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 font-italiana">
@@ -416,41 +408,45 @@ const filterLabels: Record<string, string> = {
         </div>
 
         <!-- ══ Barra de filtros ════════════════════════════════════════ -->
-        <div class="bg-gray-900 px-4 sm:px-6 pt-8 pb-2">
+        <div class="bg-[#1A1A24] px-4 sm:px-6 pt-8 pb-2">
           <div class="max-w-7xl mx-auto">
-            <div class="flex flex-wrap items-center gap-2 font-mono">
-              <span class="text-gray-500 text-xs mr-1 hidden sm:inline">$ filter --type</span>
-              {Object.entries(filterLabels).map(([cat, label]) => (
-                <button
-                  class={`filter-tab font-mono text-xs px-3 py-1.5 rounded-lg border transition-all
-                    ${cat === 'all'
-                      ? 'bg-gray-700 border-gray-400 text-white'
-                      : 'bg-gray-900 border-gray-600 text-gray-400 hover:border-gray-400 hover:text-white'
+            <div class="bg-[#2C2C2C]/80 rounded-xl p-3 sm:p-4 border border-[#3D3D3D]">
+              <div class="flex flex-wrap items-center gap-2 font-mono">
+                <span class="text-gray-500 text-xs mr-1 hidden sm:inline-flex items-center">
+                  <span class="text-green-400">$</span>
+                  <span class="ml-1.5">filter</span>
+                  <span class="text-[#E95420] mx-1">--type</span>
+                </span>
+                {categories.map((cat) => (
+                  <button
+                    class={`filter-tab font-mono text-xs px-3 py-1.5 rounded-lg border transition-all duration-200 ${
+                      cat === 'all'
+                        ? 'bg-[#E95420] border-[#E95420] text-white shadow-sm'
+                        : 'bg-[#1A1A24] border-[#4D4D4D] text-gray-400 hover:border-[#E95420] hover:text-[#E95420] hover:bg-[#2C2C2C]'
                     }`}
-                  data-filter={cat}
-                >
-                  {label}
-                  <span class="ml-1.5 text-gray-500 text-xs font-mono">
-                    ({counts[cat] ?? 0})
-                  </span>
-                </button>
-              ))}
+                    data-filter={cat}
+                  >
+                    {filterLabels[cat]}
+                    <span class="ml-1.5 text-gray-500 text-[10px] font-mono">
+                      {counts[cat] ?? 0}
+                    </span>
+                  </button>
+                ))}
+              </div>
             </div>
-            <!-- Línea separadora -->
-            <div class="mt-4 h-px bg-gray-700"></div>
           </div>
         </div>
 
         <!-- ══ PROYECTOS PROFESIONALES ══════════════════════════════════ -->
-        <div class="bg-gray-900 px-4 sm:px-6 pb-4 pt-8 sm:pb-6">
+        <div class="bg-[#1A1A24] px-4 sm:px-6 pb-4 pt-8 sm:pb-6">
           <div class="max-w-7xl mx-auto space-y-12" id="projects-list">
 
             {projects.map((project, index) => {
-              const colors = colorMap[project.color as keyof typeof colorMap];
+              const colors = colorMap[project.color];
 
               return (
                 <div
-                  class="project-card bg-gray-800 rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-500 transition-all"
+                  class={`project-card bg-gray-800/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-400 hover:shadow-xl hover:shadow-${project.color}-500/10 hover:scale-[1.01] transition-all duration-300`}
                   data-category={project.category}
                 >
                   <div class={`grid lg:grid-cols-2 gap-6 sm:gap-8 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}`}>
@@ -460,62 +456,67 @@ const filterLabels: Record<string, string> = {
                       <div class="flex items-center space-x-2 sm:space-x-3">
                         <span class={`w-2 h-2 sm:w-3 sm:h-3 ${colors.dot} rounded-full animate-pulse`}></span>
                         <h2 class="text-lg sm:text-xl lg:text-2xl font-bold text-white font-mono">{project.file}</h2>
-                        <!-- Badge de categoría -->
-                        <span class="ml-auto text-xs font-mono px-2 py-0.5 rounded border border-gray-600 text-gray-500 uppercase tracking-wider">
+                        <span class={`ml-auto text-xs font-mono px-2.5 py-0.5 rounded-full border ${colors.border} ${colors.text} bg-opacity-10 uppercase tracking-wider text-[10px] font-semibold`}>
                           {project.category}
                         </span>
                       </div>
 
-                      <div class="space-y-3 sm:space-y-4">
-                        <div class={`bg-gray-700 rounded-lg p-3 sm:p-4 border-l-4 ${colors.border}`}>
-                          <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class={colors.text}>CLIENT:</span> {project.client}</p>
-                          {project.ruc    && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-cyan-400">RUC:</span> {project.ruc}</p>}
-                          {project.company && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-green-400">COMPANY:</span> {project.company}</p>}
-                          <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-yellow-400">DATE:</span> {project.date}</p>
+                      <div class="space-y-4 sm:space-y-5">
+                        <div class={`bg-gray-800/80 rounded-xl p-3.5 sm:p-4 border border-gray-700/50`}>
+                          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class={colors.text}>CLIENT:</span> {project.client}</p>
+                            {project.ruc && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-cyan-400">RUC:</span> {project.ruc}</p>}
+                            {project.company && <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-green-400">COMPANY:</span> {project.company}</p>}
+                            <p class="text-gray-300 text-xs sm:text-sm font-mono"><span class="text-yellow-400">DATE:</span> {project.date}</p>
+                          </div>
                         </div>
 
                         <p class="text-gray-300 leading-relaxed text-sm sm:text-base">{project.description}</p>
 
                         {project.highlights && project.highlights.length > 0 && (
-                          <ul class="space-y-1">
-                            {project.highlights.map((h) => (
-                              <li class="flex items-start gap-2 text-xs sm:text-sm text-gray-300">
-                                <span class={`${colors.text} mt-0.5 flex-shrink-0`}>▸</span>
-                                <span>{h}</span>
-                              </li>
-                            ))}
-                          </ul>
+                          <div class="bg-gray-900/50 rounded-xl p-4 border border-gray-700/30">
+                            <p class={`text-xs font-mono ${colors.text} mb-2`}>// highlights</p>
+                            <ul class="space-y-1.5">
+                              {project.highlights.map((h) => (
+                                <li class="flex items-start gap-2.5 text-xs sm:text-sm text-gray-300">
+                                  <span class={`${colors.text} mt-0.5 flex-shrink-0 text-lg leading-none`}>▸</span>
+                                  <span>{h}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
                         )}
 
-                        <div class="flex flex-wrap gap-1 sm:gap-2">
+                        <div class="flex flex-wrap gap-1.5 sm:gap-2">
                           {project.technologies.map((tech) => (
-                            <span class={`${techColorMap[getTechColor(tech)]} text-white px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-colors`}>{tech}</span>
+                            <span class={`${techBg} text-white px-2.5 sm:px-3 py-1 rounded-full text-xs sm:text-sm transition-all hover:scale-105 hover:border-gray-300`}>{tech}</span>
                           ))}
                         </div>
 
                         <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 flex-wrap">
-                          {project.links.live         && <a href={project.links.live}          target="_blank" rel="noopener noreferrer" class={btn}><span>./deploy --live</span><span>🚀</span></a>}
-                          {project.links.demo         && <button data-demo={project.links.demo} data-demo-title={project.name} class={`demo-btn ${btn}`}><span>./demo --video</span><span>▶</span></button>}
-                          {project.links.social       && <a href={project.links.social}         target="_blank" rel="noopener noreferrer" class={btn}><span>./social</span><span>📱</span></a>}
-                          {project.links.github       && <a href={project.links.github}         target="_blank" rel="noopener noreferrer" class={btn}><span>./frontend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-                          {project.links.githubBackend && <a href={project.links.githubBackend} target="_blank" rel="noopener noreferrer" class={btn}><span>./backend</span><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
+                          {project.links.live         && <a href={project.links.live}          target="_blank" rel="noopener noreferrer" class={`${btn} hover:scale-105 hover:shadow-lg`}><span>./deploy --live</span><span class="text-lg">🚀</span></a>}
+                          {project.links.demo         && <button data-demo={project.links.demo} data-demo-title={project.name} class={`demo-btn ${btn} hover:scale-105 hover:shadow-lg`}><span>./demo --video</span><span class="text-lg">▶</span></button>}
+                          {project.links.social       && <a href={project.links.social}         target="_blank" rel="noopener noreferrer" class={`${btn} hover:scale-105 hover:shadow-lg`}><span>./social</span><span class="text-lg">📱</span></a>}
+                          {project.links.github       && <a href={project.links.github}         target="_blank" rel="noopener noreferrer" class={`${btn} hover:scale-105 hover:shadow-lg`}><span>./frontend</span><span set:html={githubSvg}></span></a>}
+                          {project.links.githubBackend && <a href={project.links.githubBackend} target="_blank" rel="noopener noreferrer" class={`${btn} hover:scale-105 hover:shadow-lg`}><span>./backend</span><span set:html={githubSvg}></span></a>}
                         </div>
                       </div>
                     </div>
 
                     <!-- Carousel -->
                     <div class={`relative ${index % 2 === 0 ? 'lg:order-2 order-first' : 'lg:order-1 order-first'}`}>
-                      <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-900">
+                      <div class="aspect-video rounded-xl overflow-hidden border border-gray-600 bg-gray-900 shadow-lg shadow-black/30 group/img">
                         <div class="relative w-full h-full">
                           <div id={`carousel-${project.id}`} class="flex transition-transform duration-500 w-full h-full">
                             {project.images.map((img) => (
-                              <img src={img} alt={project.name} class="w-full h-full flex-shrink-0 object-contain bg-gray-900" loading="lazy" />
+                              <img src={img} alt={project.name} class="w-full h-full flex-shrink-0 object-cover bg-gray-900 group-hover/img:scale-105 transition-transform duration-700" loading="lazy" />
                             ))}
                           </div>
+                          <div class="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent pointer-events-none"></div>
                           {project.images.length > 1 && (
                             <>
-                              <button class="carousel-btn-prev absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors z-10" data-carousel={`carousel-${project.id}`} aria-label="Anterior">‹</button>
-                              <button class="carousel-btn-next absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1 sm:p-2 rounded-full transition-colors z-10" data-carousel={`carousel-${project.id}`} aria-label="Siguiente">›</button>
+                              <button class="carousel-btn-prev absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1.5 sm:p-2.5 rounded-full transition-all z-10 hover:scale-110 hover:shadow-lg" data-carousel={`carousel-${project.id}`} aria-label="Anterior">‹</button>
+                              <button class="carousel-btn-next absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white p-1.5 sm:p-2.5 rounded-full transition-all z-10 hover:scale-110 hover:shadow-lg" data-carousel={`carousel-${project.id}`} aria-label="Siguiente">›</button>
                             </>
                           )}
                         </div>
@@ -527,100 +528,99 @@ const filterLabels: Record<string, string> = {
               );
             })}
 
-            <!-- Mensaje cuando no hay resultados -->
             <div id="no-results" class="hidden text-center py-16 font-mono">
-              <p class="text-gray-500 text-sm">
-                <span class="text-red-400">ERROR:</span> no projects found for this filter
-              </p>
-              <p class="text-gray-600 text-xs mt-2">// intenta con otro tipo o selecciona "all"</p>
+              <div class="bg-gray-800/50 rounded-xl border border-gray-700/50 p-8 inline-block">
+                <div class="text-4xl mb-3 opacity-40">⚡</div>
+                <p class="text-gray-400 text-sm">
+                  <span class="text-red-400 font-semibold">ERROR:</span> no projects found for this filter
+                </p>
+                <p class="text-gray-600 text-xs mt-2">// intenta con otro tipo o selecciona "all"</p>
+              </div>
             </div>
 
           </div>
         </div>
 
         <!-- ══ PROYECTOS UNIVERSITARIOS ═════════════════════════════════ -->
-<div class="grid sm:grid-cols-2 gap-6">
-  {academic.map((proj) => {
-    const acColorMap = {
-      blue: { dot: 'bg-blue-400', border: 'border-blue-400', text: 'text-blue-400', glow: 'hover:border-blue-500/50' },
-      red:  { dot: 'bg-red-400',  border: 'border-red-400',  text: 'text-red-400',  glow: 'hover:border-red-500/50'  },
-    };
-    const c = acColorMap[proj.color as keyof typeof acColorMap];
+        <div class="grid sm:grid-cols-2 gap-6" id="academic-section">
+          {academic.map((proj) => {
+            const c = acColorMap[proj.color];
 
-    return (
-      <div class={`bg-gray-800/60 rounded-2xl border border-gray-700 ${c.glow} transition-all duration-300 overflow-hidden flex flex-col`}>
+            return (
+              <div class={`bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-gray-700 ${c.glow} hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col`}>
 
-        <!-- Carousel imagen -->
-        <div class="relative aspect-video bg-gray-900 overflow-hidden">
-          <div id={`ac-carousel-${proj.id}`} class="flex transition-transform duration-500 w-full h-full">
-            {proj.images.map((img) => (
-              <img src={img} alt={proj.name} class="w-full h-full flex-shrink-0 object-contain" loading="lazy" />
-            ))}
-          </div>
+                <div class="relative aspect-video bg-gray-900 overflow-hidden group/img">
+                  <div id={`ac-carousel-${proj.id}`} class="flex transition-transform duration-500 w-full h-full">
+                    {proj.images.map((img) => (
+                      <img src={img} alt={proj.name} class="w-full h-full flex-shrink-0 object-cover group-hover/img:scale-105 transition-transform duration-700" loading="lazy" />
+                    ))}
+                  </div>
 
-          {proj.images.length > 1 && (
-            <>
-              <button
-                class="ac-carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-7 h-7 rounded-full flex items-center justify-center transition-colors z-10 text-sm"
-                data-ac-carousel={`ac-carousel-${proj.id}`}
-              >‹</button>
-              <button
-                class="ac-carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-black/60 hover:bg-black/80 text-white w-7 h-7 rounded-full flex items-center justify-center transition-colors z-10 text-sm"
-                data-ac-carousel={`ac-carousel-${proj.id}`}
-              >›</button>
-              <!-- Dots -->
-              <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-                {proj.images.map((_, i) => (
-                  <div class={`ac-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-white' : 'bg-white/40'}`} data-ac-dot={`ac-carousel-${proj.id}`}></div>
-                ))}
+                  <div class="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent pointer-events-none"></div>
+
+                  {proj.images.length > 1 && (
+                    <>
+                      <button
+                        class="ac-carousel-prev absolute left-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all z-10 text-sm hover:scale-110"
+                        data-ac-carousel={`ac-carousel-${proj.id}`}
+                      >‹</button>
+                      <button
+                        class="ac-carousel-next absolute right-2 top-1/2 -translate-y-1/2 bg-gray-800/80 hover:bg-gray-700 text-white w-8 h-8 rounded-full flex items-center justify-center transition-all z-10 text-sm hover:scale-110"
+                        data-ac-carousel={`ac-carousel-${proj.id}`}
+                      >›</button>
+                      <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                        {proj.images.map((_, i) => (
+                          <div class={`ac-dot w-1.5 h-1.5 rounded-full transition-all ${i === 0 ? 'bg-white' : 'bg-white/40'}`} data-ac-dot={`ac-carousel-${proj.id}`}></div>
+                        ))}
+                      </div>
+                    </>
+                  )}
+
+                  <div class="absolute top-3 right-3 bg-black/70 backdrop-blur-sm font-mono text-xs text-yellow-400 px-2.5 py-1 rounded-lg border border-yellow-500/30">
+                    {proj.date}
+                  </div>
+                </div>
+
+                <div class="flex flex-col flex-1 p-5 gap-4">
+                  <div>
+                    <div class="flex items-center gap-2 mb-2">
+                      <span class={`w-2 h-2 ${c.dot} rounded-full animate-pulse`}></span>
+                      <span class="text-white font-mono text-sm font-bold">{proj.file}</span>
+                      <span class={`ml-auto text-xs font-mono px-2.5 py-0.5 rounded-full border ${c.border} ${c.text} uppercase tracking-wider text-[10px] font-semibold`}>académico</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">{proj.description}</p>
+                  </div>
+
+                  {proj.highlights && proj.highlights.length > 0 && (
+                    <div class="bg-gray-900/40 rounded-xl p-3.5 border border-gray-700/30">
+                      <p class={`text-xs font-mono ${c.text} mb-2 opacity-80`}>// highlights</p>
+                      <ul class="space-y-1.5">
+                        {proj.highlights.map((h) => (
+                          <li class="flex items-start gap-2 text-xs text-gray-400">
+                            <span class={`${c.text} mt-0.5 flex-shrink-0 text-base leading-none`}>▸</span>
+                            <span>{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  <div class="flex flex-wrap gap-1.5 mt-auto">
+                    {proj.technologies.map((tech) => (
+                      <span class={`${techBgSmall} text-white px-2.5 py-1 rounded-full text-xs transition-all hover:scale-105 hover:border-gray-400`}>{tech}</span>
+                    ))}
+                  </div>
+
+                  <div class="flex flex-wrap gap-2 pt-2 border-t border-gray-700/50">
+                    {proj.links.github          && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={`${abtn} hover:scale-105`}>./frontend <span set:html={githubSvgSmall}></span></a>}
+                    {proj.links.githubBackend   && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={`${abtn} hover:scale-105`}>./backend <span set:html={githubSvgSmall}></span></a>}
+                    {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={`${abtn} hover:scale-105`}>./raspberry <span class="text-lg">🍓</span></a>}
+                  </div>
+                </div>
               </div>
-            </>
-          )}
-
-          <!-- Badge fecha -->
-          <div class="absolute top-2 right-2 bg-black/70 backdrop-blur-sm font-mono text-xs text-yellow-400 px-2 py-0.5 rounded border border-yellow-500/30">
-            {proj.date}
-          </div>
+            );
+          })}
         </div>
-
-        <!-- Info -->
-        <div class="flex flex-col flex-1 p-5 gap-4">
-          <div>
-            <div class="flex items-center gap-2 mb-2">
-              <span class={`w-2 h-2 ${c.dot} rounded-full animate-pulse`}></span>
-              <span class="text-white font-mono text-sm font-bold">{proj.file}</span>
-              <span class="ml-auto text-xs font-mono px-2 py-0.5 rounded border border-gray-600 text-gray-500">académico</span>
-            </div>
-            <p class="text-gray-400 text-sm leading-relaxed">{proj.description}</p>
-          </div>
-
-          {proj.highlights && proj.highlights.length > 0 && (
-            <ul class="space-y-1">
-              {proj.highlights.map((h) => (
-                <li class="flex items-start gap-2 text-xs text-gray-400">
-                  <span class={`${c.text} mt-0.5 flex-shrink-0`}>▸</span>
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-
-          <div class="flex flex-wrap gap-1 mt-auto">
-            {proj.technologies.map((tech) => (
-              <span class={`${techMapSmall[getTechColor(tech)]} text-white px-2 py-0.5 rounded-full text-xs`}>{tech}</span>
-            ))}
-          </div>
-
-          <div class="flex flex-wrap gap-2 pt-1 border-t border-gray-700">
-            {proj.links.github          && <a href={proj.links.github}          target="_blank" rel="noopener noreferrer" class={abtn}>./frontend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-            {proj.links.githubBackend   && <a href={proj.links.githubBackend}   target="_blank" rel="noopener noreferrer" class={abtn}>./backend <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></a>}
-            {proj.links.githubRaspberry && <a href={proj.links.githubRaspberry} target="_blank" rel="noopener noreferrer" class={abtn}>./raspberry 🍓</a>}
-          </div>
-        </div>
-      </div>
-    );
-  })}
-</div>
 
       </div>
     </div>
@@ -629,10 +629,10 @@ const filterLabels: Record<string, string> = {
 
 <!-- ══ MODAL VIDEO DEMO ══════════════════════════════════════════════════════ -->
 <div id="demo-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-  <div class="bg-gray-800 rounded-2xl border border-gray-600 w-full max-w-4xl">
-    <div class="flex items-center justify-between px-5 py-4 border-b border-gray-700">
+  <div class="bg-[#2C2C2C] rounded-2xl border border-[#4D4D4D] w-full max-w-4xl shadow-2xl">
+    <div class="flex items-center justify-between px-5 py-4 border-b border-[#3D3D3D]">
       <div class="flex items-center gap-2">
-        <span class="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></span>
+        <span class="w-2 h-2 bg-[#E95420] rounded-full animate-pulse"></span>
         <span id="demo-modal-title" class="text-white font-mono text-sm sm:text-base font-semibold"></span>
       </div>
       <button id="demo-modal-close" class="text-gray-400 hover:text-white transition-colors text-2xl leading-none">&times;</button>
@@ -647,51 +647,61 @@ const filterLabels: Record<string, string> = {
 </div>
 
 <script>
-  // ── Carousels académicos ───────────────────────────────────────
-document.querySelectorAll('[id^="ac-carousel-"]').forEach(carousel => {
-  const id = carousel.id;
-  let currentIndex = 0;
-  const slides = carousel.children.length;
-  if (slides <= 1) return;
+  /**
+   * @param {HTMLElement} carousel
+   * @param {HTMLElement | null} prevBtn
+   * @param {HTMLElement | null} nextBtn
+   * @param {NodeListOf<HTMLElement> | null} [dots]
+   */
+  function initCarousel(carousel, prevBtn, nextBtn, dots) {
+    let currentIndex = 0;
+    const slides = carousel.children.length;
+    if (slides <= 1) return;
 
-  const dots    = document.querySelectorAll(`[data-ac-dot="${id}"]`);
-  const prevBtn = document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-prev`);
-  const nextBtn = document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-next`);
+    const update = () => {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+      if (dots) {
+        dots.forEach((/** @type {HTMLElement} */ d, /** @type {number} */ i) => {
+          d.classList.toggle('bg-white', i === currentIndex);
+          d.classList.toggle('bg-white/40', i !== currentIndex);
+        });
+      }
+    };
 
-  const update = () => {
-    (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`;
-    dots.forEach((d, i) => {
-      d.classList.toggle('bg-white', i === currentIndex);
-      d.classList.toggle('bg-white/40', i !== currentIndex);
-    });
-  };
+    prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
+    nextBtn?.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides; update(); });
+  }
 
-  nextBtn?.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides; update(); });
-  prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
-});
   document.addEventListener('DOMContentLoaded', () => {
-
-    // ── Carousels ──────────────────────────────────────────────────────
     document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
-      const id     = carousel.id;
-      let currentIndex = 0;
-      const slides = carousel.children.length;
-      if (slides <= 1) return;
-      const prevBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-prev`);
-      const nextBtn = document.querySelector(`[data-carousel="${id}"].carousel-btn-next`);
-      const update  = () => { (carousel as HTMLElement).style.transform = `translateX(-${currentIndex * 100}%)`; };
-      nextBtn?.addEventListener('click', () => { currentIndex = (currentIndex + 1) % slides; update(); });
-      prevBtn?.addEventListener('click', () => { currentIndex = (currentIndex - 1 + slides) % slides; update(); });
+      const id = carousel.id;
+      const el = /** @type {HTMLElement} */ (carousel);
+      initCarousel(
+        el,
+        document.querySelector(`[data-carousel="${id}"].carousel-btn-prev`),
+        document.querySelector(`[data-carousel="${id}"].carousel-btn-next`),
+      );
     });
 
-    // ── Modal demo ─────────────────────────────────────────────────────
-    const modal      = document.getElementById('demo-modal')!;
-    const video      = document.getElementById('demo-video') as HTMLVideoElement;
-    const videoSrc   = document.getElementById('demo-video-src') as HTMLSourceElement;
-    const modalTitle = document.getElementById('demo-modal-title')!;
-    const closeBtn   = document.getElementById('demo-modal-close')!;
+    document.querySelectorAll('[id^="ac-carousel-"]').forEach(carousel => {
+      const id = carousel.id;
+      const el = /** @type {HTMLElement} */ (carousel);
+      initCarousel(
+        el,
+        document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-prev`),
+        document.querySelector(`[data-ac-carousel="${id}"].ac-carousel-next`),
+        document.querySelectorAll(`[data-ac-dot="${id}"]`),
+      );
+    });
 
-    const openModal  = (src: string, title: string) => {
+    const modal = /** @type {HTMLElement} */ (document.getElementById('demo-modal'));
+    const video = /** @type {HTMLVideoElement} */ (document.getElementById('demo-video'));
+    const videoSrc = /** @type {HTMLSourceElement} */ (document.getElementById('demo-video-src'));
+    const modalTitle = /** @type {HTMLElement} */ (document.getElementById('demo-modal-title'));
+    const closeBtn = /** @type {HTMLElement} */ (document.getElementById('demo-modal-close'));
+
+    /** @param {string} src @param {string} title */
+    const openModal = (src, title) => {
       videoSrc.src = src; video.load(); modalTitle.textContent = title;
       modal.classList.remove('hidden'); modal.classList.add('flex');
     };
@@ -700,49 +710,74 @@ document.querySelectorAll('[id^="ac-carousel-"]').forEach(carousel => {
       modal.classList.add('hidden'); modal.classList.remove('flex');
     };
 
-    document.querySelectorAll<HTMLButtonElement>('.demo-btn').forEach(btn =>
-      btn.addEventListener('click', () => openModal(btn.dataset.demo ?? '', btn.dataset.demoTitle ?? 'Demo'))
-    );
+    document.querySelectorAll('.demo-btn').forEach(btn => {
+      const el = /** @type {HTMLElement} */ (btn);
+      el.addEventListener('click', () => openModal(el.dataset.demo ?? '', el.dataset.demoTitle ?? 'Demo'));
+    });
     closeBtn.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    modal.addEventListener('click', (/** @type {MouseEvent} */ e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (/** @type {KeyboardEvent} */ e) => { if (e.key === 'Escape') closeModal(); });
 
-    // ── Filtros ────────────────────────────────────────────────────────
-    const filterTabs     = document.querySelectorAll<HTMLButtonElement>('.filter-tab');
-    const projectCards   = document.querySelectorAll<HTMLElement>('.project-card');
-    const noResults      = document.getElementById('no-results')!;
-    const academicSection = document.getElementById('academic-section')!;
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const projectCards = document.querySelectorAll('.project-card');
+    const noResults = /** @type {HTMLElement} */ (document.getElementById('no-results'));
+    const academicSection = /** @type {HTMLElement} */ (document.getElementById('academic-section'));
 
-    const ACTIVE_CLASSES   = ['bg-gray-700', 'border-gray-400', 'text-white'];
-    const INACTIVE_CLASSES = ['bg-gray-900', 'border-gray-600', 'text-gray-400'];
+    const ACTIVE_CLASSES = ['bg-[#E95420]', 'border-[#E95420]', 'text-white'];
+    const INACTIVE_CLASSES = ['bg-[#1A1A24]', 'border-[#4D4D4D]', 'text-gray-400'];
 
     filterTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-
-        // Actualizar estilos de tabs
+      const tb = /** @type {HTMLElement} */ (tab);
+      tb.addEventListener('click', () => {
         filterTabs.forEach(t => {
-          t.classList.remove(...ACTIVE_CLASSES);
-          t.classList.add(...INACTIVE_CLASSES);
+          const el = /** @type {HTMLElement} */ (t);
+          el.classList.remove(...ACTIVE_CLASSES);
+          el.classList.add(...INACTIVE_CLASSES);
         });
-        tab.classList.remove(...INACTIVE_CLASSES);
-        tab.classList.add(...ACTIVE_CLASSES);
+        tb.classList.remove(...INACTIVE_CLASSES);
+        tb.classList.add(...ACTIVE_CLASSES);
 
-        const cat = tab.dataset.filter ?? 'all';
+        const cat = tb.dataset.filter ?? 'all';
 
-        // Mostrar / ocultar proyectos profesionales
         let visible = 0;
         projectCards.forEach(card => {
-          const match = cat === 'all' || card.dataset.category === cat;
-          card.style.display = match ? '' : 'none';
+          const c = /** @type {HTMLElement} */ (card);
+          const match = cat === 'all' || c.dataset.category === cat;
+          c.style.display = match ? '' : 'none';
           if (match) visible++;
         });
 
-        // Mensaje sin resultados
         noResults.classList.toggle('hidden', visible > 0);
-
-        // La sección académica se muestra siempre en "all", se oculta en filtros específicos
         academicSection.style.display = cat === 'all' ? '' : 'none';
       });
     });
   });
 </script>
+
+<style>
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .project-card {
+    animation: fadeSlideUp 0.5s ease-out both;
+  }
+
+  .project-card:nth-child(1) { animation-delay: 0s; }
+  .project-card:nth-child(2) { animation-delay: 0.1s; }
+  .project-card:nth-child(3) { animation-delay: 0.2s; }
+  .project-card:nth-child(4) { animation-delay: 0.3s; }
+  .project-card:nth-child(5) { animation-delay: 0.4s; }
+  .project-card:nth-child(6) { animation-delay: 0.5s; }
+  .project-card:nth-child(7) { animation-delay: 0.6s; }
+  .project-card:nth-child(8) { animation-delay: 0.7s; }
+  .project-card:nth-child(9) { animation-delay: 0.8s; }
+
+  #academic-section > div {
+    animation: fadeSlideUp 0.5s ease-out both;
+  }
+
+  #academic-section > div:nth-child(1) { animation-delay: 0.2s; }
+  #academic-section > div:nth-child(2) { animation-delay: 0.3s; }
+</style>

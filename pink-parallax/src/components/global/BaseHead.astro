@@ -3,15 +3,15 @@ import '../../styles/global.css';
 // @ts-ignore - package exports named AstroSeo but types may not resolve correctly in some setups
 import { AstroSeo } from '@astrolib/seo';
 import { getImage } from 'astro:assets';
-import macBackground1 from '../../assets/images/mac-background1.jpg';
-import macBackground2 from '../../assets/images/mac-background2.jpg';
-import macBackground3 from '../../assets/images/mac-background3.jpg';
+import ubuntuBackground1 from '../../assets/images/ubuntu-background1.jpg';
+import ubuntuBackground2 from '../../assets/images/ubuntu-background2.jpg';
+import ubuntuBackground3 from '../../assets/images/ubuntu-background3.jpg';
 import { userConfig } from '../../config/index';
 
 const backgrounds = await Promise.all([
-  getImage({ src: macBackground1, width: 3500 }),
-  getImage({ src: macBackground2, width: 3500 }),
-  getImage({ src: macBackground3, width: 3500 }),
+  getImage({ src: ubuntuBackground1, width: 3500 }),
+  getImage({ src: ubuntuBackground2, width: 3500 }),
+  getImage({ src: ubuntuBackground3, width: 3500 }),
 ]);
 
 // Build safe defaults for SEO

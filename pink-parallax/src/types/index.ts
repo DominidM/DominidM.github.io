@@ -20,26 +20,15 @@ export interface Image {
 // Project Types
 // ============================================
 
-export interface FileNode {
-  name: string;
-  type: 'file' | 'directory';
-  children?: readonly FileNode[];
-}
-
-export interface ProjectStructure {
-  root: string;
-  children: readonly FileNode[];
-}
-
 export interface Project {
   id: string;
   title: string;
   description: string;
-  repoUrl: string;
+  repoUrl?: string;
+  repoBackendUrl?: string;
   liveUrl?: string;
   techStack: readonly string[];
-  structure: ProjectStructure;
-  images: readonly Image[];
+  images?: readonly Image[];
 }
 
 // ============================================

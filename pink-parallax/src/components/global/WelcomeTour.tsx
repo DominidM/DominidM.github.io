@@ -22,7 +22,7 @@ export default function WelcomeTour({ open, onClose, actions }: WelcomeTourProps
   const slides = useMemo(() => [
     {
       id: 'welcome',
-      title: 'Welcome to my macOS-style portfolio',
+      title: 'Welcome to my Ubuntu-style portfolio',
       desc: 'Explore projects, experience, and more through a familiar desktop interface.',
       icon: <FaWindowRestore className="text-white/90" size={28} />,
       cta: { label: 'Start tour', onClick: undefined as undefined | (() => void) },

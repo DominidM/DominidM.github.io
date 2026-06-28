@@ -12,12 +12,11 @@ type ChatHistory = {
   input: string;
 };
 
-interface MacTerminalProps {
+interface UbuntuTerminalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-// Customize these placeholder messages for the input field
 const PLACEHOLDER_MESSAGES = [
   'Type your question...',
   'What are your skills?',
@@ -25,7 +24,7 @@ const PLACEHOLDER_MESSAGES = [
   'What projects have you worked on?',
 ];
 
-export default function MacTerminal({ isOpen, onClose }: MacTerminalProps) {
+export default function UbuntuTerminal({ isOpen, onClose }: UbuntuTerminalProps) {
   const currentDate = new Date();
   const formattedDate = currentDate.toLocaleDateString('en-US', {
     month: 'long',
@@ -75,7 +74,6 @@ export default function MacTerminal({ isOpen, onClose }: MacTerminalProps) {
     return () => clearTimeout(timeout);
   }, [placeholder, isDeleting, currentPlaceholderIndex]);
 
-  // Customize this welcome message with your information
   const welcomeMessage = `Welcome to My Portfolio
 
 Name: ${userConfig.name}
@@ -88,7 +86,6 @@ GitHub: ${userConfig.social.github}
 Ask me anything!
 `;
 
-  // Customize the system prompt with your personal information
   const systemPrompt = `IMPORTANT: You ARE ${userConfig.name} themselves. You must always speak in first-person ("I", "my", "me"). Never refer to "${userConfig.name}" in third-person.
 CURRENT DATE: ${formattedDate} - Always use this exact date when discussing the current date/year.
 
@@ -211,7 +208,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
 
   return (
     <DraggableWindow
-      title={`${userConfig.website} ⸺ zsh`}
+      title={`${userConfig.website} ⸺ bash`}
       onClose={onClose}
       initialPosition={{ 
         x: Math.floor(window.innerWidth * 0.1), 
@@ -248,7 +245,7 @@ If a question is unrelated to my work or portfolio, say: "That's outside my area
         </div>
         <form onSubmit={handleSubmit} className='mt-2 rounded-lg p-2'>
           <div className='flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-2'>
-            <span className='whitespace-nowrap text-green-400 font-bold'>{userConfig.website} root %</span>
+            <span className='whitespace-nowrap text-green-400 font-bold'>dominid@portfolio:~$</span>
             <input
               type='text'
               value={chatHistory.input}

@@ -67,7 +67,7 @@ export default function Spotlight({ isOpen, onClose, actions }: SpotlightProps) 
       title: p.title,
       subtitle: p.description,
       category: 'Projects',
-      keywords: [p.repoUrl, p.liveUrl ?? '', ...p.techStack],
+      keywords: [p.repoUrl, p.repoBackendUrl, p.liveUrl, ...p.techStack].filter(Boolean) as string[],
       icon: <FaGithub className="text-gray-300" />,
       action: () => actions.openProjectById(p.id)
     }));

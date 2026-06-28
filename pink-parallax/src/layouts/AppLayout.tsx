@@ -1,7 +1,7 @@
 import { useEffect, useReducer, useState } from 'react';
 import Spotlight from '../components/global/Spotlight';
-import MacToolbar from '../components/global/MacToolbar';
-import MacTerminal from '../components/global/MacTerminal';
+import UbuntuToolbar from '../components/global/UbuntuToolbar';
+import UbuntuTerminal from '../components/global/UbuntuTerminal';
 import MobileDock from '../components/global/MobileDock';
 import DesktopDock from '../components/global/DesktopDock';
 import ResumeViewer from '../components/global/ResumeViewer';
@@ -120,7 +120,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
   const handleAppClose = (app: App) => dispatch({ type: 'CLOSE', app });
 
   return (
-    <div className='relative w-screen h-screen overflow-hidden flex flex-col'>
+    <div className='relative w-full h-full overflow-hidden flex flex-col'>
       {/* Background */}
       <div
         className='absolute inset-0 bg-cover bg-center'
@@ -129,7 +129,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
 
       {/* Toolbar */}
       <div className='relative z-10'>
-        <MacToolbar 
+        <UbuntuToolbar 
           onShowTutorial={resetTutorial}
           onOpenSpotlight={() => setIsSpotlightOpen(true)}
           onOpenMissionControl={() => setIsMissionControlOpen(true)}
@@ -170,7 +170,7 @@ export default function Desktop({ initialBg, backgroundMap }: AppLayoutProps) {
         isOpen={state.windows. resume} 
         onClose={() => handleAppClose('resume')} 
       />
-      <MacTerminal 
+      <UbuntuTerminal 
         isOpen={state.windows.terminal} 
         onClose={() => handleAppClose('terminal')} 
       />

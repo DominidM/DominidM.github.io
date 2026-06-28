@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { MdWifi } from 'react-icons/md';
-import { FaApple, FaGithub, FaLinkedin, FaEnvelope, FaWindowRestore } from 'react-icons/fa';
+import { FaLinux, FaGithub, FaLinkedin, FaEnvelope, FaWindowRestore } from 'react-icons/fa';
 import {
   IoSearchSharp,
   IoBatteryHalfOutline,
@@ -21,7 +21,7 @@ type MenuItem = {
   submenu?: MenuItem[];
 };
 
-interface MacToolbarProps {
+interface UbuntuToolbarProps {
   onShowTutorial?: () => void;
   onOpenSpotlight?: () => void;
   onOpenMissionControl?: () => void;
@@ -32,7 +32,7 @@ interface MacToolbarProps {
   onOpenAdmin?: () => void;
 }
 
-export default function MacToolbar({
+export default function UbuntuToolbar({
   onShowTutorial,
   onOpenSpotlight,
   onOpenMissionControl,
@@ -41,7 +41,7 @@ export default function MacToolbar({
   onCloseAllWindows,
   onShuffleBackground,
   onOpenAdmin,
-}: MacToolbarProps) {
+}: UbuntuToolbarProps) {
   const [currentDateTime, setCurrentDateTime] = useState(new Date());
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [showSignature, setShowSignature] = useState(false);
@@ -66,30 +66,21 @@ export default function MacToolbar({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const formatMacDate = (date: Date) => {
+  const formatUbuntuDate = (date: Date) => {
     const weekday = date.toLocaleString('en-US', { weekday: 'short' });
     const month = date.toLocaleString('en-US', { month: 'short' });
     const day = date.getDate();
-    const hour = date.toLocaleString('en-US', {
-      hour: 'numeric',
-      hour12: true,
-    });
+    const hour = date.getHours().toString().padStart(2, '0');
     const minute = date.getMinutes().toString().padStart(2, '0');
-    const period = date.getHours() >= 12 ? 'PM' : 'AM';
 
-    return `${weekday} ${month} ${day} ${hour.replace(
-      /\s?[AP]M/,
-      ''
-    )}:${minute} ${period}`;
+    return `${weekday} ${month} ${day}, ${hour}:${minute}`;
   };
 
-  const formatIPhoneTime = (date: Date) => {
+  const formatMobileTime = (date: Date) => {
     let hour = date.getHours();
     const minute = date.getMinutes().toString().padStart(2, '0');
-
     hour = hour % 12;
     hour = hour ? hour : 12;
-
     return `${hour}:${minute}`;
   };
 
@@ -128,17 +119,17 @@ export default function MacToolbar({
     ],
     View: [
       {
-        label: 'Spotlight Search…',
+        label: 'Search…',
         icon: <IoSearchSharp size={16} />,
         action: () => onOpenSpotlight?.(),
       },
       {
-        label: 'Mission Control',
+        label: 'Workspaces',
         icon: <FaWindowRestore size={16} />,
         action: () => onOpenMissionControl?.(),
       },
       {
-        label: 'Shortcuts Overlay',
+        label: 'Shortcuts',
         icon: <IoHelpCircle size={16} />,
         action: () => onToggleShortcuts?.(),
       },
@@ -243,20 +234,18 @@ export default function MacToolbar({
 
   return (
     <>
-      <div className='sticky top-0 z-50 md:hidden bg-transparent text-white h-12 px-8 flex items-center justify-between text-base font-medium'>
-        <span className='font-semibold'>
-          {formatIPhoneTime(currentDateTime)}
-        </span>
-        <div className='flex items-center gap-1.5'>
-          <IoCellular size={20} />
-          <MdWifi size={20} />
-          <IoBatteryHalfOutline size={24} />
+      <div className='sticky top-0 z-50 md:hidden bg-gray-900/95 text-white h-11 px-4 flex items-center justify-between text-sm font-medium border-b border-gray-700/50'>
+        <span className='font-semibold text-gray-300'>{formatMobileTime(currentDateTime)}</span>
+        <div className='flex items-center gap-2'>
+          <IoCellular size={18} />
+          <MdWifi size={18} />
+          <IoBatteryHalfOutline size={20} />
         </div>
       </div>
 
-      <div className='sticky top-0 z-50 hidden md:flex bg-black/20 backdrop-blur-md text-white h-6 px-4 items-center justify-between text-sm' role="menubar" aria-label="Application menu bar">
+      <div className='sticky top-0 z-50 hidden md:flex bg-gray-800/30 backdrop-blur-md text-white h-7 px-4 items-center justify-between text-sm border-b border-white/5' role="menubar" aria-label="Application menu bar">
         <div className='flex items-center space-x-4' ref={menuRef}>
-          <FaApple size={16} />
+          <FaLinux size={16} className="text-orange-400" />
           <div className="relative">
             <span 
               className='font-semibold hover:text-gray-300 transition-colors cursor-pointer'
@@ -278,7 +267,7 @@ export default function MacToolbar({
           {Object.entries(menus).map(([menu, items]) => (
             <div key={menu} className="relative">
               <button 
-                className='cursor-pointer hover:text-gray-300 transition-colors'
+                className='cursor-pointer hover:text-gray-300 transition-colors text-gray-200'
                 onClick={() => handleMenuClick(menu)}
                 aria-haspopup="menu"
                 aria-expanded={activeMenu === menu}
@@ -296,23 +285,16 @@ export default function MacToolbar({
           ))}
         </div>
         <div className='flex items-center space-x-4'>
-          <VscVscode
-            size={16}
-            className='cursor-pointer hover:opacity-80 transition-opacity'
-            onClick={handleVSCodeClick}
-            title='Open in VSCode'
-          />
-          <MdWifi size={16} />
           <IoSearchSharp
-            size={16}
+            size={15}
             className='cursor-pointer hover:opacity-80 transition-opacity'
             onClick={() => onOpenSpotlight?.()}
             title='Search (Ctrl/Cmd+K)'
             role='button'
             aria-label='Open search'
           />
-          <span className='cursor-default'>
-            {formatMacDate(currentDateTime)}
+          <span className='cursor-default text-gray-300 text-xs'>
+            {formatUbuntuDate(currentDateTime)}
           </span>
         </div>
       </div>

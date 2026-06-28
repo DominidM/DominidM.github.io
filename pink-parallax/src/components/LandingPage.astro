@@ -1,11 +1,11 @@
 ---
 import { getImage } from 'astro:assets';
 import AppLayout from '../layouts/AppLayout';
-import macBackground1 from '../assets/images/mac-background1.jpg';
-import macBackground2 from '../assets/images/mac-background2.jpg';
-import macBackground3 from '../assets/images/mac-background3.jpg';
+import ubuntuBackground1 from '../assets/images/ubuntu-background1.jpg';
+import ubuntuBackground2 from '../assets/images/ubuntu-background2.jpg';
+import ubuntuBackground3 from '../assets/images/ubuntu-background3.jpg';
 
-const backgrounds = [macBackground1, macBackground2, macBackground3];
+const backgrounds = [ubuntuBackground1, ubuntuBackground2, ubuntuBackground3];
 
 function getRandomBackground() {
   return `bg-${Math.floor(Math.random() * backgrounds.length) + 1}`;

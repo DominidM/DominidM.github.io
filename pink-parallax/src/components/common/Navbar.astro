@@ -1,41 +1,93 @@
 ---
 const baseUrl = import.meta.env.BASE_URL;
-const currentPath = Astro. url.pathname.replace(baseUrl, '/').replace(/\/$/, '') || '/';
+const currentPath = Astro.url.pathname.replace(baseUrl, '/').replace(/\/$/, '') || '/';
 
-const tabs = [
-  { path: '/', label: 'index.tsx', icon: '●', color: 'orange' },
-  { path: '/about', label:  'about.tsx', icon: '📄', color: 'blue' },
-  { path:  '/projects', label: 'projects/', icon: '📁', color: 'purple' },
-  { path: '/desktop', label: 'desktop.tsx', icon: '🖥️', color: 'yellow' },
-  { path:  '/contact', label: 'contact.tsx', icon: '✉️', color: 'yellow' },
+const items = [
+  { path: '/', label: 'index.tsx', icon: '●' },
+  { path: '/about', label: 'about.tsx', icon: '📄' },
+  { path: '/projects', label: 'projects/', icon: '📁' },
+  { path: '/desktop', label: 'desktop.tsx', icon: '🖥️' },
+  { path: '/contact', label: 'contact.tsx', icon: '✉️' },
 ];
 
 const getUrl = (path: string) => `${baseUrl}${path}`.replace(/\/\//g, '/');
 ---
 
-<nav class="flex items-center bg-gray-900 overflow-x-auto">
-  {tabs.map((tab) => {
-    const isActive = currentPath === tab.path || (tab. path !== '/' && currentPath. startsWith(tab.path));
-    
+<nav class="bg-[#2C2C2C] border-r border-[#3D3D3D] w-[200px] flex-shrink-0 hidden md:flex flex-col py-3 overflow-y-auto h-full">
+  <!-- Header -->
+  <div class="px-4 pb-3 mb-2 border-b border-[#3D3D3D]">
+    <div class="text-[10px] text-gray-500 font-mono tracking-wide uppercase">Places</div>
+  </div>
+
+  {items.map((item) => {
+    const isActive = currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path));
+
     return (
-      <a 
-        href={getUrl(tab.path)} 
-        class={`flex items-center border-r border-gray-600 px-4 py-3 min-w-max transition-colors no-underline ${isActive ? 'bg-gray-800' :  'hover:bg-gray-800'}`}
-        style="display: flex; text-decoration: none;"
+      <a
+        href={getUrl(item.path)}
+        class={`relative flex items-center gap-3 px-4 py-2.5 mx-2 rounded-lg transition-all no-underline group
+          ${isActive
+            ? 'bg-[#373737] text-white'
+            : 'text-gray-400 hover:text-gray-200 hover:bg-[#333]'
+          }
+        `}
+        style="text-decoration: none;"
       >
-        <span class={`text-sm mr-2 text-${tab.color}-400 pointer-events-none`}>{tab.icon}</span>
-        <span class={`text-sm font-mono transition-colors pointer-events-none ${isActive ?  'text-white font-semibold' : 'text-gray-300 hover:text-white'}`}>
-          {tab.label}
+        {isActive && (
+          <span class="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 bg-[#E95420] rounded-r-full"></span>
+        )}
+        <span class={`text-sm flex-shrink-0 ${isActive ? 'text-[#E95420]' : 'text-gray-500 group-hover:text-gray-300'} transition-colors`}>
+          {item.icon}
+        </span>
+        <span class={`text-xs font-mono truncate transition-colors ${isActive ? 'text-white font-medium' : 'text-gray-400 group-hover:text-gray-200'}`}>
+          {item.label}
         </span>
       </a>
     );
   })}
 
-  <!-- Espacio flexible -->
-  <div class="flex-1"></div>
-
-  <!-- Breadcrumb -->
-  <div class="text-gray-400 text-xs font-mono px-4 py-3">
-    ~/portfolio/src/pages/
+  <!-- Divider -->
+  <div class="mt-4 pt-3 border-t border-[#3D3D3D] mx-4">
+    <div class="text-[10px] text-gray-500 font-mono tracking-wide uppercase">System</div>
   </div>
+
+  <div class="px-4 py-2.5 mx-2 mt-1 rounded-lg text-gray-500 hover:text-gray-300 hover:bg-[#333] transition-all cursor-pointer flex items-center gap-3">
+    <svg class="w-4 h-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="3"/>
+      <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+    </svg>
+    <span class="text-xs font-mono">Settings</span>
+  </div>
+
+  <!-- Breadcrumb at bottom -->
+  <div class="mt-auto pt-4 mx-4">
+    <div class="text-[10px] text-gray-600 font-mono truncate">
+      ~/portfolio/src/pages
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile nav (horizontal) -->
+<nav class="md:hidden flex items-center bg-[#2C2C2C] border-b border-[#3D3D3D] overflow-x-auto">
+  {items.map((item) => {
+    const isActive = currentPath === item.path || (item.path !== '/' && currentPath.startsWith(item.path));
+
+    return (
+      <a
+        href={getUrl(item.path)}
+        class={`relative flex items-center gap-2 px-4 py-2.5 min-w-max transition-all no-underline border-r border-[#3D3D3D] group
+          ${isActive ? 'bg-[#373737] text-white' : 'text-gray-400 hover:text-gray-200 hover:bg-[#333]'}
+        `}
+        style="text-decoration: none;"
+      >
+        {isActive && (
+          <span class="absolute top-0 left-0 right-0 h-[2px] bg-[#E95420]"></span>
+        )}
+        <span class={`text-xs ${isActive ? 'text-[#E95420]' : 'text-gray-500 group-hover:text-gray-300'} transition-colors`}>{item.icon}</span>
+        <span class={`text-xs font-mono transition-colors ${isActive ? 'text-white font-medium' : 'text-gray-400 group-hover:text-gray-200'}`}>
+          {item.label}
+        </span>
+      </a>
+    );
+  })}
 </nav>

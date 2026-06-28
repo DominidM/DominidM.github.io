@@ -1,0 +1,111 @@
+---
+const featured = [
+  {
+    name: 'MKapu Import — E-commerce',
+    category: 'e-commerce',
+    description: 'Tienda online para empresa importadora con catálogo, carrito de compras, pasarela de pagos y panel de administración. Integrado con ERP para sincronización de stock en tiempo real.',
+    tech: ['Next.js', 'React', 'REST API', 'WhatsApp API'],
+    image: 'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',
+    links: { live: 'https://mkapu.com', social: 'https://www.tiktok.com/@mkapu.import' },
+    color: 'purple',
+  },
+  {
+    name: 'MKapu Import — ERP',
+    category: 'erp',
+    description: 'ERP empresarial completo: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Microservicios con NestJS, WebSockets y generación de comprobantes PDF.',
+    tech: ['Angular 21', 'NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'Docker'],
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149399/Captura_de_pantalla_2026-03-10_082817_xv7nmb.png',
+    links: { social: 'https://www.tiktok.com/@mkapu.import' },
+    color: 'purple',
+  },
+  {
+    name: 'Brostr3s — ERP Pollería',
+    category: 'erp',
+    description: 'ERP completo para pollería con pedidos en tiempo real, cocina, caja, inventario y reportes. Full-stack con WebSockets para comunicación instantánea entre equipos.',
+    tech: ['Next.js', 'React', 'Nest.js', 'TypeScript', 'MySQL', 'Docker'],
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236601/33d278df-6bc3-4125-aabd-80d7a4196015.png',
+    links: { social: 'https://www.instagram.com/brostres.peru' },
+    color: 'orange',
+  },
+  {
+    name: 'Barbería Zona Fade',
+    category: 'landing',
+    description: 'Landing page con sistema de reservas online, disponibilidad en tiempo real y panel de gestión. Catálogo de servicios con precios y confirmación por WhatsApp.',
+    tech: ['Next.js', 'React', 'Supabase', 'Tailwind CSS'],
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607112/aaeacb24-6c1a-49ef-a258-d1f4269dc54d.png',
+    links: { live: 'https://sgaesthetix.solvegrades.workers.dev/home', social: 'https://www.instagram.com/zonafade_barber/' },
+    color: 'blue',
+  },
+];
+
+const colorMap = {
+  purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-500/10', dot: 'bg-purple-400' },
+  orange: { border: 'border-orange-500/30', text: 'text-orange-400', bg: 'bg-orange-500/10', dot: 'bg-orange-400' },
+  blue: { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-500/10', dot: 'bg-blue-400' },
+};
+---
+
+<div class="py-12 px-4 sm:px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-green-400 font-mono text-sm">$</span>
+      <span class="text-gray-400 font-mono text-xs">cat featured-projects —latest</span>
+    </div>
+    <div class="flex items-center gap-3 mb-8">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white font-italiana">Proyectos Destacados</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent"></div>
+    </div>
+
+    <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
+      {featured.map((project) => {
+        const c = colorMap[project.color as keyof typeof colorMap];
+
+        return (
+          <a
+            href="/projects"
+            class="group bg-[#2C2C2C] rounded-xl border border-[#3D3D3D] overflow-hidden hover:border-[#E95420]/40 hover:shadow-lg hover:shadow-[#E95420]/5 transition-all duration-300 flex flex-col"
+            style="text-decoration: none;"
+          >
+            <div class="aspect-[4/3] overflow-hidden bg-[#1A1A24]">
+              <img
+                src={project.image}
+                alt={project.name}
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-2">
+                <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`}></span>
+                <span class={`text-[10px] font-mono ${c.text} uppercase tracking-wider`}>{project.category}</span>
+              </div>
+              <h3 class="text-sm font-mono font-semibold text-white mb-1.5 group-hover:text-[#E95420] transition-colors">
+                {project.name}
+              </h3>
+              <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3 flex-1">
+                {project.description}
+              </p>
+              <div class="flex flex-wrap gap-1">
+                {project.tech.map((t) => (
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#1A1A24] border border-[#3D3D3D] text-gray-400">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="text-center mt-8">
+      <a
+        href="/projects"
+        class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white text-xs font-mono font-medium transition-all hover:scale-105"
+      >
+        <span>Ver todos los proyectos</span>
+        <span>→</span>
+      </a>
+    </div>
+  </div>
+</div>

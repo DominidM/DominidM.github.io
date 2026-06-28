@@ -2,6 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import heroImg from "../assets/images/heroImg.png";
 import TechCarousel from "../components/common/TechCarousel.astro";
+import EventsCarousel from "../components/common/EventsCarousel.astro";
+import FeaturedProjects from "../components/common/FeaturedProjects.astro";
 ---
 
 <BaseLayout>
@@ -98,7 +100,13 @@ import TechCarousel from "../components/common/TechCarousel.astro";
     </div>
   </section>
 
-  <div class="mt-8 md: mt-12">
+  <div class="mt-8 md:mt-12">
     <TechCarousel />
+  </div>
+
+  <FeaturedProjects />
+
+  <div class="bg-[#1A1A24]">
+    <EventsCarousel />
   </div>
 </BaseLayout>
