@@ -1,15 +1,6 @@
 ---
 const featured = [
   {
-    name: 'MKapu Import — E-commerce',
-    category: 'e-commerce',
-    description: 'Tienda online para empresa importadora con catálogo, carrito de compras, pasarela de pagos y panel de administración. Integrado con ERP para sincronización de stock en tiempo real.',
-    tech: ['Next.js', 'React', 'REST API', 'WhatsApp API'],
-    image: 'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',
-    links: { live: 'https://mkapu.com', social: 'https://www.tiktok.com/@mkapu.import' },
-    color: 'purple',
-  },
-  {
     name: 'MKapu Import — ERP',
     category: 'erp',
     description: 'ERP empresarial completo: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Microservicios con NestJS, WebSockets y generación de comprobantes PDF.',
@@ -19,29 +10,38 @@ const featured = [
     color: 'purple',
   },
   {
-    name: 'Brostr3s — ERP Pollería',
-    category: 'erp',
-    description: 'ERP completo para pollería con pedidos en tiempo real, cocina, caja, inventario y reportes. Full-stack con WebSockets para comunicación instantánea entre equipos.',
-    tech: ['Next.js', 'React', 'Nest.js', 'TypeScript', 'MySQL', 'Docker'],
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1776236601/33d278df-6bc3-4125-aabd-80d7a4196015.png',
-    links: { social: 'https://www.instagram.com/brostres.peru' },
-    color: 'orange',
+    name: 'MKapu Import — E-commerce',
+    category: 'e-commerce',
+    description: 'Tienda online para empresa importadora con catálogo, carrito de compras, pasarela de pagos y panel de administración. Integrado con ERP para sincronización de stock en tiempo real.',
+    tech: ['Next.js', 'React', 'REST API', 'WhatsApp API'],
+    image: 'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',
+    links: { live: 'https://mkapu.com', social: 'https://www.tiktok.com/@mkapu.import' },
+    color: 'purple',
   },
   {
-    name: 'Barbería Zona Fade',
-    category: 'landing',
-    description: 'Landing page con sistema de reservas online, disponibilidad en tiempo real y panel de gestión. Catálogo de servicios con precios y confirmación por WhatsApp.',
-    tech: ['Next.js', 'React', 'Supabase', 'Tailwind CSS'],
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1778607112/aaeacb24-6c1a-49ef-a258-d1f4269dc54d.png',
-    links: { live: 'https://sgaesthetix.solvegrades.workers.dev/home', social: 'https://www.instagram.com/zonafade_barber/' },
-    color: 'blue',
+    name: 'E-commerce Gasfitería',
+    category: 'e-commerce',
+    description: 'Tienda online con APIs REST, UI/UX personalizado y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
+    tech: ['React', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
+    links: { live: 'https://whc-ecommerce.solvegrades.workers.dev/inicio' },
+    color: 'cyan',
+  },
+  {
+    name: 'Dimsor — Robot Emocional',
+    category: 'iot/ia',
+    description: 'Robot de apoyo emocional con IA, NLP, dashboard web interactivo y sistema de alertas. Integración hardware con Raspberry Pi.',
+    tech: ['Python', 'Raspberry Pi', 'Django', 'IoT', 'NLP'],
+    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
+    links: { github: 'https://github.com/DominidM/Robotica-Web' },
+    color: 'red',
   },
 ];
 
 const colorMap = {
   purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-500/10', dot: 'bg-purple-400' },
-  orange: { border: 'border-orange-500/30', text: 'text-orange-400', bg: 'bg-orange-500/10', dot: 'bg-orange-400' },
-  blue: { border: 'border-blue-500/30', text: 'text-blue-400', bg: 'bg-blue-500/10', dot: 'bg-blue-400' },
+  cyan: { border: 'border-cyan-500/30', text: 'text-cyan-400', bg: 'bg-cyan-500/10', dot: 'bg-cyan-400' },
+  red: { border: 'border-red-500/30', text: 'text-red-400', bg: 'bg-red-500/10', dot: 'bg-red-400' },
 };
 ---
 
@@ -49,7 +49,7 @@ const colorMap = {
   <div class="max-w-7xl mx-auto">
     <div class="flex items-center gap-2 mb-2">
       <span class="text-green-400 font-mono text-sm">$</span>
-      <span class="text-gray-400 font-mono text-xs">cat featured-projects —latest</span>
+      <span class="text-gray-400 font-mono text-xs">cat featured-projects --latest</span>
     </div>
     <div class="flex items-center gap-3 mb-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-white font-italiana">Proyectos Destacados</h2>
@@ -72,11 +72,13 @@ const colorMap = {
                 alt={project.name}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 loading="lazy"
+                width="400"
+                height="300"
               />
             </div>
             <div class="p-4 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2">
-                <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`}></span>
+                <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`} aria-hidden="true"></span>
                 <span class={`text-[10px] font-mono ${c.text} uppercase tracking-wider`}>{project.category}</span>
               </div>
               <h3 class="text-sm font-mono font-semibold text-white mb-1.5 group-hover:text-[#E95420] transition-colors">
@@ -104,7 +106,7 @@ const colorMap = {
         class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white text-xs font-mono font-medium transition-all hover:scale-105"
       >
         <span>Ver todos los proyectos</span>
-        <span>→</span>
+        <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>

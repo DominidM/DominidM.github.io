@@ -3,22 +3,79 @@ import "../styles/global.css";
 import TopBar from "../components/common/TopBar.astro";
 import Navbar from "../components/common/Navbar.astro";
 import Footer from "../components/common/Footer.astro";
+
+const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
+
+const {
+  title = 'Dominid Muñoz | Full-Stack Developer',
+  description = 'Portafolio de Dominid Muñoz, desarrollador Full Stack y estudiante de Ingeniería de Sistemas especializado en aplicaciones web, sistemas empresariales e integraciones.',
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const siteOrigin = Astro.site ? new URL(Astro.site).origin : 'https://dominidm.github.io';
+const ogImage = `${siteOrigin}/D.ico`;
 ---
 
 <!DOCTYPE html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/D.ico" />
-    <title>Dominid Muñoz | Systems Engineer | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Dominid Muñoz Eslava" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/png" href="/D.ico" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Dominid Muñoz — Portfolio" />
+    <meta property="og:locale" content="es_PE" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Theme -->
+    <meta name="theme-color" content="#1A1A24" />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <title>{title}</title>
+
+    <!-- JSON-LD Person -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      name: 'Dominid Muñoz Eslava',
+      jobTitle: 'Full-Stack Developer',
+      url: siteOrigin,
+      email: 'dominidzero@gmail.com',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Lima',
+        addressCountry: 'PE',
+      },
+      sameAs: [
+        'https://github.com/DominidM',
+        'https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/',
+        'https://solvegrades.com/',
+      ],
+    })} />
   </head>
   <body class="bg-[#1A1A24] text-white h-screen flex flex-col overflow-hidden" style="font-family: 'Ubuntu', system-ui, sans-serif;">
 
     <TopBar />
 
     <div class="flex flex-col md:flex-row flex-1 min-h-0">
-      <Navbar />
+      <Navbar cvUrl={CV_URL} />
 
       <main class="flex-1 min-w-0 overflow-y-auto">
         <slot />

@@ -94,4 +94,11 @@ const technologies = [
       min-width: 80px;
     }
   }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation: none;
+    }
+  }
 </style>

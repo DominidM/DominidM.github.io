@@ -1,101 +1,100 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import heroImg from "../assets/images/heroImg.png";
 import TechCarousel from "../components/common/TechCarousel.astro";
 import EventsCarousel from "../components/common/EventsCarousel.astro";
 import FeaturedProjects from "../components/common/FeaturedProjects.astro";
+
+const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
 ---
 
-<BaseLayout>
-  <section
-    class="relative min-h-screen flex items-center justify-center overflow-hidden"
-  >
-<!-- Imagen de fondo -->
-<div class="absolute inset-0 z-0">
-  <img
-    src={"https://res.cloudinary.com/dxuk9bogw/image/upload/v1778606651/Dise%C3%B1o_sin_t%C3%ADtulo_7_yjor13.png"}
-    alt="Dominid Muñoz"
-    class="w-full h-full object-cover object-[60%_center]"
-  />
-</div>
-
-    <!-- Overlay con degradado -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70">
+<BaseLayout
+  title="Dominid Muñoz | Full-Stack Developer"
+  description="Portafolio de Dominid Muñoz, desarrollador Full Stack y estudiante de Ingeniería de Sistemas especializado en aplicaciones web, sistemas empresariales e integraciones."
+>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Imagen de fondo -->
+    <div class="absolute inset-0 z-0">
+      <img
+        src="https://res.cloudinary.com/dxuk9bogw/image/upload/v1778606651/Dise%C3%B1o_sin_t%C3%ADtulo_7_yjor13.png"
+        alt=""
+        class="w-full h-full object-cover object-[60%_center]"
+        width="1920"
+        height="1080"
+      />
     </div>
 
+    <!-- Overlay con degradado -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+
     <!-- Contenido -->
-    <div
-      class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20"
-    >
-      <p
-        class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90"
-      >
+    <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20">
+      <p class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90">
         Hola, mi nombre es
       </p>
 
-      <h1
-        class="font-body typing-animation text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight"
-      >
+      <h1 class="font-body text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
         <span class="font-italiana">Dominid Muñoz Eslava</span>
       </h1>
 
-      <h2
-        class="text-lg sm:text-xl md:text-3xl font-light mb-6 md:mb-8 text-gray-200"
-      >
-        Systems Engineer
+      <h2 class="text-lg sm:text-xl md:text-3xl font-light mb-2 text-gray-200">
+        Full-Stack Developer
       </h2>
+      <p class="text-sm sm:text-base md:text-lg text-gray-400 mb-6 md:mb-8">
+        Systems Engineering Student
+      </p>
 
-      <!-- Redes con mejor hover -->
-      <div class="mt-6 md:mt-8">
-        <div
-          class="grid grid-cols-2 gap-3 sm:flex sm:justify-center sm:gap-4 md:gap-6 max-w-lg mx-auto"
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 mb-8 md:mb-10 leading-relaxed">
+        Construyo aplicaciones web, sistemas empresariales e integraciones desde la arquitectura hasta el despliegue.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 md:mb-10">
+        <a
+          href="/projects"
+          class="px-6 py-3 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white font-mono text-sm font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#E95420]/20"
         >
-          <a
-            href="https://github.com/DominidM"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-white/20 hover:border-white/40 backdrop-blur-sm bg-white/5 hover:bg-white/10 hover:scale-105 hover:shadow-lg"
-          >
-            <span
-              class="relative z-10 font-medium text-sm sm:text-base text-white"
-              >GitHub</span
-            >
-          </a>
+          Ver proyectos
+        </a>
+        <!-- Descomentar cuando el PDF esté disponible en /documents/Dominid-Munoz-Eslava-CV.pdf -->
+        <!--
+        <a
+          href={CV_URL}
+          download="Dominid-Munoz-Eslava-CV.pdf"
+          class="px-6 py-3 rounded-lg border-2 border-white/20 hover:border-white/40 backdrop-blur-sm bg-white/5 hover:bg-white/10 text-white font-mono text-sm font-medium transition-all hover:scale-105"
+        >
+          ↓ Descargar CV
+        </a>
+        -->
+      </div>
 
-          <a
-            href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-blue-400/30 hover:border-blue-400/60 backdrop-blur-sm bg-blue-500/10 hover:bg-blue-500/20 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/20"
-          >
-            <span
-              class="relative z-10 font-medium text-sm sm:text-base text-white"
-              >LinkedIn</span
-            >
-          </a>
-
-          <a
-            href="https://www.instagram.com/not_dominid/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-pink-400/30 hover:border-pink-400/60 backdrop-blur-sm bg-pink-500/10 hover:bg-pink-500/20 hover: scale-105 hover:shadow-lg hover:shadow-pink-500/20"
-          >
-            <span
-              class="relative z-10 font-medium text-sm sm:text-base text-white"
-              >Instagram</span
-            >
-          </a>
-
-          <a
-            href="https://solvegrades.com/"
-            class="group relative px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg transition-all duration-300 border-2 border-green-400/30 hover:border-green-400/60 backdrop-blur-sm bg-green-500/10 hover:bg-green-500/20 hover: scale-105 hover:shadow-lg hover:shadow-green-500/20"
-          >
-            <span
-              class="relative z-10 font-medium text-sm sm: text-base text-white"
-              >Startup</span
-            >
-          </a>
-        </div>
+      <!-- Redes secundarias -->
+      <div class="flex justify-center gap-6 text-sm">
+        <a
+          href="https://github.com/DominidM"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-white transition-colors"
+        >
+          GitHub
+        </a>
+        <span class="text-gray-600" aria-hidden="true">·</span>
+        <a
+          href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-white transition-colors"
+        >
+          LinkedIn
+        </a>
+        <span class="text-gray-600" aria-hidden="true">·</span>
+        <a
+          href="https://solvegrades.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-gray-400 hover:text-white transition-colors"
+        >
+          SolveGrades
+        </a>
       </div>
     </div>
   </section>

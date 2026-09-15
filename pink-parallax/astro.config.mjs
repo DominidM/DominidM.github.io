@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
-import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
@@ -8,7 +7,7 @@ export default defineConfig({
   // NO agregues 'base' aquí
   
   trailingSlash: 'never',
-  output: 'static', // ← Cambiar a static
+  output: 'static',
   
   devToolbar: {
     enabled: false
@@ -19,7 +18,6 @@ export default defineConfig({
   },
 
   integrations: [
-    react(),
     sitemap({
       serialize: (item) => {
         const url = item.url.endsWith('/') ? item.url.slice(0, -1) : item.url;
