@@ -28,28 +28,28 @@ import { profile } from "../data/profile";
 
     <!-- Contenido -->
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20">
-      <p class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90">
+      <p class="font-display text-base sm:text-lg md:text-xl font-light mb-3 md:mb-4 opacity-90 hero-in" style="--hero-delay: 0ms">
         Hola, mi nombre es
       </p>
 
-      <h1 class="font-body text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
+      <h1 class="font-body text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight hero-in" style="--hero-delay: 60ms">
         <span class="font-italiana">{profile.fullName}</span>
       </h1>
 
-      <h2 class="text-lg sm:text-xl md:text-3xl font-light mb-3 md:mb-4 text-gray-100">
+      <h2 class="text-lg sm:text-xl md:text-3xl font-light mb-3 md:mb-4 text-gray-100 hero-in" style="--hero-delay: 150ms">
         {profile.role}
       </h2>
 
-      <p class="font-mono text-sm sm:text-base md:text-lg text-[#E95420] mb-6 md:mb-8 tracking-wide">
+      <p class="font-mono text-sm sm:text-base md:text-lg text-[#E95420] mb-6 md:mb-8 tracking-wide hero-in" style="--hero-delay: 230ms">
         {profile.mainStack.join(' · ')}
       </p>
 
-      <p class="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 mb-8 md:mb-10 leading-relaxed">
+      <p class="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 mb-8 md:mb-10 leading-relaxed hero-in" style="--hero-delay: 300ms">
         Desarrollador Backend y estudiante de {profile.career}, con experiencia en Java, Spring Boot, NestJS y desarrollo de sistemas empresariales.
       </p>
 
       <!-- CTAs principales -->
-      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-8">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-8 hero-in" style="--hero-delay: 380ms">
         <a
           href="/projects"
           class="px-6 py-3 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white font-mono text-sm font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#E95420]/20"
@@ -66,7 +66,7 @@ import { profile } from "../data/profile";
       </div>
 
       <!-- CTAs secundarios -->
-      <nav aria-label="Redes" class="flex justify-center gap-6 text-sm">
+      <nav aria-label="Redes" class="flex justify-center gap-6 text-sm hero-in" style="--hero-delay: 460ms">
         <a
           href={profile.github}
           target="_blank"

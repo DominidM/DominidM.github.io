@@ -11,21 +11,25 @@ const groups = [
 const complementary = ['Angular', 'React', 'Next.js', 'Azure', 'Cloudflare', 'Firebase', 'Python'];
 ---
 
-<section class="py-10 sm:py-12 px-4 sm:px-6" aria-labelledby="stack-title">
+<section class="py-10 sm:py-12 px-4 sm:px-6" aria-labelledby="stack-title" data-reveal-section>
   <div class="max-w-5xl mx-auto">
 
-    <div class="flex items-center gap-2 mb-2">
+    <div class="flex items-center gap-2 mb-2 whitespace-nowrap" data-cmd data-cmd-loading="> loading stack...">
       <span class="text-green-400 font-mono text-sm">$</span>
       <span class="text-gray-400 font-mono text-xs">cat stack.yml</span>
     </div>
-    <div class="flex items-center gap-3 mb-6 sm:mb-8">
+    <div class="flex items-center gap-3 mb-6 sm:mb-8" data-reveal data-reveal-head>
       <h2 id="stack-title" class="text-2xl sm:text-3xl font-bold text-white font-italiana">Stack Principal</h2>
       <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent" aria-hidden="true"></div>
     </div>
 
     <div class="space-y-5">
-      {groups.map((group) => (
-        <div class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start">
+      {groups.map((group, i) => (
+        <div
+          class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start"
+          data-reveal
+          style={`--reveal-delay: ${(i + 1) * 60}ms`}
+        >
           <div class="text-[11px] font-mono uppercase tracking-wider text-[#E95420] mb-2 sm:mb-0 sm:pt-2.5">
             {group.label}
           </div>
@@ -39,7 +43,11 @@ const complementary = ['Angular', 'React', 'Next.js', 'Azure', 'Cloudflare', 'Fi
         </div>
       ))}
 
-      <div class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start pt-4 border-t border-dashed border-[#3D3D3D]">
+      <div
+        class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start pt-4 border-t border-dashed border-[#3D3D3D]"
+        data-reveal
+        style={`--reveal-delay: ${(groups.length + 1) * 60}ms`}
+      >
         <div class="text-[11px] font-mono uppercase tracking-wider text-gray-400 mb-2 sm:mb-0 sm:pt-2">
           También conozco
         </div>

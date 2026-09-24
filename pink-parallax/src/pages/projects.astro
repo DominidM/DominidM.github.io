@@ -329,8 +329,8 @@ const othersStartIndex = 4;
         </div>
 
         <!-- Terminal Content -->
-        <div class="bg-[#1A1A24] border-x border-b border-[#3D3D3D] rounded-b-xl p-5 sm:p-8 font-mono">
-          <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base flex items-center flex-wrap gap-x-1">
+        <div class="bg-[#1A1A24] border-x border-b border-[#3D3D3D] rounded-b-xl p-5 sm:p-8 font-mono" data-reveal-section>
+          <div class="text-green-400 mb-6 sm:mb-8 text-sm sm:text-base flex items-center flex-wrap gap-x-1" data-cmd data-cmd-loading="> loading projects...">
             <span class="text-[#E95420]">dominid@portfolio</span>
             <span class="text-gray-500">:</span>
             <span class="text-yellow-400">~/projects</span>
@@ -339,7 +339,7 @@ const othersStartIndex = 4;
             <span class="text-cyan-400">-la</span>
             <span class="text-purple-400">--backend</span>
           </div>
-          <div class="text-center mb-6 sm:mb-8">
+          <div class="text-center mb-6 sm:mb-8" data-reveal data-reveal-head>
             <h1 class="text-3xl sm:text-4xl md:text-6xl font-bold text-white mb-3 sm:mb-4 font-italiana">
               # Proyectos
             </h1>
@@ -402,6 +402,8 @@ const othersStartIndex = 4;
                   <div
                     class={`project-card bg-gray-800/90 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 border border-gray-600 hover:border-gray-400 transition-all duration-300`}
                     data-category={project.category}
+                    data-reveal
+                    style={`--reveal-delay: ${Math.min(index, 3) * 70}ms`}
                   >
                     <div class={`gap-6 sm:gap-8 ${hasImages ? `grid lg:grid-cols-2 items-center ${index % 2 === 0 ? '' : 'lg:grid-flow-dense'}` : ''}`}>
 
@@ -588,20 +590,3 @@ const othersStartIndex = 4;
     });
   });
 </script>
-
-<style>
-  @keyframes fadeSlideUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .project-card {
-    animation: fadeSlideUp 0.5s ease-out both;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .project-card {
-      animation: none;
-    }
-  }
-</style>

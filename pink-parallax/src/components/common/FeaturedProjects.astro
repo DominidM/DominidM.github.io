@@ -98,23 +98,27 @@ const colorMap = {
 };
 ---
 
-<div class="py-10 sm:py-12 px-4 sm:px-6">
+<div class="py-10 sm:py-12 px-4 sm:px-6" data-reveal-section>
   <div class="max-w-6xl mx-auto">
-    <div class="flex items-center gap-2 mb-2">
+    <div class="flex items-center gap-2 mb-2 whitespace-nowrap" data-cmd data-cmd-loading="> loading projects...">
       <span class="text-green-400 font-mono text-sm">$</span>
       <span class="text-gray-400 font-mono text-xs">cat featured-projects --latest</span>
     </div>
-    <div class="flex items-center gap-3 mb-6 sm:mb-8">
+    <div class="flex items-center gap-3 mb-6 sm:mb-8" data-reveal data-reveal-head>
       <h2 class="text-2xl sm:text-3xl font-bold text-white font-italiana">Proyectos Destacados</h2>
       <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent" aria-hidden="true"></div>
     </div>
 
     <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
-      {featured.map((project) => {
+      {featured.map((project, i) => {
         const c = colorMap[project.color];
 
         return (
-          <article class="bg-[#2C2C2C] rounded-xl border border-[#3D3D3D] overflow-hidden hover:border-[#E95420]/40 transition-colors duration-300 flex flex-col">
+          <article
+            class="bg-[#2C2C2C] rounded-xl border border-[#3D3D3D] overflow-hidden hover:border-[#E95420]/40 transition-colors duration-300 flex flex-col"
+            data-reveal
+            style={`--reveal-delay: ${i * 70}ms`}
+          >
             {project.image ? (
               <div class="aspect-[16/9] overflow-hidden bg-[#1A1A24]">
                 <img

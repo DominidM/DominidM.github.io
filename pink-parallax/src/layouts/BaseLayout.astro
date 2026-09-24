@@ -24,6 +24,24 @@ const ogImage = `${siteOrigin}/D.ico`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Activa el reveal solo si hay IntersectionObserver y el usuario no
+         tiene reducción de movimiento. Si algo falla, nunca queda oculto. -->
+    <script is:inline>
+      (function () {
+        try {
+          if (!('IntersectionObserver' in window)) return;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          document.documentElement.classList.add('js-anim');
+          // Failsafe: si reveal.js no inicializa en 2 s, se desactiva la
+          // animación y todo el contenido queda visible.
+          setTimeout(function () {
+            if (!window.__revealReady) document.documentElement.classList.remove('js-anim');
+          }, 2000);
+        } catch (e) {}
+      })();
+    </script>
+
     <meta name="author" content="Juan Dominid Muñoz Eslava" />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords} />
@@ -92,3 +110,8 @@ const ogImage = `${siteOrigin}/D.ico`;
 
   </body>
 </html>
+
+<script>
+  // Un único observer para todo el sitio (ver src/scripts/reveal.js).
+  import "../scripts/reveal.js";
+</script>
