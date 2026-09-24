@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ExperienceSection from '../components/common/ExperienceSection.astro';
+---
+
+<BaseLayout
+  title="Experiencia | Juan Dominid Muñoz — Desarrollador Backend"
+  description="Experiencia profesional de Juan Dominid Muñoz como Desarrollador Backend: Solvegrades Technology, MKAPU IMPORT S.A.C. y AUTOVÍAS SEGURAS S.A.C."
+>
+  <div class="bg-[#1A1A24] min-h-screen pt-8 sm:pt-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 mb-2">
+      <div class="text-center">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 font-italiana">
+          Experiencia
+        </h1>
+        <p class="font-mono text-xs sm:text-sm text-gray-400">
+          <span class="text-green-400">//</span> Solvegrades · MKAPU Import · Autovías Seguras
+        </p>
+      </div>
+    </div>
+
+    <ExperienceSection id="experiencia" />
+  </div>
+</BaseLayout>

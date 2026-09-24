@@ -1,101 +1,208 @@
 ---
-const featured = [
+// Proyectos destacados: backend primero. Cada card responde
+// qué es, stack, mi participación y enlaces reales (solo si existen).
+interface FeaturedLink {
+  live?: string;
+  github?: string;
+  githubBackend?: string;
+}
+
+interface FeaturedProject {
+  name: string;
+  category: string;
+  description: string;
+  tech: string[];
+  participation: string[];
+  image: string;
+  links: FeaturedLink;
+  color: 'purple' | 'cyan' | 'blue' | 'green';
+}
+
+const featured: FeaturedProject[] = [
   {
-    name: 'MKapu Import — ERP',
+    name: 'SG-ERP / MKAPU ERP',
     category: 'erp',
-    description: 'ERP empresarial completo: cotizaciones, ventas, cuentas por cobrar, logística y caja en tiempo real. Microservicios con NestJS, WebSockets y generación de comprobantes PDF.',
-    tech: ['Angular 21', 'NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'Docker'],
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149399/Captura_de_pantalla_2026-03-10_082817_xv7nmb.png',
-    links: { social: 'https://www.tiktok.com/@mkapu.import' },
+    description:
+      'Sistema ERP para gestión de ventas, logística, inventario, usuarios, almacenes y procesos administrativos.',
+    tech: ['NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'JWT', 'RBAC', 'Microservicios', 'Arquitectura Hexagonal'],
+    participation: [
+      'Desarrollo backend con NestJS',
+      'APIs REST y comunicación en tiempo real con WebSockets',
+      'Autenticación JWT y autorización basada en roles',
+      'Arquitectura por microservicios con separación de dominios',
+    ],
+    image:
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1773149399/Captura_de_pantalla_2026-03-10_082817_xv7nmb.png',
+    links: {},
     color: 'purple',
   },
   {
-    name: 'MKapu Import — E-commerce',
+    name: 'E-commerce Representaciones W.H.C.',
     category: 'e-commerce',
-    description: 'Tienda online para empresa importadora con catálogo, carrito de compras, pasarela de pagos y panel de administración. Integrado con ERP para sincronización de stock en tiempo real.',
-    tech: ['Next.js', 'React', 'REST API', 'WhatsApp API'],
-    image: 'https://res.cloudinary.com/dp1vgjhsq/image/upload/v1778837278/c1150a19-cb77-4ae4-acbe-d9ca26ef3a19.png',
-    links: { live: 'https://mkapu.com', social: 'https://www.tiktok.com/@mkapu.import' },
-    color: 'purple',
-  },
-  {
-    name: 'E-commerce Gasfitería',
-    category: 'e-commerce',
-    description: 'Tienda online con APIs REST, UI/UX personalizado y modelo de datos optimizado en PostgreSQL. Desplegado en Azure.',
-    tech: ['React', 'Spring Boot', 'Java', 'PostgreSQL', 'Azure'],
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
+    description:
+      'Plataforma e-commerce con backend desarrollado en Spring Boot para gestión de usuarios, productos, pedidos y formularios.',
+    tech: ['Java', 'Spring Boot', 'PostgreSQL', 'Spring Security', 'Thymeleaf', 'Azure'],
+    participation: [
+      'Backend en Spring Boot',
+      'Spring Security y autenticación',
+      'Persistencia con JPA en PostgreSQL',
+      'Administración de productos y pedidos',
+    ],
+    image:
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767846019/ad2860f1-e064-4fad-9352-860d97a25b24.png',
     links: { live: 'https://whc-ecommerce.solvegrades.workers.dev/inicio' },
     color: 'cyan',
   },
   {
-    name: 'Dimsor — Robot Emocional',
-    category: 'iot/ia',
-    description: 'Robot de apoyo emocional con IA, NLP, dashboard web interactivo y sistema de alertas. Integración hardware con Raspberry Pi.',
-    tech: ['Python', 'Raspberry Pi', 'Django', 'IoT', 'NLP'],
-    image: 'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767847131/588509285_17882290845426013_6225300576197190454_n_hvrszu.jpg',
-    links: { github: 'https://github.com/DominidM/Robotica-Web' },
-    color: 'red',
+    name: 'ComuniRed',
+    category: 'red social',
+    description: 'Red social orientada al registro y seguimiento de reportes ciudadanos.',
+    tech: ['Spring Boot', 'MongoDB Atlas', 'GraphQL', 'WebSockets', 'Angular', 'Azure'],
+    participation: [
+      'Backend con Spring Boot',
+      'Consultas con GraphQL y tiempo real con WebSockets',
+      'Persistencia en MongoDB Atlas',
+      'Integración entre frontend y backend',
+    ],
+    image:
+      'https://res.cloudinary.com/dxuk9bogw/image/upload/v1767845340/Captura_de_pantalla_2026-01-07_214551_hxpx54.png',
+    links: {
+      github: 'https://github.com/DominidM/ComuniRed_Frontend',
+      githubBackend: 'https://github.com/DominidM/ComuniRed_Backend',
+    },
+    color: 'blue',
+  },
+  {
+    name: 'OceanEyes — Hult Prize UPN 2026',
+    category: 'ambiental',
+    description:
+      'Plataforma digital para monitoreo de ecosistemas marinos y reportes georreferenciados, orientada al seguimiento ambiental y apoyo frente a actividades de pesca ilegal.',
+    tech: ['Firebase', 'React', 'Expo'],
+    participation: [
+      'Aplicación con React y Expo',
+      'Servicios y datos con Firebase',
+      'Reportes georreferenciados',
+    ],
+    // OceanEyes aún no tiene captura propia: se muestra un placeholder.
+    image: '',
+    links: { live: 'https://ocean-eyes.solvegrades.workers.dev/' },
+    color: 'green',
   },
 ];
 
 const colorMap = {
-  purple: { border: 'border-purple-500/30', text: 'text-purple-400', bg: 'bg-purple-500/10', dot: 'bg-purple-400' },
-  cyan: { border: 'border-cyan-500/30', text: 'text-cyan-400', bg: 'bg-cyan-500/10', dot: 'bg-cyan-400' },
-  red: { border: 'border-red-500/30', text: 'text-red-400', bg: 'bg-red-500/10', dot: 'bg-red-400' },
+  purple: { text: 'text-purple-400', dot: 'bg-purple-400' },
+  cyan: { text: 'text-cyan-400', dot: 'bg-cyan-400' },
+  blue: { text: 'text-blue-400', dot: 'bg-blue-400' },
+  green: { text: 'text-green-400', dot: 'bg-green-400' },
 };
 ---
 
-<div class="py-12 px-4 sm:px-6">
-  <div class="max-w-7xl mx-auto">
+<div class="py-10 sm:py-12 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto">
     <div class="flex items-center gap-2 mb-2">
       <span class="text-green-400 font-mono text-sm">$</span>
       <span class="text-gray-400 font-mono text-xs">cat featured-projects --latest</span>
     </div>
-    <div class="flex items-center gap-3 mb-8">
+    <div class="flex items-center gap-3 mb-6 sm:mb-8">
       <h2 class="text-2xl sm:text-3xl font-bold text-white font-italiana">Proyectos Destacados</h2>
-      <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent"></div>
+      <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent" aria-hidden="true"></div>
     </div>
 
-    <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-5">
+    <div class="grid sm:grid-cols-2 gap-4 sm:gap-5">
       {featured.map((project) => {
-        const c = colorMap[project.color as keyof typeof colorMap];
+        const c = colorMap[project.color];
 
         return (
-          <a
-            href="/projects"
-            class="group bg-[#2C2C2C] rounded-xl border border-[#3D3D3D] overflow-hidden hover:border-[#E95420]/40 hover:shadow-lg hover:shadow-[#E95420]/5 transition-all duration-300 flex flex-col"
-            style="text-decoration: none;"
-          >
-            <div class="aspect-[4/3] overflow-hidden bg-[#1A1A24]">
-              <img
-                src={project.image}
-                alt={project.name}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-                width="400"
-                height="300"
-              />
-            </div>
-            <div class="p-4 flex flex-col flex-1">
+          <article class="bg-[#2C2C2C] rounded-xl border border-[#3D3D3D] overflow-hidden hover:border-[#E95420]/40 transition-colors duration-300 flex flex-col">
+            {project.image ? (
+              <div class="aspect-[16/9] overflow-hidden bg-[#1A1A24]">
+                <img
+                  src={project.image}
+                  alt={`Captura de ${project.name}`}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width="800"
+                  height="450"
+                />
+              </div>
+            ) : (
+              <div class="aspect-[16/9] bg-[#1A1A24] flex items-center justify-center font-mono text-xs text-gray-600" aria-hidden="true">
+                ~/ocean-eyes
+              </div>
+            )}
+
+            <div class="p-4 sm:p-5 flex flex-col flex-1">
               <div class="flex items-center gap-2 mb-2">
                 <span class={`w-1.5 h-1.5 ${c.dot} rounded-full`} aria-hidden="true"></span>
                 <span class={`text-[10px] font-mono ${c.text} uppercase tracking-wider`}>{project.category}</span>
               </div>
-              <h3 class="text-sm font-mono font-semibold text-white mb-1.5 group-hover:text-[#E95420] transition-colors">
+
+              <h3 class="text-sm sm:text-base font-mono font-semibold text-white mb-2">
                 {project.name}
               </h3>
-              <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-3 flex-1">
+
+              <p class="text-xs sm:text-sm text-gray-400 leading-relaxed mb-4">
                 {project.description}
               </p>
-              <div class="flex flex-wrap gap-1">
+
+              <div class="flex flex-wrap gap-1 mb-4">
                 {project.tech.map((t) => (
-                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#1A1A24] border border-[#3D3D3D] text-gray-400">
+                  <span class="text-[10px] px-2 py-0.5 rounded-full bg-[#1A1A24] border border-[#3D3D3D] text-gray-400 font-mono">
                     {t}
                   </span>
                 ))}
               </div>
+
+              <div class="mb-4">
+                <p class="text-[11px] font-mono text-[#E95420] mb-2">// mi participación</p>
+                <ul class="space-y-1">
+                  {project.participation.map((item) => (
+                    <li class="flex items-start gap-2 text-xs text-gray-400">
+                      <span class="text-[#E95420] mt-0.5 flex-shrink-0 leading-none" aria-hidden="true">▸</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {(project.links.live || project.links.github || project.links.githubBackend) && (
+                <div class="flex flex-wrap gap-2 mt-auto pt-3 border-t border-[#3D3D3D]">
+                  {project.links.live && (
+                    <a
+                      href={project.links.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono px-3 py-1.5 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white transition-all"
+                    >
+                      Ver proyecto →
+                    </a>
+                  )}
+                  {project.links.githubBackend && (
+                    <a
+                      href={project.links.githubBackend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono px-3 py-1.5 rounded-lg border border-[#4D4D4D] text-gray-300 hover:border-gray-300 hover:text-white transition-all"
+                    >
+                      GitHub (backend)
+                    </a>
+                  )}
+                  {project.links.github && (
+                    <a
+                      href={project.links.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="text-xs font-mono px-3 py-1.5 rounded-lg border border-[#4D4D4D] text-gray-300 hover:border-gray-300 hover:text-white transition-all"
+                    >
+                      GitHub (frontend)
+                    </a>
+                  )}
+                </div>
+              )}
             </div>
-          </a>
+          </article>
         );
       })}
     </div>

@@ -4,12 +4,15 @@ import TopBar from "../components/common/TopBar.astro";
 import Navbar from "../components/common/Navbar.astro";
 import Footer from "../components/common/Footer.astro";
 
-const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
+import { profile } from "../data/profile";
+
+const CV_URL = profile.cvUrl;
 
 const {
-  title = 'Dominid Muñoz | Full-Stack Developer',
-  description = 'Portafolio de Dominid Muñoz, desarrollador Full Stack y estudiante de Ingeniería de Sistemas especializado en aplicaciones web, sistemas empresariales e integraciones.',
+  title = 'Juan Dominid Muñoz | Desarrollador Backend | Java & Spring Boot',
+  description = 'Portafolio de Juan Dominid Muñoz, Desarrollador Backend en Lima, Perú. Java, Spring Boot, NestJS, APIs REST, SQL, microservicios y sistemas ERP.',
   canonical = Astro.url.href,
+  keywords = 'Backend Developer, Java Developer, Spring Boot, NestJS, Java, TypeScript, REST API, SQL, Microservices, Lima Peru',
 } = Astro.props;
 
 const siteOrigin = Astro.site ? new URL(Astro.site).origin : 'https://dominidm.github.io';
@@ -21,8 +24,9 @@ const ogImage = `${siteOrigin}/D.ico`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Dominid Muñoz Eslava" />
+    <meta name="author" content="Juan Dominid Muñoz Eslava" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonical} />
     <link rel="icon" type="image/png" href="/D.ico" />
@@ -33,7 +37,7 @@ const ogImage = `${siteOrigin}/D.ico`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:site_name" content="Dominid Muñoz — Portfolio" />
+    <meta property="og:site_name" content="Juan Dominid Muñoz — Portafolio" />
     <meta property="og:locale" content="es_PE" />
 
     <!-- Twitter Card -->
@@ -54,30 +58,33 @@ const ogImage = `${siteOrigin}/D.ico`;
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'Person',
-      name: 'Dominid Muñoz Eslava',
-      jobTitle: 'Full-Stack Developer',
+      name: 'Juan Dominid Muñoz Eslava',
+      jobTitle: profile.roleEn,
+      knowsAbout: ['Java', 'Spring Boot', 'NestJS', 'REST APIs', 'SQL', 'Microservices'],
       url: siteOrigin,
-      email: 'dominidzero@gmail.com',
+      email: profile.email,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Lima',
         addressCountry: 'PE',
       },
       sameAs: [
-        'https://github.com/DominidM',
-        'https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/',
-        'https://solvegrades.com/',
+        profile.github,
+        profile.linkedin,
+        profile.company,
       ],
     })} />
   </head>
   <body class="bg-[#1A1A24] text-white h-screen flex flex-col overflow-hidden" style="font-family: 'Ubuntu', system-ui, sans-serif;">
+
+    <a href="#main-content" class="sr-only-focusable">Saltar al contenido principal</a>
 
     <TopBar />
 
     <div class="flex flex-col md:flex-row flex-1 min-h-0">
       <Navbar cvUrl={CV_URL} />
 
-      <main class="flex-1 min-w-0 overflow-y-auto">
+      <main id="main-content" class="flex-1 min-w-0 overflow-y-auto">
         <slot />
         <Footer />
       </main>

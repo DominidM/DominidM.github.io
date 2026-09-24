@@ -1,16 +1,14 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import TechCarousel from "../components/common/TechCarousel.astro";
-import EventsCarousel from "../components/common/EventsCarousel.astro";
+import Stack from "../components/common/Stack.astro";
+import ExperienceSection from "../components/common/ExperienceSection.astro";
 import FeaturedProjects from "../components/common/FeaturedProjects.astro";
-
-const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
+import EventsCarousel from "../components/common/EventsCarousel.astro";
+import { profile } from "../data/profile";
 ---
 
-<BaseLayout
-  title="Dominid Muñoz | Full-Stack Developer"
-  description="Portafolio de Dominid Muñoz, desarrollador Full Stack y estudiante de Ingeniería de Sistemas especializado en aplicaciones web, sistemas empresariales e integraciones."
->
+<BaseLayout>
+  <!-- HERO -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Imagen de fondo -->
     <div class="absolute inset-0 z-0">
@@ -20,11 +18,13 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
         class="w-full h-full object-cover object-[60%_center]"
         width="1920"
         height="1080"
+        fetchpriority="high"
+        decoding="async"
       />
     </div>
 
     <!-- Overlay con degradado -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70" aria-hidden="true"></div>
 
     <!-- Contenido -->
     <div class="relative z-10 text-center text-white px-4 sm:px-6 max-w-6xl mx-auto w-full py-20">
@@ -33,44 +33,42 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
       </p>
 
       <h1 class="font-body text-3xl sm:text-4xl md:text-6xl xl:text-7xl font-bold mb-3 md:mb-4 tracking-tight">
-        <span class="font-italiana">Dominid Muñoz Eslava</span>
+        <span class="font-italiana">{profile.fullName}</span>
       </h1>
 
-      <h2 class="text-lg sm:text-xl md:text-3xl font-light mb-2 text-gray-200">
-        Full-Stack Developer
+      <h2 class="text-lg sm:text-xl md:text-3xl font-light mb-3 md:mb-4 text-gray-100">
+        {profile.role}
       </h2>
-      <p class="text-sm sm:text-base md:text-lg text-gray-400 mb-6 md:mb-8">
-        Systems Engineering Student
+
+      <p class="font-mono text-sm sm:text-base md:text-lg text-[#E95420] mb-6 md:mb-8 tracking-wide">
+        {profile.mainStack.join(' · ')}
       </p>
 
       <p class="max-w-2xl mx-auto text-sm sm:text-base text-gray-300 mb-8 md:mb-10 leading-relaxed">
-        Construyo aplicaciones web, sistemas empresariales e integraciones desde la arquitectura hasta el despliegue.
+        Desarrollador Backend y estudiante de {profile.career}, con experiencia en Java, Spring Boot, NestJS y desarrollo de sistemas empresariales.
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 md:mb-10">
+      <!-- CTAs principales -->
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 md:mb-8">
         <a
           href="/projects"
           class="px-6 py-3 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white font-mono text-sm font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-[#E95420]/20"
         >
           Ver proyectos
         </a>
-        <!-- Descomentar cuando el PDF esté disponible en /documents/Dominid-Munoz-Eslava-CV.pdf -->
-        <!--
         <a
-          href={CV_URL}
-          download="Dominid-Munoz-Eslava-CV.pdf"
-          class="px-6 py-3 rounded-lg border-2 border-white/20 hover:border-white/40 backdrop-blur-sm bg-white/5 hover:bg-white/10 text-white font-mono text-sm font-medium transition-all hover:scale-105"
+          href={profile.cvUrl}
+          download={profile.cvFile}
+          class="px-6 py-3 rounded-lg bg-white hover:bg-gray-100 text-[#1A1A24] font-mono text-sm font-bold transition-all hover:scale-105 hover:shadow-lg"
         >
           ↓ Descargar CV
         </a>
-        -->
       </div>
 
-      <!-- Redes secundarias -->
-      <div class="flex justify-center gap-6 text-sm">
+      <!-- CTAs secundarios -->
+      <nav aria-label="Redes" class="flex justify-center gap-6 text-sm">
         <a
-          href="https://github.com/DominidM"
+          href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
           class="text-gray-400 hover:text-white transition-colors"
@@ -79,30 +77,24 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
         </a>
         <span class="text-gray-600" aria-hidden="true">·</span>
         <a
-          href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/"
+          href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
           class="text-gray-400 hover:text-white transition-colors"
         >
           LinkedIn
         </a>
-        <span class="text-gray-600" aria-hidden="true">·</span>
-        <a
-          href="https://solvegrades.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-gray-400 hover:text-white transition-colors"
-        >
-          SolveGrades
-        </a>
-      </div>
+      </nav>
     </div>
   </section>
 
-  <div class="mt-8 md:mt-12">
-    <TechCarousel />
-  </div>
+  <!-- STACK -->
+  <Stack />
 
+  <!-- EXPERIENCIA (antes de proyectos) -->
+  <ExperienceSection />
+
+  <!-- PROYECTOS DESTACADOS -->
   <FeaturedProjects />
 
   <div class="bg-[#1A1A24]">

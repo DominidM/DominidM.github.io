@@ -1,0 +1,57 @@
+---
+// Stack con jerarquía: Backend principal en primer plano,
+// tecnologías complementarias con bajo peso visual.
+const groups = [
+  { label: 'Backend', items: ['Java', 'Spring Boot', 'NestJS', 'TypeScript', 'APIs REST', 'JWT', 'RBAC', 'WebSockets'] },
+  { label: 'Databases', items: ['MySQL', 'PostgreSQL', 'SQL Server'] },
+  { label: 'Architecture', items: ['Microservicios', 'Arquitectura Hexagonal'] },
+  { label: 'Tools', items: ['Git', 'Docker'] },
+];
+
+const complementary = ['Angular', 'React', 'Next.js', 'Azure', 'Cloudflare', 'Firebase', 'Python'];
+---
+
+<section class="py-10 sm:py-12 px-4 sm:px-6" aria-labelledby="stack-title">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-green-400 font-mono text-sm">$</span>
+      <span class="text-gray-400 font-mono text-xs">cat stack.yml</span>
+    </div>
+    <div class="flex items-center gap-3 mb-6 sm:mb-8">
+      <h2 id="stack-title" class="text-2xl sm:text-3xl font-bold text-white font-italiana">Stack Principal</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent" aria-hidden="true"></div>
+    </div>
+
+    <div class="space-y-5">
+      {groups.map((group) => (
+        <div class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start">
+          <div class="text-[11px] font-mono uppercase tracking-wider text-[#E95420] mb-2 sm:mb-0 sm:pt-2.5">
+            {group.label}
+          </div>
+          <div class="flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <span class="px-3 py-1.5 rounded-lg bg-[#2C2C2C] border border-[#3D3D3D] text-gray-300 text-xs font-mono hover:border-[#E95420]/60 hover:text-white transition-colors">
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="sm:grid sm:grid-cols-[110px_1fr] sm:gap-4 sm:items-start pt-4 border-t border-dashed border-[#3D3D3D]">
+        <div class="text-[11px] font-mono uppercase tracking-wider text-gray-400 mb-2 sm:mb-0 sm:pt-2">
+          También conozco
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          {complementary.map((item) => (
+            <span class="px-2.5 py-1 rounded-lg border border-[#333] text-gray-400 text-[11px] font-mono hover:border-[#4D4D4D] transition-colors">
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

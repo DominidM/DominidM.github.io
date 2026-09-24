@@ -1,21 +1,22 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
 
 const profileJson = `{
-  "role": "Full-Stack Developer",
-  "company": "SolveGrades",
+  "role": "${profile.roleEn}",
+  "company": "Solvegrades Technology",
   "cofounder": true,
-  "focus": ["Web Development", "IoT"],
-  "availability": "open_for_projects",
-  "email": "dominidzero@gmail.com",
+  "focus": ["Java / Spring Boot", "NestJS", "Backend Systems"],
+  "availability": "open_for_junior_backend_roles",
+  "email": "${profile.email}",
   "location": "Lima, Perú"
 }`;
 ---
 <BaseLayout
-  title="Contacto | Dominid Muñoz"
-  description="Información de contacto de Dominid Muñoz, desarrollador Full Stack en Lima, Perú."
+  title="Contacto | Juan Dominid Muñoz — Desarrollador Backend"
+  description="Información de contacto de Juan Dominid Muñoz, Desarrollador Backend en Lima, Perú. Java, Spring Boot y NestJS."
 >
-  <section class="max-w-6xl mx-auto px-6 py-12 font-mono">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-12 font-mono">
 
     <!-- Header -->
     <div class="mb-8 border-b border-gray-700 pb-4">
@@ -23,10 +24,10 @@ const profileJson = `{
       <p class="text-gray-400 text-sm">Información de contacto y perfil profesional</p>
     </div>
 
-    <div class="grid md:grid-cols-2 gap-10">
+    <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
 
       <!-- Terminal -->
-      <div class="bg-black border border-gray-700 rounded-lg p-6 text-sm">
+      <div class="bg-black border border-gray-700 rounded-lg p-4 sm:p-6 text-sm">
 
         <div class="flex items-center mb-4" aria-hidden="true">
           <div class="w-3 h-3 rounded-full bg-[#E95420] mr-1.5 opacity-80"></div>
@@ -41,14 +42,14 @@ const profileJson = `{
             <span class="text-green-400">dominid@portfolio</span>:<span class="text-blue-400">~</span>$ whoami
           </div>
           <div class="pl-4 text-white">
-            Juan Dominid Muñoz Eslava | Cofundador de SolveGrades
+            Juan Dominid Muñoz Eslava | Backend Developer
           </div>
 
           <div class="mt-3">
             <span class="text-green-400">dominid@portfolio</span>:<span class="text-blue-400">~</span>$ cat profile.json
           </div>
 
-          <pre class="pl-4 text-gray-300 whitespace-pre-wrap">{profileJson}</pre>
+          <pre class="pl-4 text-gray-300 whitespace-pre-wrap overflow-x-auto">{profileJson}</pre>
 
           <div class="mt-3">
             <span class="text-green-400">dominid@portfolio</span>:<span class="text-blue-400">~</span>$ <span class="bg-[#E95420] w-2 h-5 inline-block animate-pulse"></span>
@@ -61,19 +62,18 @@ const profileJson = `{
       <!-- Right column -->
       <div class="space-y-8">
 
-        <!-- Startup -->
-        <div class="bg-gray-900 border border-gray-700 rounded-lg p-6">
-          <h2 class="text-pink-400 mb-2"># Startup</h2>
+        <!-- Disponibilidad -->
+        <div class="bg-gray-900 border border-gray-700 rounded-lg p-5 sm:p-6">
+          <h2 class="text-pink-400 mb-2"># Disponibilidad</h2>
           <p class="text-gray-300 text-sm leading-relaxed">
-            <span class="text-white font-semibold">SolveGrades</span> es una iniciativa orientada al desarrollo de
-            soluciones tecnológicas modernas, con enfoque en
-            <span class="text-white">plataformas web</span> y
-            <span class="text-white">sistemas IoT</span>.
-            Participo como <span class="text-pink-400 font-semibold">cofundador</span> y arquitecto de soluciones.
+            Actualmente estoy interesado en oportunidades de
+            <span class="text-white">prácticas</span> y posiciones
+            <span class="text-white">Junior</span> relacionadas con
+            <span class="text-white">desarrollo Backend</span>.
           </p>
 
           <div class="mt-4 text-green-400 text-sm">
-            Estado: disponible para nuevos proyectos
+            Estado: abierto a oportunidades backend
           </div>
         </div>
 
@@ -83,37 +83,43 @@ const profileJson = `{
 
           <div class="space-y-3">
 
-            <a href="mailto:dominidzero@gmail.com"
+            <a href={`mailto:${profile.email}`}
               class="block bg-gray-800 hover:bg-gray-700 transition border border-gray-700 rounded-lg p-4">
               <div class="text-white">Email</div>
-              <div class="text-gray-400 text-sm">dominidzero@gmail.com</div>
+              <div class="text-gray-400 text-sm break-all">{profile.email}</div>
             </a>
 
-            <a href="https://github.com/DominidM" target="_blank" rel="noopener noreferrer"
-              class="block bg-gray-800 hover:bg-gray-700 transition border border-gray-700 rounded-lg p-4">
-              <div class="text-white">GitHub</div>
-              <div class="text-gray-400 text-sm">github.com/DominidM</div>
-            </a>
-
-            <a href="https://www.linkedin.com/in/dominid-mu%C3%B1oz-eslava-50b68828a/" target="_blank" rel="noopener noreferrer"
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"
               class="block bg-gray-800 hover:bg-gray-700 transition border border-gray-700 rounded-lg p-4">
               <div class="text-white">LinkedIn</div>
-              <div class="text-gray-400 text-sm">
+              <div class="text-gray-400 text-sm break-all">
                 linkedin.com/in/dominid-muñoz-eslava-50b68828a/
               </div>
             </a>
 
-            <a href="https://solvegrades.com/" target="_blank" rel="noopener noreferrer"
+            <a href={profile.github} target="_blank" rel="noopener noreferrer"
               class="block bg-gray-800 hover:bg-gray-700 transition border border-gray-700 rounded-lg p-4">
-              <div class="text-white">SolveGrades</div>
-              <div class="text-gray-400 text-sm">solvegrades.com</div>
+              <div class="text-white">GitHub</div>
+              <div class="text-gray-400 text-sm break-all">github.com/DominidM</div>
             </a>
 
           </div>
         </div>
 
+        <!-- CV -->
+        <div>
+          <h2 class="text-yellow-400 mb-2"># CV</h2>
+          <a
+            href={profile.cvUrl}
+            download={profile.cvFile}
+            class="block w-full text-center px-5 py-3 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white text-sm font-medium transition-all hover:scale-105"
+          >
+            ↓ Descargar CV
+          </a>
+        </div>
+
         <div class="border-l-4 border-green-500 pl-4 text-gray-400 text-sm italic">
-          Para propuestas profesionales, colaboraciones técnicas o desarrollo de sistemas, el contacto debe realizarse
+          Para propuestas de prácticas o posiciones Junior, el contacto debe realizarse
           preferentemente por correo o LinkedIn.
         </div>
 
@@ -121,8 +127,8 @@ const profileJson = `{
 
     </div>
 
-    <div class="mt-12 pt-6 border-t border-gray-800 text-gray-500 text-xs">
-      // Perfil activo · SolveGrades · Tiempo de respuesta promedio: 24–48h
+    <div class="mt-12 pt-6 border-t border-gray-800 text-gray-400 text-xs">
+      // Perfil activo · {profile.role} · {profile.location}
     </div>
 
   </section>

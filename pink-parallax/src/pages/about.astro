@@ -1,12 +1,19 @@
 ---
 import Layout from "../layouts/BaseLayout.astro";
+import { profile } from "../data/profile";
 
-const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
+const stackGroups = [
+  { label: 'Backend', items: ['Java', 'Spring Boot', 'NestJS', 'TypeScript', 'APIs REST', 'JWT', 'RBAC', 'WebSockets'], primary: true },
+  { label: 'Bases de datos', items: ['MySQL', 'PostgreSQL', 'SQL Server', 'MongoDB'], primary: true },
+  { label: 'Arquitectura', items: ['Microservicios', 'Arquitectura Hexagonal'], primary: true },
+  { label: 'Herramientas', items: ['Git', 'Docker'], primary: true },
+  { label: 'Complementarias', items: ['Angular', 'React', 'Next.js', 'Azure', 'Cloudflare', 'Firebase', 'Python'], primary: false },
+];
 ---
 
 <Layout
-  title="Sobre mí | Dominid Muñoz"
-  description="Conoce mi trayectoria como desarrollador Full Stack y estudiante de Ingeniería de Sistemas."
+  title="Sobre mí | Juan Dominid Muñoz — Desarrollador Backend"
+  description="Conoce a Juan Dominid Muñoz, estudiante de Ingeniería de Sistemas Computacionales y Desarrollador Backend enfocado en Java, Spring Boot y NestJS."
 >
   <div class="text-center mb-8 sm:mb-3 pt-12">
     <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-2 font-italiana">
@@ -14,37 +21,39 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
     </h1>
   </div>
 
-  <section class="max-w-6xl mx-auto px-6 py-16 text-gray-300">
-    <div class="grid lg:grid-cols-2 gap-12 items-start">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 text-gray-300">
+    <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
       <div class="space-y-6">
         <div class="relative bg-gray-900 rounded-2xl p-2 border border-gray-700">
           <img
             src="https://res.cloudinary.com/dxuk9bogw/image/upload/v1778605124/Gemini_Generated_Image_i5ibivi5ibivi5ib_1_jymszj.png"
-            alt="Dominid Muñoz Eslava"
+            alt="Retrato de Juan Dominid Muñoz Eslava"
             class="w-full object-contain rounded-xl"
             width="600"
             height="400"
+            loading="lazy"
+            decoding="async"
           />
           <div class="absolute bottom-4 left-4 right-4 bg-black/80 backdrop-blur rounded-lg p-3">
             <div class="flex items-center space-x-3">
-              <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+              <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse" aria-hidden="true"></div>
               <span class="text-white font-medium text-sm">Disposición inmediata</span>
             </div>
           </div>
         </div>
 
-        <!-- Stats -->
+        <!-- Datos clave -->
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
-            <div class="text-2xl font-bold text-blue-400">3+</div>
-            <div class="text-gray-400 text-sm">Años programando</div>
-            <div class="text-gray-500 text-xs mt-1">Desde 2022</div>
+            <div class="text-2xl font-bold text-[#E95420]">{profile.cycle}</div>
+            <div class="text-gray-400 text-sm">Estudiante</div>
+            <div class="text-gray-500 text-xs mt-1">{profile.career}</div>
           </div>
           <div class="bg-gray-800 rounded-xl p-5 border border-gray-700">
-            <div class="text-2xl font-bold text-green-400">10+</div>
-            <div class="text-gray-400 text-sm">Proyectos</div>
-            <div class="text-gray-500 text-xs mt-1">Académicos y profesionales</div>
+            <div class="text-2xl font-bold text-blue-400">Backend</div>
+            <div class="text-gray-400 text-sm">Enfoque</div>
+            <div class="text-gray-500 text-xs mt-1">Java · Spring Boot · NestJS</div>
           </div>
         </div>
 
@@ -53,64 +62,62 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
           <h2 class="text-white font-semibold mb-3">Contacto</h2>
           <div class="flex items-center gap-2 text-sm">
             <span class="text-gray-400" aria-hidden="true">📧</span>
-            <a href="mailto:dominidzero@gmail.com" class="text-blue-400 hover:underline">
-              dominidzero@gmail.com
+            <a href={`mailto:${profile.email}`} class="text-blue-400 hover:underline">
+              {profile.email}
             </a>
           </div>
           <div class="flex items-center gap-2 text-sm">
             <span class="text-gray-400" aria-hidden="true">📱</span>
-            <span class="text-gray-300">(+51) 975 852 932</span>
+            <span class="text-gray-300">{profile.phone}</span>
           </div>
         </div>
 
-        <!-- CV Download (preparado, habilitar cuando el PDF esté disponible) -->
-        <!--
         <a
-          href={CV_URL}
-          download="Dominid-Munoz-Eslava-CV.pdf"
+          href={profile.cvUrl}
+          download={profile.cvFile}
           class="block w-full text-center px-5 py-3 rounded-lg bg-[#E95420] hover:bg-[#E95420]/90 text-white text-sm font-mono font-medium transition-all hover:scale-105"
         >
           ↓ Descargar CV
         </a>
-        -->
       </div>
 
       <!-- Texto -->
       <div class="space-y-8">
         <div class="text-lg leading-relaxed">
-          Soy <span class="text-white font-semibold">Juan Dominid Muñoz Eslava</span>,
-          cofundador de <span class="text-white font-semibold">SolveGrades</span> y estudiante de Ingeniería de Sistemas Computacionales.
-          Construyo productos desde cero — arquitectura, backend, frontend y despliegue.
+          Soy <span class="text-white font-semibold">{profile.fullName}</span>,
+          estudiante de {profile.career} y desarrollador enfocado en
+          <span class="text-white font-semibold">Backend</span>.
+          Trabajo principalmente con Java, Spring Boot, NestJS y bases de datos relacionales.
         </div>
 
         <div class="text-gray-400 leading-relaxed">
-          Mi enfoque va más allá del código: entiendo el negocio, propongo soluciones y
-          las ejecuto. Trabajo con equipos pequeños donde cada decisión técnica tiene
-          impacto real, aplicando <b class="text-white">arquitectura limpia y ports and adapters</b>
-          para que los proyectos escalen sin convertirse en deuda técnica.
+          He participado en el desarrollo de sistemas ERP, aplicaciones empresariales y
+          plataformas web, implementando <b class="text-white">APIs REST</b>,
+          <b class="text-white">autenticación</b>, <b class="text-white">WebSockets</b>
+          y arquitecturas basadas en microservicios.
         </div>
 
         <div class="text-gray-400 leading-relaxed">
-          Soy autodidacta, me adapto rápido y no me quedo bloqueado — si no sé algo,
-          lo aprendo. Busco entornos donde pueda <span class="text-green-400">aportar desde el día uno</span>
-          y crecer junto al equipo.
+          Formo parte de <span class="text-white font-semibold">Solvegrades Technology</span>
+          como desarrollador backend y cofundador. Actualmente busco continuar
+          fortaleciendo mi experiencia profesional en desarrollo Backend.
         </div>
 
-        <!-- Objetivos -->
+        <!-- Qué busco -->
         <div class="bg-gray-800 rounded-xl p-5 border border-gray-700 space-y-3">
           <h2 class="text-white font-semibold">Qué busco</h2>
           <ul class="space-y-2 text-sm text-gray-400">
             <li class="flex items-start gap-2">
-              <span class="text-blue-400 mt-0.5" aria-hidden="true">→</span>
-              Proyectos con impacto real donde la tecnología resuelva problemas concretos
+              <span class="text-[#E95420] mt-0.5" aria-hidden="true">→</span>
+              Prácticas o posiciones Junior de desarrollo Backend
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-blue-400 mt-0.5" aria-hidden="true">→</span>
-              Equipos que valoren la calidad del código y la mejora continua
+              <span class="text-[#E95420] mt-0.5" aria-hidden="true">→</span>
+              Trabajar con Java / Spring Boot y NestJS en sistemas reales
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-blue-400 mt-0.5" aria-hidden="true">→</span>
-              Oportunidades donde pueda crecer técnica y profesionalmente
+              <span class="text-[#E95420] mt-0.5" aria-hidden="true">→</span>
+              Seguir aprendiendo de bases de datos y arquitectura de software
             </li>
           </ul>
         </div>
@@ -119,62 +126,32 @@ const CV_URL = '/documents/Dominid-Munoz-Eslava-CV.pdf';
           <h2 class="text-xl font-bold text-white mb-4">Stack Tecnológico</h2>
 
           <div class="space-y-4">
-            <div>
-              <p class="text-sm text-gray-400 mb-2">Backend</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Java / Spring Boot</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">NestJS</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">ASP.NET</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Django</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Node.js</span>
+            {stackGroups.map((group) => (
+              <div>
+                <p class={`text-sm mb-2 font-mono ${group.primary ? 'text-[#E95420]' : 'text-gray-400'}`}>
+                  {group.label}
+                </p>
+                <div class="flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <span
+                      class={
+                        group.primary
+                          ? 'bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700 text-gray-200'
+                          : 'px-2.5 py-1.5 rounded-lg text-xs border border-gray-700 text-gray-400'
+                      }
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-400 mb-2">Frontend</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Angular</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">React / Next.js</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Astro</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">TypeScript</span>
-              </div>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-400 mb-2">Bases de Datos</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">PostgreSQL</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">MySQL</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">SQL Server</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">MongoDB</span>
-              </div>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-400 mb-2">DevOps / Infraestructura</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Docker</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Linux</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Azure</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">AWS</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Git / GitHub</span>
-              </div>
-            </div>
-
-            <div>
-              <p class="text-sm text-gray-400 mb-2">Hardware / IoT</p>
-              <div class="flex flex-wrap gap-2">
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Raspberry Pi</span>
-                <span class="bg-gray-800 px-3 py-2 rounded-lg text-sm border border-gray-700">Arduino</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div class="border-l-4 border-blue-500 pl-4 text-gray-400 italic">
-          "Busco ampliar y perfeccionar mis habilidades técnicas y blandas,
-          aportando al crecimiento de la empresa y fortaleciendo mi desarrollo
-          profesional."
+        <div class="border-l-4 border-[#E95420] pl-4 text-gray-400">
+          Actualmente estoy interesado en oportunidades de prácticas y posiciones Junior
+          relacionadas con desarrollo Backend.
         </div>
       </div>
     </div>

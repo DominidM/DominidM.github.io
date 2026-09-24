@@ -1,0 +1,96 @@
+---
+// Sección de experiencia reutilizable (home y página /experience).
+interface Experience {
+  company: string;
+  role: string;
+  date: string;
+  bullets: string[];
+  tech: string[];
+}
+
+const experiences: Experience[] = [
+  {
+    company: 'Solvegrades Technology',
+    role: 'Desarrollador Backend | Cofundador',
+    date: 'Mar 2025 – Presente',
+    bullets: [
+      'Desarrollo soluciones backend para sistemas empresariales y aplicaciones web utilizando principalmente NestJS y Spring Boot.',
+      'Trabajo con APIs REST, autenticación JWT + RBAC, WebSockets, bases de datos relacionales e integración de servicios externos.',
+      'Como cofundador, también participo en la definición técnica, despliegue y mantenimiento de los proyectos.',
+    ],
+    tech: ['NestJS', 'Spring Boot', 'TypeScript', 'SQL'],
+  },
+  {
+    company: 'MKAPU IMPORT S.A.C.',
+    role: 'Practicante de Desarrollo Backend',
+    date: 'Dic 2025 – Ago 2026',
+    bullets: [
+      'Participé en el desarrollo de un ERP para gestión de ventas, inventario y procesos logísticos.',
+      'Trabajé con arquitectura basada en microservicios y principios de arquitectura hexagonal.',
+      'Implementé funcionalidades en tiempo real mediante WebSockets.',
+      'Implementé autenticación y autorización JWT + RBAC.',
+      'Participé en integración con servicios externos para validación de RUC.',
+    ],
+    tech: ['NestJS', 'TypeScript', 'MySQL', 'WebSockets', 'JWT', 'RBAC', 'Microservicios'],
+  },
+  {
+    company: 'AUTOVÍAS SEGURAS S.A.C.',
+    role: 'Desarrollador Backend',
+    date: 'Jun 2025 – Ago 2025',
+    bullets: [
+      'Desarrollé funcionalidades para una aplicación web utilizando Java y Spring Boot.',
+      'Implementé procesamiento de formularios.',
+      'Integré JavaMailSender para automatizar el envío de información por correo.',
+      'Trabajé con Thymeleaf para la integración de vistas.',
+    ],
+    tech: ['Java', 'Spring Boot', 'Thymeleaf', 'JavaMailSender'],
+  },
+];
+
+const { id = 'experiencia', title = 'Experiencia' } = Astro.props;
+---
+
+<section id={id} class="py-10 sm:py-12 px-4 sm:px-6" aria-labelledby={`${id}-title`}>
+  <div class="max-w-5xl mx-auto">
+
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-green-400 font-mono text-sm">$</span>
+      <span class="text-gray-400 font-mono text-xs">cat experience.log</span>
+    </div>
+    <div class="flex items-center gap-3 mb-6 sm:mb-8">
+      <h2 id={`${id}-title`} class="text-2xl sm:text-3xl font-bold text-white font-italiana">{title}</h2>
+      <div class="h-px flex-1 bg-gradient-to-r from-[#E95420]/50 to-transparent" aria-hidden="true"></div>
+    </div>
+
+    <ol class="space-y-8">
+      {experiences.map((exp) => (
+        <li class="border-l-2 border-[#3D3D3D] hover:border-[#E95420] pl-4 sm:pl-6 transition-colors">
+          <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-1">
+            <h3 class="text-base sm:text-lg font-mono font-semibold text-white">{exp.company}</h3>
+            <span class="text-xs font-mono text-yellow-400 ml-auto">{exp.date}</span>
+          </div>
+
+          <p class="text-sm font-mono text-[#E95420] mb-3">{exp.role}</p>
+
+          <ul class="space-y-1.5 mb-3">
+            {exp.bullets.map((bullet) => (
+              <li class="flex items-start gap-2.5 text-sm text-gray-400 leading-relaxed">
+                <span class="text-[#E95420] mt-0.5 flex-shrink-0 text-base leading-none" aria-hidden="true">▸</span>
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div class="flex flex-wrap gap-1.5">
+            {exp.tech.map((t) => (
+              <span class="text-[11px] px-2 py-0.5 rounded-full bg-[#1A1A24] border border-[#3D3D3D] text-gray-500 font-mono">
+                {t}
+              </span>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ol>
+
+  </div>
+</section>
